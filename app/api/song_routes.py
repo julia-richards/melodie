@@ -23,7 +23,8 @@ def add_song():
                     length=form.data['length'],
                     description=form.data['description'],
                     image_url=form.data['image_url'],
-                    song_url=form.data['song_url']
+                    song_url=form.data['song_url'],
+                    user_id=current_user.id
                 )
         db.session.add(song)
         db.session.commit()
@@ -46,7 +47,8 @@ def update_song(id):
                 length=form.data['length'],
                 description=form.data['description'],
                 image_url=form.data['image_url'],
-                song_url=form.data['song_url']
+                song_url=form.data['song_url'],
+                user_id=current_user.id
             )
             db.session.add(song)
             db.session.commit()
