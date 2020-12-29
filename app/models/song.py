@@ -1,12 +1,14 @@
 from .db import db
-# from ..models import User
+
 from ..models.user import likes
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import relationship
 
 
+
 class Song(db.Model):
     __tablename__ = 'songs'
+    
     id = db.Column(db.Integer, primary_key = True)
     title = db.Column(db.String(225), nullable = False)
     length = db.Column(db.Float, nullable = False)
@@ -27,3 +29,4 @@ class Song(db.Model):
         "song_url": self.song_url,
         "user": self.user_id,
       }
+
