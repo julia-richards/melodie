@@ -34,4 +34,3 @@ class User(db.Model, UserMixin):
       "about": self.about,
       "image_url": self.image_url
     }
-
