@@ -5,9 +5,17 @@ from app.models import db, User
 def seed_users():
 
     demo = User(username='Demo', email='demo@aa.io',
-                password='password')
+                password='password', about="testing this stuff out", image_url='tesing this url')
+
+
+    Prince = User(username='Prince', email='prince@yahoo.com',
+                password='password123', about='legendary', image_url='princephoto change to url')
+
+
+    
 
     db.session.add(demo)
+    db.session.add(Prince)
 
     db.session.commit()
 
