@@ -17,7 +17,7 @@ def users():
 
 
 @user_routes.route('/<int:id>')
-@login_required
+# @login_required
 def user(id):
     user = User.query.get(id)
     return user.to_dict()
@@ -38,10 +38,11 @@ def update_user(id):
         user.email = data['email']
     if form.data['about']: 
         user.about = data['about']
-    # if form.data['image']: 
-    #     user.image_url = data['image']
+    if form.data['image_url']: 
+        user.image_url = data['image_url']
     db.session.commit()
     return user.to_dict()
+
 
 
 # @user_routes.route('/<int:id>', methods=['DELETE'])
