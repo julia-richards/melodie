@@ -1,14 +1,14 @@
 from sqlalchemy.orm import relationship
 from .db import db
-
+# from ..models import Song
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 
 likes = db.Table(
     "likes",
     db.Model.metadata,
-    db.Column("userId", db.Integer, db.ForeignKey("users.id")),
-    db.Column("songId", db.Integer, db.ForeignKey("songs.id"))
+    db.Column("userId", db.Integer, db.ForeignKey("users.id"), primary_key=True),
+    db.Column("songId", db.Integer, db.ForeignKey("songs.id"), primary_key=True)
 )
 
 class User(db.Model, UserMixin):
@@ -19,8 +19,8 @@ class User(db.Model, UserMixin):
   hashed_password = db.Column(db.String(255), nullable = False)
   about = db.Column(db.String(2000), nullable = True)
   image_url = db.Column(db.String(300), nullable=True)
-  
-  songs = db.relationship("Song", secondary=likes, primaryjoin=id==likes.c.userId, back_populates="user")
+
+  songs = db.relationship("Song", secondary=likes, back_populates="users")
 
   @property
   def password(self):
