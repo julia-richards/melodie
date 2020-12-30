@@ -1,1 +1,9 @@
 /* TODO Add site wide styles */
+body {
+	--dark-blue: #2C3E50;
+	--light-blue: #3BC9F5;
+	--white: #FFFFFF;
+  --black: #000000;
+  --background: #1F2528;
+  /* background-color: var(--background); */
+}
