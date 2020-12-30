@@ -4,16 +4,16 @@ import SignUpForm from '../auth/SignUpForm'
 
 const SignUpPage = () => {
     return (
-        <div>
+        <Container>
         <SignUpForm/>
-        </div>
+        </Container>
     )
 }
 
 
 
 const Container = styled.div`
-  background: #eefcff;
+  background: #2c3e50;
   position: absolute;
   top: 0;
   left: 0;
