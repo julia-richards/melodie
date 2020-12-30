@@ -43,6 +43,7 @@ const SignUpForm = ({ authenticated, setAuthenticated }) => {
   }
 
   return (
+    <div>
     <Container>
       <ParticlesComponent/>
       <LogoWrapper>
@@ -114,6 +115,7 @@ const SignUpForm = ({ authenticated, setAuthenticated }) => {
     <br></br>
       </div>
     </Container>
+    </div>
   );
 };
 

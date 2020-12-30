@@ -9,6 +9,7 @@ import User from "./components/User";
 import { authenticate } from "./services/auth";
 import SongForm from "./components/SongForm";
 import SignUpPage from './components/SignUpPage/SignUpPage'
+import LoginPage from "./components/LoginPage/LoginPage"
 
 function App() {
 	const [authenticated, setAuthenticated] = useState(false);
@@ -32,7 +33,7 @@ function App() {
 		<BrowserRouter>
 			<NavBar setAuthenticated={setAuthenticated} />
 			<Route path="/login" exact={true}>
-				<LoginForm
+				<LoginPage
 					authenticated={authenticated}
 					setAuthenticated={setAuthenticated}
 				/>
