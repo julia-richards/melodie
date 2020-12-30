@@ -18,11 +18,7 @@ const SearchResults = () => {
     }, []);
 
     useEffect(() => {
-        console.log(songs)
         let filteredSongs = songs.filter((song) => {
-            console.log(`searchResults, song title: ${song.title}`)
-            console.log(`searchResults, searchValue: ${searchValue}`)
-            console.log(`searchResults, match: ${song.title.toLowerCase().includes(searchValue.toLowerCase())}`)
             return song.title.toLowerCase().includes(searchValue.toLowerCase())});
         setSearchSongs(filteredSongs);
         setIsLoading(false);

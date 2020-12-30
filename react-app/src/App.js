@@ -11,6 +11,7 @@ import { authenticate } from "./services/auth";
 import SongForm from "./components/SongForm";
 import SearchInput from "./components/SearchInput";
 import SearchResults from "./components/SearchResults";
+import SongPage from "./components/SongPage";
 
 function App() {
 	const [authenticated, setAuthenticated] = useState(false);
@@ -69,6 +70,9 @@ function App() {
 			</ProtectedRoute>
 			<Route path="/search/:searchValue">
 				<SearchResults />
+			</Route>
+			<Route path="/songs/:songId">
+				<SongPage />
 			</Route>
 		</BrowserRouter>
 	);
