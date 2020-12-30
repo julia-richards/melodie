@@ -4,6 +4,7 @@ import { signUp } from '../../services/auth';
 import cropped from '../../assets/cropped.png'
 import Input from '../../components/Inputs/Input'
 import styled from 'styled-components'
+import ParticlesComponent from '../ParticlesComponent'
 
 const SignUpForm = ({ authenticated, setAuthenticated }) => {
   const [username, setUsername] = useState("");
@@ -43,6 +44,7 @@ const SignUpForm = ({ authenticated, setAuthenticated }) => {
 
   return (
     <Container>
+      <ParticlesComponent/>
       <LogoWrapper>
         <img src={cropped} alt='' />
       </LogoWrapper>
@@ -80,6 +82,37 @@ const SignUpForm = ({ authenticated, setAuthenticated }) => {
         <button type="submit">Lets play some funky tunes</button>
         {/* implement the functionality for the demo user to login to the page without having to login */}
       </Form>
+      <div>
+        <Terms>
+          By signing up, you agree that we worked hard on this and should star this on Github.
+        </Terms>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+      </div>
     </Container>
   );
 };
@@ -128,6 +161,15 @@ const Form = styled.form`
       transform: translateY(-3px);
     }
   }
+`;
+
+
+const Terms = styled.p`
+  padding: 0 1rem;
+  text-align: center;
+  font-size: 10px;
+  color: #808080;
+  font-weight: 300;
 `;
 
 

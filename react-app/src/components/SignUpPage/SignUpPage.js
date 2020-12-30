@@ -2,12 +2,15 @@ import React from 'react';
 import styled from 'styled-components';
 import SignUpForm from '../auth/SignUpForm'
 
+
 const SignUpPage = () => {
-    return (
-        <Container>
-        <SignUpForm/>
-        </Container>
-    )
+  return (
+    <Container>
+      {/* <Wrapper> */}
+      <SignUpForm />
+      {/* </Wrapper> */}
+    </Container>
+  )
 }
 
 
@@ -21,6 +24,8 @@ const Container = styled.div`
   right: 0;
 `;
 
+
+//add another image if needed but who knows yet
 const Wrapper = styled.div`
   background-position: center;
   background-size: cover;
