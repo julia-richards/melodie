@@ -18,7 +18,7 @@ const SongForm = () => {
       imageUrl,
       songUrl
     );
-    console.log("uploaded song:", song);
+    // console.log("uploaded song:", song);
   };
 
   const updateTitle = (e) => {

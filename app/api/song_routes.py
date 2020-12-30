@@ -1,8 +1,9 @@
-from flask import Blueprint, jsonify
+from flask import Blueprint, jsonify, redirect, request
 from flask_login import login_required, current_user
-from app.models import Song, User
+from app.models import db, Song, User
 # from auth_routes import validation_errors_to_error_messages
 from app.forms.song_form import SongForm
+
 
 song_routes = Blueprint('songs', __name__)
 
@@ -28,6 +29,7 @@ def songs():
 @login_required
 def add_song():
     form = SongForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         song = Song(
                     title=form.data['title'],
@@ -48,6 +50,7 @@ def add_song():
 def update_song(id):
     song = Song.query.get(id)
     form = SongForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
     if request.method == 'DELETE':
         db.session.delete(song)
         db.session.commit()
