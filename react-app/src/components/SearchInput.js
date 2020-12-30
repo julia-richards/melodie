@@ -1,23 +1,21 @@
 import React, { useState } from "react";
+import { useHistory } from 'react-router-dom';
 import SearchResults from "../components/SearchResults";
 
-const SearchInput = () => {
+const SearchInput = (props) => {
     const [value, setValue] = useState("");
+    const history = useHistory();
 
     const handleSearch = (e) => {
-        setValue(e.target.value)
-        console.log(value)
+        e.preventDefault();
+        history.push(`/search/${value}`)
     };
 
     return (
-        <div>
-            <input type="text" value={value} onChange={handleSearch} placeholder="Search for a melodie..."></input>
-            { value !== "" ? ( <SearchResults searchValue={value}/> ) : (null)}
-        </div>
-        // <form onSubmit={handleSearch}>
-        //     <input type="search" value={value} onChange={(e) => setValue(e.target.value)} placeholder="Search for a melodie..."></input>
-        //     {/* <button type="submit">Search</button> */}
-        // </form>
+        <form onSubmit={handleSearch}>
+            <input type="search" value={value} onChange={(e) => setValue(e.target.value)} placeholder="Search for a melodie..."></input>
+            <button type="submit">Search</button>
+        </form>
     );
 }
 

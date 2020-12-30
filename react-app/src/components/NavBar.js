@@ -1,7 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import LogoutButton from "./auth/LogoutButton";
-import SearchInput from "./SearchInput";
 
 const NavBar = ({ setAuthenticated }) => {
 	return (
@@ -39,9 +38,6 @@ const NavBar = ({ setAuthenticated }) => {
 					>
 						Upload New Song
 					</NavLink>
-				</li>
-				<li>
-					<SearchInput />
 				</li>
 				<li>
 					<LogoutButton setAuthenticated={setAuthenticated} />

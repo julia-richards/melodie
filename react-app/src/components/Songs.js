@@ -2,24 +2,31 @@ import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import SongPlayer from "../components/SongPlayer";
 
-const Songs = (props) => {
+const Songs = ({searchSongs}) => {
 	const [songs, setSongs] = useState([]);
 	const [currentSong, setCurrentSong] = useState(null);
+	const [isLoading, setIsLoading] = useState(true);
 
 	useEffect(() => {
 		(async () => {
 			const response = await fetch("/api/songs/");
 			const songs = await response.json();
 			setSongs(songs.songs);
-		})();
+		})()
+		.then(() => setIsLoading(false))
 	}, []);
+
+	useEffect(() => {
+		if (searchSongs && searchSongs !== songs) {
+			setSongs(searchSongs)
+		}
+	}, [songs]);
+
 	if (!songs) {
 		return "No songs found";
 	}
 
-	if (props.searchValue) {
-		setSongs(songs.filter(songs => songs.title.includes(props.searchValue)))
-	}
+	console.log(`songs, searchSongs: ${searchSongs}`)
 
 	const songComponents = songs.map((song) => {
 		return (
@@ -30,8 +37,10 @@ const Songs = (props) => {
 				</NavLink>
 				<button onClick={() => setCurrentSong(song)}>Play Button</button>
 			</li>
-		);
+		)
 	});
+
+	if (isLoading) return null;
 
 	return (
 		<>
