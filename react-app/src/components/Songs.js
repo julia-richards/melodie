@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import SongPlayer from "../components/SongPlayer";
 
 const Songs = ({searchSongs}) => {
 	const [songs, setSongs] = useState([]);
+	const [songResults, setSongResults] = useState([]);
 	const [currentSong, setCurrentSong] = useState(null);
 	const [isLoading, setIsLoading] = useState(true);
 
@@ -13,22 +14,22 @@ const Songs = ({searchSongs}) => {
 			const songs = await response.json();
 			setSongs(songs.songs);
 		})()
-		.then(() => setIsLoading(false))
 	}, []);
 
 	useEffect(() => {
-		if (searchSongs && searchSongs !== songs) {
-			setSongs(searchSongs)
-		}
-	}, [songs]);
+		if (searchSongs) {
+			setSongResults(searchSongs)
+		} else {
+			setSongResults(songs)
+		};
+		setIsLoading(false);
+	}, [songs, searchSongs]);
 
 	if (!songs) {
 		return "No songs found";
 	}
 
-	console.log(`songs, searchSongs: ${searchSongs}`)
-
-	const songComponents = songs.map((song) => {
+	const songComponents = songResults.map((song) => {
 		return (
 			<li key={song.id}>
 				<NavLink to={`/songs/${song.id}`}>
