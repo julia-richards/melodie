@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import SongPlayer from "../components/SongPlayer";
 
-const Songs = () => {
+const Songs = (props) => {
 	const [songs, setSongs] = useState([]);
 	const [currentSong, setCurrentSong] = useState(null);
 
@@ -15,6 +15,10 @@ const Songs = () => {
 	}, []);
 	if (!songs) {
 		return "No songs found";
+	}
+
+	if (props.searchValue) {
+		setSongs(songs.filter(songs => songs.title.includes(props.searchValue)))
 	}
 
 	const songComponents = songs.map((song) => {
