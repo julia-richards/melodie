@@ -4,14 +4,12 @@ import SongPlayer from "../components/SongPlayer";
 
 const Songs = () => {
 	const [songs, setSongs] = useState([]);
-	// const [currentSongId, setCurrentSongId] = useState(0);
 	const [currentSong, setCurrentSong] = useState(null);
 
 	useEffect(() => {
 		(async () => {
 			const response = await fetch("/api/songs/");
 			const songs = await response.json();
-			// console.log("these are songs", songs);
 			setSongs(songs.songs);
 		})();
 	}, []);
