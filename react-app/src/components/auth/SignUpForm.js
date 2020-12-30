@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../services/auth';
+import cropped from '../../assets/cropped.png'
 import Input from '../../components/Inputs/Input'
 import styled from 'styled-components'
 
@@ -42,6 +43,9 @@ const SignUpForm = ({ authenticated, setAuthenticated }) => {
 
   return (
     <Container>
+      <LogoWrapper>
+        <img src={cropped} alt='' />
+      </LogoWrapper>
       <Form onSubmit={onSignUp}>
         <Input
           placeholder='create username'
@@ -75,14 +79,27 @@ const SignUpForm = ({ authenticated, setAuthenticated }) => {
         />
         <button type="submit">Lets play some funky tunes</button>
         {/* implement the functionality for the demo user to login to the page without having to login */}
-        <button type="submit">Ok Fine... be a demo user</button>
       </Form>
     </Container>
   );
 };
 
 
-
+const LogoWrapper = styled.div`
+  img {
+    height: 6rem;
+  }
+  h3 {
+    color: #FFF0F0;
+    text-align: center;
+    font-size: 22px;
+  }
+  span {
+    color: #5dc399;
+    font-weight: 300;
+    font-size: 18px;
+  }
+`;
 
 const Form = styled.form`
   width: 100%;
