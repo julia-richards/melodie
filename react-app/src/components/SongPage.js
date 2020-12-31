@@ -5,7 +5,7 @@ import { getUserById, getSongById } from "../services/song";
 
 const SongPage = () => {
     const { songId } = useParams();
-    const [songs, setSongs] = useState([]);
+    // const [songs, setSongs] = useState([]);
     const [playingSong, setPlayingSong] = useState(null);
     const [songUser, setSongUser] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
@@ -44,7 +44,8 @@ const SongPage = () => {
     return (
         <div>
             <h2>{playingSong.title}</h2>
-            {/* <h3>{playingSong.user}</h3> */}
+            <h3>{songUser.username}</h3>
+            <img src={playingSong.image_url}></img>
             <SongPlayer playingSong={playingSong}/>
         </div>
     )
