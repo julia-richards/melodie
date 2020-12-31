@@ -9,6 +9,8 @@ import UsersList from "./components/UsersList";
 import User from "./components/User";
 import { authenticate } from "./services/auth";
 import SongForm from "./components/SongForm";
+import SearchInput from "./components/SearchInput";
+import SearchResults from "./components/SearchResults";
 import Profile from "./components/Profile"
 
 function App() {
@@ -30,8 +32,10 @@ function App() {
 	}
 
 	return (
+
     <BrowserRouter>
       <NavBar setAuthenticated={setAuthenticated} />
+      <SearchInput />
       <Route path="/login" exact={true}>
         <LoginForm
           authenticated={authenticated}
@@ -50,6 +54,9 @@ function App() {
       <Route path="/profile/:profileId" exact={true}>
         <Profile />
       </Route>
+      <Route path="/search/:searchValue">
+				<SearchResults />
+			</Route>
       <ProtectedRoute path="/users" exact={true} authenticated={authenticated}>
         <UsersList />
       </ProtectedRoute>
