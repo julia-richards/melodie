@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import { Redirect } from "react-router-dom";
+import { useDropzone } from "react-dropzone";
 import { uploadSong, uploadFile } from "../services/song";
 import "../styles/SongForm.css";
 
@@ -10,9 +11,10 @@ const SongForm = () => {
   const [imageUrl, setImageUrl] = useState("");
   const [songUrl, setSongUrl] = useState("");
 
-  const [imageFile, setImageFile] = useState(null);
   const [songFile, setSongFile] = useState(null);
   const [redirect, setRedirect] = useState(null);
+
+  const [isImageUploading, setIsImageUploading] = useState(false)
 
   const uploadNewSong = async (e) => {
     e.preventDefault();
@@ -35,10 +37,14 @@ const SongForm = () => {
     setDescription(e.target.value);
   };
 
-  const handleImageUpload = async (e) => {
-    const res = await uploadFile(imageFile);
+  const onImageDrop = useCallback(async (acceptedFiles) => {
+    setIsImageUploading(true)
+    const imageFile = acceptedFiles[0]; // only 1 accepted
+		const res = await uploadFile(imageFile);
     setImageUrl(res.url)
-  }
+    setIsImageUploading(false)
+  }, [setImageUrl, setIsImageUploading]);
+  const { getRootProps: getImageRootProps, getInputProps: getImageInputProps, isDragActive: isImageDragActive } = useDropzone({ onDrop: onImageDrop });
 
   const handleSongUpload = async (e) => {
     const res = await uploadFile(songFile);
@@ -73,17 +79,17 @@ const SongForm = () => {
 					</div>
 					<div>
 						<label>Select Image</label>
-						<div>
-                <input type="file" name="file" onChange={event =>
-                        setImageFile(
-                          event.currentTarget.files[0]
-                        )
-                      } />
-                <button type="button" onClick={handleImageUpload} disabled={!imageFile}>
-                  Upload
-                </button>
-                {!!imageUrl && <p>{imageUrl}</p>}
-						</div>
+            <div {...getImageRootProps()}>
+              <input {...getImageInputProps()} />
+              {
+                !!imageUrl ? <><img src={imageUrl} style={{maxWidth: 60, height: "auto"}}/> <button onClick={()=>setImageUrl(null)}>Remove Image</button> </>:
+                isImageUploading ? <p>Uploading...</p>:
+                isImageDragActive ?
+                  <p>Drop the files here ...</p> :
+                  <p>Drag 'n' drop some files here, or click to select files</p>
+              }
+
+            </div>
 					</div>
 					<div>
 						<label>Select Audio</label>
