@@ -10,6 +10,7 @@ const Songs = () => {
 		(async () => {
 			const response = await fetch("/api/songs/");
 			const songs = await response.json();
+			// console.log('thiiisiisissiisis',songs)
 			setSongs(songs.songs);
 		})();
 	}, []);
@@ -31,7 +32,7 @@ const Songs = () => {
 
 	return (
 		<>
-			<h1>Song List: </h1>
+			{/* <h1>Song List: </h1> */}
 			<ul>{songComponents}</ul>
 			{ currentSong ? (
 				<SongPlayer playingSong={currentSong} />

@@ -10,8 +10,6 @@ const SongForm = () => {
 
     const uploadNewSong = async (e) => {
         e.preventDefault();
-        console.log("upload song")
-        console.log(title, length, description, imageUrl, songUrl)
         const song = await uploadSong(
             title,
             length,
