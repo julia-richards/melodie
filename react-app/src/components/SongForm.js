@@ -11,10 +11,10 @@ const SongForm = () => {
   const [imageUrl, setImageUrl] = useState("");
   const [songUrl, setSongUrl] = useState("");
 
-  const [songFile, setSongFile] = useState(null);
   const [redirect, setRedirect] = useState(null);
 
   const [isImageUploading, setIsImageUploading] = useState(false)
+  const [isSongUploading, setIsSongUploading] = useState(false)
 
   const uploadNewSong = async (e) => {
     e.preventDefault();
@@ -46,10 +46,17 @@ const SongForm = () => {
   }, [setImageUrl, setIsImageUploading]);
   const { getRootProps: getImageRootProps, getInputProps: getImageInputProps, isDragActive: isImageDragActive } = useDropzone({ onDrop: onImageDrop });
 
-  const handleSongUpload = async (e) => {
-    const res = await uploadFile(songFile);
+
+
+  const onSongDrop = useCallback(async (acceptedFiles) => {
+    setIsSongUploading(true)
+    const songFile = acceptedFiles[0]; // only 1 accepted
+		const res = await uploadFile(songFile);
     setSongUrl(res.url)
-  }
+    setIsSongUploading(false)
+  }, [setSongUrl, setIsSongUploading]);
+  const { getRootProps: getSongRootProps, getInputProps: getSongInputProps, isDragActive: isSongDragActive } = useDropzone({ onDrop: onSongDrop });
+
 
   if (redirect) {
     return <Redirect to={redirect} />
@@ -78,36 +85,38 @@ const SongForm = () => {
 						></textarea>
 					</div>
 					<div>
-						<label>Select Image</label>
+						<label>Song Image</label>
             <div {...getImageRootProps()}>
               <input {...getImageInputProps()} />
               {
                 !!imageUrl ? <><img src={imageUrl} style={{maxWidth: 60, height: "auto"}}/> <button onClick={()=>setImageUrl(null)}>Remove Image</button> </>:
                 isImageUploading ? <p>Uploading...</p>:
                 isImageDragActive ?
-                  <p>Drop the files here ...</p> :
-                  <p>Drag 'n' drop some files here, or click to select files</p>
+                  <p>Drop the file here ...</p> :
+                  <p>Drag 'n' drop image file here, or click to select files</p>
               }
 
             </div>
 					</div>
 					<div>
-						<label>Select Audio</label>
-						<div>
-              <input type="file" name="file" onChange={event =>
-                        setSongFile(
-                          event.currentTarget.files[0]
-                        )
-                      } />
-              <button type="button" disabled={!songFile} onClick={handleSongUpload}>
-                Upload
-              </button>
-							{!!songUrl && <p>{songUrl}</p>}
+						<label>Song Audio</label>
+
+            <div {...getSongRootProps()}>
+              <input {...getSongInputProps()} />
+              {
+                !!songUrl ? <><p>TODO:Add song preview here</p> <button onClick={()=>setSongUrl(null)}>Remove Song</button> </>:
+                isSongUploading ? <p>Uploading...</p>:
+                isSongDragActive ?
+                  <p>Drop the file ...</p> :
+                  <p>Drag 'n' drop song file here, or click to select files</p>
+              }
+
+
 						</div>
 					</div>
 
 					<div>
-						<button className="upload_song-button" type="submit" disabled={!songFile}>
+						<button className="upload_song-button" type="submit">
 							Upload
 						</button>
 					</div>
