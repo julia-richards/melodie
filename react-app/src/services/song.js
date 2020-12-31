@@ -17,8 +17,20 @@ export const uploadSong = async (
 			image_url: imageUrl,
 			song_url: songUrl,
 		}),
-	});
-	return await response.json();
+    });
+    if (response.status >= 200 && response.status < 300) {
+        return await response.json();
+    }
+    else {
+        let error = new Error(response.statusText);
+        error.status = response.status
+        try {
+            error.body = await response.json();
+        } catch (_e) {
+            // swallow parse error
+        }
+        throw error
+    }
 };
 
 export const uploadFile = async (songFile) => {
