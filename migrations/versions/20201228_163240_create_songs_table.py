@@ -21,7 +21,6 @@ def upgrade():
     op.create_table('songs',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('title', sa.String(length=225), nullable=False),
-    sa.Column('length', sa.Float(), nullable=False),
     sa.Column('description', sa.String(length=2000), nullable=True),
     sa.Column('image_url', sa.String(), nullable=True),
     sa.Column('song_url', sa.String(), nullable=True),

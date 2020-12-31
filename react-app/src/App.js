@@ -11,8 +11,11 @@ import { authenticate } from "./services/auth";
 import SongForm from "./components/SongForm";
 import SearchInput from "./components/SearchInput";
 import SearchResults from "./components/SearchResults";
+
 import Profile from "./components/Profile"
 import HomePage from "./components/HomePage";
+import SongPage from "./components/SongPage";
+
 
 function App() {
 	const [authenticated, setAuthenticated] = useState(false);
@@ -33,6 +36,7 @@ function App() {
 	}
 
 	return (
+
 
 		<BrowserRouter>
 				<NavBar setAuthenticated={setAuthenticated} />
@@ -86,6 +90,7 @@ function App() {
 				</ProtectedRoute>
 		</BrowserRouter>
 	);
+
 }
 
 export default App;
