@@ -17,11 +17,27 @@ def validation_errors_to_error_messages(validation_errors):
             errorMessages.append(f"{field} : {error}")
     return errorMessages
 
+# @bp.route('/photo/<int:id>', methods=["GET"])
+# def get_one_photo(id):
+#     photo = Photo.query.options(joinedload('comments')).get(id)
+#     comments = [comment.to_dict() for comment in photo.comments]
+#     photo = photo.to_dict()
+#     payload = {'photo': photo, 'comments': comments}
+#     return payload
 
 @song_routes.route('/')
 def songs():
     songs = Song.query.all()
     return {"songs": [song.to_dict() for song in songs]}
+
+@song_routes.route('/song/<int:id>', methods=['GET'])
+def one_song(id):
+    # one_song = Song.query.get(id)
+    one_song = Song.query.options(joinedLoad('users')).get(id)
+    # song_user = one_song.users
+    # user = song_user.to_dict()
+    song = one_song.to_dict()
+    return {"song": song}
 
 
 @song_routes.route('/', methods=["POST"])
