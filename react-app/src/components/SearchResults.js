@@ -24,7 +24,7 @@ const SearchResults = () => {
             console.log(`searchResults, searchValue: ${searchValue}`)
             console.log(`searchResults, match: ${song.title.toLowerCase().includes(searchValue.toLowerCase())}`)
             return song.title.toLowerCase().includes(searchValue.toLowerCase())});
-        setSearchSongs(filteredSongs);
+        setSearchSongs(filteredSongs.slice(0, 11));
         setIsLoading(false);
         console.log(`searchResults, filteredSongs: ${filteredSongs}`)
     }, [searchValue, songs])
@@ -32,7 +32,12 @@ const SearchResults = () => {
     if (isLoading) return null;
 
     return (
-        <Songs searchSongs={searchSongs}/>
+        <div>
+            { !searchSongs ? <h2>No results found</h2> :
+            <Songs searchSongs={searchSongs}/>
+            }
+        </div>
+
     )
 }
 
