@@ -1,7 +1,7 @@
-from flask import Blueprint, jsonify, redirect, request
+from flask import Blueprint, jsonify, redirect, request, Flask, render_template, send_file
 from flask_login import login_required, current_user
 from app.models import db, Song, User
-# from auth_routes import validation_errors_to_error_messages
+from app.s3 import upload_file
 from app.forms.song_form import SongForm
 
 
@@ -69,3 +69,13 @@ def update_song(id):
             return song.to_dict()
         return {'errors': validation_errors_to_error_messages(form.errors)}
     return {'errors': 'Only the artist can delete this song'}
+
+
+@song_routes.route("/upload", methods=['POST'])
+@login_required
+def upload():
+    if request.method == "POST":
+        file = request.files.get('file')
+        url = upload_file(file)
+
+        return {'url': url}
