@@ -10,6 +10,9 @@ import { authenticate } from "./services/auth";
 import SongForm from "./components/SongForm";
 import SignUpPage from './components/SignUpPage/SignUpPage'
 import LoginPage from "./components/LoginPage/LoginPage"
+import HomePage from "./components/HomePage/HomePage";
+
+
 
 function App() {
 	const [authenticated, setAuthenticated] = useState(false);
@@ -31,9 +34,13 @@ function App() {
 
 	return (
 		<BrowserRouter>
+		{/* Styling Route change the route for the homepage */}
+			<Route path='/' exact={true}>
+			<HomePage />
+			</Route>
 			<NavBar setAuthenticated={setAuthenticated} />
 			<Route path="/login" exact={true}>
-				<LoginPage
+				<LoginForm
 					authenticated={authenticated}
 					setAuthenticated={setAuthenticated}
 				/>
