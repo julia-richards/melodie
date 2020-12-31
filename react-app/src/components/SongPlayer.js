@@ -1,9 +1,12 @@
 import React from "react";
-import { PlayButton, Progress, VolumeControl } from 'react-soundplayer/components';
+import {
+  PlayButton,
+  Progress,
+  Icons, VolumeControl,
+} from "react-soundplayer/components";
 import { withSoundCloudAudio } from 'react-soundplayer/addons';
 
-
-const SongPlayer = (props) => {
+const SongPlayer = withSoundCloudAudio((props) => {
     const { playingSong } = props
 
     return (
@@ -14,6 +17,6 @@ const SongPlayer = (props) => {
             </audio>
         </div>
     );
-}
+})
 
 export default SongPlayer
