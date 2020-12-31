@@ -9,9 +9,11 @@
     "http-proxy-middleware": "^1.0.5",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-dropzone": "^11.2.4",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
-    "react-soundplayer": "^1.0.5"
+    "react-soundplayer": "^1.0.5",
+    "uuid": "^8.3.2"
   },
   "scripts": {
     "start": "react-scripts start",
