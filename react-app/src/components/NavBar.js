@@ -49,7 +49,7 @@ const NavBar = ({ setAuthenticated }) => {
 
 
 const Nav = styled.nav`
-padding: 0 2rem;
+padding: 28px;
 display: flex;
 justify-content: space-between;
 align-items: center;

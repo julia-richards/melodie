@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../services/auth';
+import cropped from '../../assets/cropped.png'
+import Input from './Input'
+import styled from 'styled-components'
 
-const SignUpForm = ({authenticated, setAuthenticated}) => {
+const SignUpForm = ({ authenticated, setAuthenticated }) => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -39,47 +42,164 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
   }
 
   return (
-    <form onSubmit={onSignUp}>
-      <div>
-        <label>User Name</label>
-        <input
+    <div>
+    <Container>
+      <LogoWrapper>
+        <img src={cropped} alt='' />
+      </LogoWrapper>
+      <Form onSubmit={onSignUp}>
+        <Input
+          placeholder='create username'
           type="text"
           name="username"
           onChange={updateUsername}
           value={username}
-        ></input>
-      </div>
-      <div>
-        <label>Email</label>
-        <input
+        />
+        <Input
+          placeholder='whats your email?'
           type="text"
           name="email"
           onChange={updateEmail}
           value={email}
-        ></input>
-      </div>
-      <div>
-        <label>Password</label>
-        <input
+        />
+        <Input
+          placeholder='make sure its a good password'
           type="password"
           name="password"
           onChange={updatePassword}
           value={password}
-        ></input>
-      </div>
-      <div>
-        <label>Repeat Password</label>
-        <input
+        />
+
+        <Input
           type="password"
+          placeholder='it better be a good password'
           name="repeat_password"
           onChange={updateRepeatPassword}
           value={repeatPassword}
           required={true}
-        ></input>
+        />
+        <button type="submit">Lets play some funky tunes</button>
+        {/* implement the functionality for the demo user to login to the page without having to login */}
+      </Form>
+      <div>
+        <Terms>
+          By signing up, you agree that we worked hard on this and should star this on Github.
+        </Terms>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
       </div>
-      <button type="submit">Sign Up</button>
-    </form>
+    </Container>
+    </div>
   );
 };
+
+
+const LogoWrapper = styled.div`
+  img {
+    height: 6rem;
+  }
+  h3 {
+    color: #FFF0F0;
+    text-align: center;
+    font-size: 22px;
+  }
+  span {
+    color: #5dc399;
+    font-weight: 300;
+    font-size: 18px;
+  }
+`;
+
+const Form = styled.form`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  h3 {
+    color: #666666;
+    margin-bottom: 2rem;
+  }
+  button {
+    width: 75%;
+    max-width: 350px;
+    min-width: 250px;
+    height: 40px;
+    border: none;
+    margin: 1rem 0;
+    box-shadow: 0px 14px 9px -15px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+    background-color: #3bc9f5;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease-in;
+    &:hover {
+      transform: translateY(-3px);
+    }
+  }
+`;
+
+
+const Terms = styled.p`
+  padding: 0 1rem;
+  text-align: center;
+  font-size: 10px;
+  color: #808080;
+  font-weight: 300;
+`;
+
+
+
+const Container = styled.div`
+  min-width: 400px;
+  backdrop-filter: blur(35px);
+  /* background-color: rgba(255, 255, 255, 0.8); */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 0 2rem;
+  @media (max-width: 900px) {
+    width: 100vw;
+    position: absolute;
+    padding: 0;
+  }
+  h4 {
+    color: #808080;
+    font-weight: bold;
+    font-size: 13px;
+    margin-top: 2rem;
+    span {
+      color: #ff8d8d;
+      cursor: pointer;
+    }
+  }
+`;
+
 
 export default SignUpForm;
