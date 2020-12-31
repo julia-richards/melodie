@@ -27,7 +27,7 @@ const SongPage = () => {
     useEffect(() => {
         (async () => {
             const songRes = await getSongById(songId);
-            const userRes = await getUserById(songId);
+            const userRes = await getUserById(songRes.user);
 
             setPlayingSong(songRes);
             setSongUser(userRes);
@@ -44,7 +44,7 @@ const SongPage = () => {
     return (
         <div>
             <h2>{playingSong.title}</h2>
-            <h3>{songUser.username}</h3>
+            {/* <h3>{songUser.username}</h3> */}
             <img src={playingSong.image_url}></img>
             <SongPlayer playingSong={playingSong}/>
         </div>
