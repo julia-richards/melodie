@@ -1,8 +1,9 @@
-from flask import Blueprint, jsonify
+from flask import Blueprint, jsonify, redirect, request, Flask, render_template, send_file
 from flask_login import login_required, current_user
-from app.models import Song, User
-# from auth_routes import validation_errors_to_error_messages
+from app.models import db, Song, User
+from app.s3 import upload_file
 from app.forms.song_form import SongForm
+
 
 song_routes = Blueprint('songs', __name__)
 
@@ -28,6 +29,7 @@ def songs():
 @login_required
 def add_song():
     form = SongForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         song = Song(
                     title=form.data['title'],
@@ -48,6 +50,7 @@ def add_song():
 def update_song(id):
     song = Song.query.get(id)
     form = SongForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
     if request.method == 'DELETE':
         db.session.delete(song)
         db.session.commit()
@@ -66,3 +69,30 @@ def update_song(id):
             return song.to_dict()
         return {'errors': validation_errors_to_error_messages(form.errors)}
     return {'errors': 'Only the artist can delete this song'}
+
+
+@song_routes.route("/upload", methods=['POST'])
+@login_required
+def upload():
+    if request.method == "POST":
+        file = request.files.get('file')
+        url = upload_file(file)
+
+        return {'url': url}
+
+
+@song_routes.route('/<int:id>/likes', methods=["POST"])
+@login_required
+def likeSong(id):
+    song = Song.query.get(id)
+    user = User.query.get(current_user.get_id())
+    likingUserIds = {u.id:True for u in song.likingUsers }
+    if user.id not in likingUserIds:
+        song.likingUsers.append(user)
+        db.session.commit()
+        return jsonify({"addedLike":True})
+    else:
+        song.likingUsers.remove(user)
+        db.session.commit()
+        return jsonify({"removedLike":True})
+

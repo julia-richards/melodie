@@ -1,0 +1,27 @@
+.song_form-outer {
+	display: flex;
+	justify-content: center;
+}
+.song-form_container {
+	display: flex;
+	justify-content: center;
+	padding: 0.5rem;
+	border: 1px solid #f2f2f2;
+	box-shadow: 0 2px 12px -5px rgba(0, 0, 0, 0.1);
+	width: 60%;
+}
+
+.song-form div {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 0.5rem;
+}
+
+.upload_song-button {
+	background: linear-gradient(#e66465, #9198e5);
+	border: none;
+	border-radius: 0.15rem;
+	height: 30px;
+	color: white;
+}

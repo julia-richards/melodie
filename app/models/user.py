@@ -22,6 +22,7 @@ class User(db.Model, UserMixin):
 
   songs = db.relationship("Song", secondary=likes, back_populates="users")
 
+
   @property
   def password(self):
     return self.hashed_password
@@ -39,5 +40,6 @@ class User(db.Model, UserMixin):
       "username": self.username,
       "email": self.email,
       "about": self.about,
-      "image_url": self.image_url
+      "image_url": self.image_url,
+      "songs": [song.to_dict() for song in self.songs],
     }
