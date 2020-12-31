@@ -79,3 +79,20 @@ def upload():
         url = upload_file(file)
 
         return {'url': url}
+
+
+@song_routes.route('/<int:id>/likes', methods=["POST"])
+@login_required
+def likeSong(id):
+    song = Song.query.get(id)
+    user = User.query.get(current_user.get_id())
+    likingUserIds = {u.id:True for u in song.likingUsers }
+    if user.id not in likingUserIds:
+        song.likingUsers.append(user)
+        db.session.commit()
+        return jsonify({"addedLike":True})
+    else:
+        song.likingUsers.remove(user)
+        db.session.commit()
+        return jsonify({"removedLike":True})
+
