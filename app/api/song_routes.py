@@ -25,6 +25,8 @@ def songs():
     return {"songs": [song.to_dict() for song in songs]}
 
 
+
+
 @song_routes.route('/', methods=["POST"])
 @login_required
 def add_song():
@@ -45,10 +47,12 @@ def add_song():
     return {'errors': validation_errors_to_error_messages(form.errors)}
 
 
-@song_routes.route('/<int:id>', methods=["POST", "DELETE"])
+@song_routes.route('/<int:id>', methods=["GET", "POST", "DELETE"])
 @login_required
 def update_song(id):
     song = Song.query.get(id)
+    if request.method == 'GET':
+        return song.to_dict()
     form = SongForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if request.method == 'DELETE':
@@ -95,4 +99,3 @@ def likeSong(id):
         song.likingUsers.remove(user)
         db.session.commit()
         return jsonify({"removedLike":True})
-

@@ -43,7 +43,7 @@ function App() {
         />
       </Route>
       <Route path="/songs/upload">
-        <SongForm />
+        {/* <SongForm /> */}
       </Route>
       <Route path="/sign-up" exact={true}>
         <SignUpForm

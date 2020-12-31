@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { NavLink, useParams } from "react-router-dom";
-import SongPlayer from "../components/SongPlayer";
+import { useParams } from "react-router-dom";
 import Songs from "../components/Songs";
 
 const SearchResults = () => {
