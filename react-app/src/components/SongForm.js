@@ -25,8 +25,8 @@ const SongForm = () => {
       imageUrl,
       songUrl
     );
-    console.log("added song ID", song.id);
-    setRedirect(`/profile`); // TODO: update me to song?
+
+    setRedirect(`/songs/${song.id}`);
   };
 
   const updateTitle = (e) => {
@@ -74,79 +74,83 @@ const SongForm = () => {
   }
 
   return (
-    <div className="song_form-outer">
-      <div className="song-form_container">
-        <form className="song-form" onSubmit={uploadNewSong}>
-          <div>
-            <label>Song Title</label>
-            <input
-              type="text"
-              name="title"
-              onChange={updateTitle}
-              value={title}
-            ></input>
-          </div>
-          <div>
-            <label>Description</label>
-            <textarea
-              type="text"
-              name="description"
-              onChange={updateDescription}
-              value={description}
-            ></textarea>
-          </div>
-          <div>
-            <label>Song Image</label>
-            <div {...getImageRootProps()}>
-              <input {...getImageInputProps()} />
-              {!!imageUrl ? (
-                <>
-                  <img
-                    src={imageUrl}
-                    style={{ maxWidth: 60, height: "auto" }}
-                  />{" "}
-                  <button onClick={() => setImageUrl(null)}>
-                    Remove Image
-                  </button>{" "}
-                </>
-              ) : isImageUploading ? (
-                <p>Uploading...</p>
-              ) : isImageDragActive ? (
-                <p>Drop the file here ...</p>
-              ) : (
-                <p>Drag 'n' drop image file here, or click to select files</p>
-              )}
-            </div>
-          </div>
-          <div>
-            <label>Song Audio</label>
+		<div className="song_form-outer">
+			<div className="song-form_container">
+				<form className="song-form" onSubmit={uploadNewSong}>
+					<div>
+						<label>Song Title</label>
+						<input
+							type="text"
+							name="title"
+							onChange={updateTitle}
+							value={title}
+						></input>
+					</div>
+					<div>
+						<label>Description</label>
+						<textarea
+							type="text"
+							name="description"
+							onChange={updateDescription}
+							value={description}
+						></textarea>
+					</div>
+					<div>
+						<label>Song Image</label>
+						<div {...getImageRootProps()}>
+							<input {...getImageInputProps()} />
+							{!!imageUrl ? (
+								<>
+									<img
+										src={imageUrl}
+										style={{ maxWidth: 60, height: "auto" }}
+									/>{" "}
+									<button onClick={() => setImageUrl(null)}>
+										Remove Image
+									</button>{" "}
+								</>
+							) : isImageUploading ? (
+								<p>Uploading...</p>
+							) : isImageDragActive ? (
+								<p>Drop the file here ...</p>
+							) : (
+								<p>Drag 'n' drop image file here, or click to select files</p>
+							)}
+						</div>
+					</div>
+					<div>
+						<label>Song Audio</label>
 
-            <div {...getSongRootProps()}>
-              <input {...getSongInputProps()} />
-              {!!songUrl ? (
-                <>
-                  <p>TODO:Add song preview here</p>{" "}
-                  <button onClick={() => setSongUrl(null)}>Remove Song</button>{" "}
-                </>
-              ) : isSongUploading ? (
-                <p>Uploading...</p>
-              ) : isSongDragActive ? (
-                <p>Drop the file ...</p>
-              ) : (
-                <p>Drag 'n' drop song file here, or click to select files</p>
-              )}
-            </div>
-          </div>
+						<div {...getSongRootProps()}>
+							<input {...getSongInputProps()} />
+							{!!songUrl ? (
+								<>
+									<p>
+										<audio controls>
+											<source src={songUrl} type="audio/wav"></source>
+										</audio>
+									</p>{" "}
+									<button onClick={() => setSongUrl(null)}>Remove Song</button>{" "}
+								</>
+							) : isSongUploading ? (
+								<p>Uploading...</p>
+							) : isSongDragActive ? (
+								<p>Drop the file ...</p>
+							) : (
+								<p>Drag 'n' drop song file here, or click to select files</p>
+							)}
+						</div>
+					</div>
 
-          <div>
-            <button className="upload_song-button" type="submit">
-              Upload
-            </button>
-          </div>
-        </form>
-      </div>
-    </div>
-  );
+					<div>
+						<button className="upload_song-button" type="submit">
+							Upload
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	);
 };
 
 export default SongForm;
