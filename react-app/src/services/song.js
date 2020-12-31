@@ -2,7 +2,6 @@ import { v4 as uuidv4 } from "uuid";
 
 export const uploadSong = async (
 	title,
-	length,
 	description,
 	imageUrl,
 	songUrl
@@ -14,7 +13,6 @@ export const uploadSong = async (
 		},
 		body: JSON.stringify({
 			title,
-			length,
 			description,
 			image_url: imageUrl,
 			song_url: songUrl,

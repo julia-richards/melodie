@@ -35,7 +35,6 @@ def add_song():
     if form.validate_on_submit():
         song = Song(
                     title=form.data['title'],
-                    length=form.data['length'],
                     description=form.data['description'],
                     image_url=form.data['image_url'],
                     song_url=form.data['song_url'],
@@ -62,7 +61,6 @@ def update_song(id):
         if form.validate_on_submit():
             song = Song(
                 title=form.data['title'],
-                length=form.data['length'],
                 description=form.data['description'],
                 image_url=form.data['image_url'],
                 song_url=form.data['song_url'],

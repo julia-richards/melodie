@@ -6,7 +6,6 @@ import "../styles/SongForm.css";
 
 const SongForm = () => {
   const [title, setTitle] = useState("");
-  const [length, setLength] = useState(2.34); // TODO: remove me?
   const [description, setDescription] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const [songUrl, setSongUrl] = useState("");
@@ -20,7 +19,6 @@ const SongForm = () => {
     e.preventDefault();
     const song = await uploadSong(
       title,
-      length,
       description,
       imageUrl,
       songUrl
