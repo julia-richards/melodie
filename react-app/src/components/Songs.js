@@ -12,7 +12,6 @@ const Songs = ({searchSongs}) => {
 		(async () => {
 			const response = await fetch("/api/songs/");
 			const songs = await response.json();
-			// console.log('thiiisiisissiisis',songs)
 			setSongs(songs.songs);
 		})()
 	}, []);
@@ -49,7 +48,7 @@ const Songs = ({searchSongs}) => {
 			{/* <h1>Song List: </h1> */}
 			<ul>{songComponents}</ul>
 			{ currentSong ? (
-				<SongPlayer playingSong={currentSong} />
+				<SongPlayer playingSong={currentSong} preloadType="auto"/>
 			): null}
 		</>
 	);
