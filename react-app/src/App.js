@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import LoginForm from "./components/auth/LoginForm";
 import NavBar from "./components/NavBar";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
@@ -34,44 +34,45 @@ function App() {
 
 	return (
 		<BrowserRouter>
-		{/* Styling Route change the route for the homepage */}
-			<Route path='/' exact={true}>
-			<HomePage />
-			</Route>
-			<NavBar setAuthenticated={setAuthenticated} />
-			<Route path="/login" exact={true}>
-				<LoginForm
+			<Switch>
+				<Route path="/login" exact={true}>
+					<LoginForm
+						authenticated={authenticated}
+						setAuthenticated={setAuthenticated}
+					/>
+				<Route path="/sign-up" exact={true}>
+					<SignUpPage
+						authenticated={authenticated}
+						setAuthenticated={setAuthenticated}
+					/>
+				<Route path='/home' exact={true}>
+					<HomePage authenticated={authenticated} setAuthenticated={setAuthenticated} />
+				</Route>
+				<NavBar setAuthenticated={setAuthenticated} />
+				</Route>
+				<Route path="/songs/upload">
+					<SongForm />
+				</Route>
+				</Route>
+				<ProtectedRoute
+					path="/users"
+					exact={true}
 					authenticated={authenticated}
-					setAuthenticated={setAuthenticated}
-				/>
-			</Route>
-			<Route path="/songs/upload">
-				<SongForm />
-			</Route>
-			<Route path="/sign-up" exact={true}>
-				<SignUpPage
+				>
+					<UsersList />
+				</ProtectedRoute>
+				<ProtectedRoute
+					path="/users/:userId"
+					exact={true}
 					authenticated={authenticated}
-					setAuthenticated={setAuthenticated}
-				/>
-			</Route>
-			<ProtectedRoute
-				path="/users"
-				exact={true}
-				authenticated={authenticated}
-			>
-				<UsersList />
-			</ProtectedRoute>
-			<ProtectedRoute
-				path="/users/:userId"
-				exact={true}
-				authenticated={authenticated}
-			>
-				<User />
-			</ProtectedRoute>
-			<ProtectedRoute path="/" exact={true} authenticated={authenticated}>
-				<h1>My Home Page</h1>
-				<Songs />
-			</ProtectedRoute>
+				>
+					<User />
+				</ProtectedRoute>
+				<ProtectedRoute path="/" exact={true} authenticated={authenticated}>
+					<h1>My Home Page</h1>
+					<Songs />
+				</ProtectedRoute>
+			</Switch>
 		</BrowserRouter>
 	);
 }
