@@ -11,7 +11,8 @@ import { authenticate } from "./services/auth";
 import SongForm from "./components/SongForm";
 import SearchInput from "./components/SearchInput";
 import SearchResults from "./components/SearchResults";
-import Profile from "./components/Profile"
+import Profile from "./components/Profile";
+import SongPage from "./components/SongPage";
 
 function App() {
 	const [authenticated, setAuthenticated] = useState(false);
@@ -55,8 +56,11 @@ function App() {
         <Profile />
       </Route>
       <Route path="/search/:searchValue">
-				<SearchResults />
-			</Route>
+		<SearchResults />
+	  </Route>
+	  <Route path="/songs/:songId">
+		<SongPage/>
+	  </Route>
       <ProtectedRoute path="/users" exact={true} authenticated={authenticated}>
         <UsersList />
       </ProtectedRoute>

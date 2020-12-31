@@ -34,3 +34,13 @@ export const uploadFile = async (songFile) => {
 	});
 	return await response.json();
 };
+
+export const getUserById = async (id) => {
+	const response = await fetch(`/api/users/${id}`);
+  	return await response.json();
+}
+
+export const getSongById = async (id) => {
+	const response = await fetch(`/api/songs/${id}`);
+  	return await response.json();
+}
