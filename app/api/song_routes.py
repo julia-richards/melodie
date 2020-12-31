@@ -8,15 +8,6 @@ from app.forms.song_form import SongForm
 song_routes = Blueprint('songs', __name__)
 
 
-def validation_errors_to_error_messages(validation_errors):
-    """
-    Simple function that turns the WTForms validation errors into a simple list
-    """
-    errorMessages = []
-    for field in validation_errors:
-        for error in validation_errors[field]:
-            errorMessages.append(f"{field} : {error}")
-    return errorMessages
 
 
 @song_routes.route('/')
@@ -35,7 +26,6 @@ def add_song():
     if form.validate_on_submit():
         song = Song(
                     title=form.data['title'],
-                    length=form.data['length'],
                     description=form.data['description'],
                     image_url=form.data['image_url'],
                     song_url=form.data['song_url'],
@@ -44,7 +34,7 @@ def add_song():
         db.session.add(song)
         db.session.commit()
         return song.to_dict()
-    return {'errors': validation_errors_to_error_messages(form.errors)}
+    return {'errors': form.errors}, 422
 
 
 @song_routes.route('/<int:id>', methods=["GET", "POST", "DELETE"])
@@ -62,7 +52,6 @@ def update_song(id):
         if form.validate_on_submit():
             song = Song(
                 title=form.data['title'],
-                length=form.data['length'],
                 description=form.data['description'],
                 image_url=form.data['image_url'],
                 song_url=form.data['song_url'],
@@ -71,8 +60,8 @@ def update_song(id):
             db.session.add(song)
             db.session.commit()
             return song.to_dict()
-        return {'errors': validation_errors_to_error_messages(form.errors)}
-    return {'errors': 'Only the artist can delete this song'}
+        return {'errors': form.errors}, 422
+    return {'errors': 'Only the artist can delete this song'}, 401
 
 
 @song_routes.route("/upload", methods=['POST'])
