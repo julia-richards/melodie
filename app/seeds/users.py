@@ -7,12 +7,18 @@ def seed_users():
     demo = User(username='Demo', email='demo@aa.io',
                 password='password', about="testing this stuff out", image_url='tesing this url')
 
-    stjohnswort = User(username='St. John\'s Wort', email='stjohnswort@aa.io', password='password', about="I like pretty sounds.\nPhiladelphia, PA", image_url='tesing this url')
+    stjohnswort = User(username='St. John\'s Wort', email='stjohnswort@aa.io', password='password', about="I like pretty sounds.\nPhiladelphia, PA", image_url='https://melodieapp.s3.amazonaws.com/salinavibe.jpeg')
 
     mudfroot = User(username='Mudfroot', email='mudfroot@aa.io', password='password', about="bluegrass from space", image_url='https://melodieapp.s3.amazonaws.com/mudfroot.JPG')
 
+    pete = User(username='05R25' email='pete@aa.io', password='password', about="", image_url='https://melodieapp.s3.amazonaws.com/pete.jpeg')
+
+    janedoe = User(username='Jane Doe', email='janedoe@aa.io', password='password', about="I like listening to music.", image_url='')
+
+    jondoe = User(username='Jon Doe', email='jondoe@aa.io', password='password', about="I like listening to music.", image_url='')
+
     Prince = User(username='Prince', email='prince@yahoo.com',
-                password='password123', about='legendary', image_url='princephoto change to url')
+                password='password123', about='legendary', image_url='')
 
 
 

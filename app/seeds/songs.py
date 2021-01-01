@@ -2,7 +2,7 @@ from app.models import db, Song
 
 def seed_songs():
 
-    nye = Song(title='What are you doing, New Year\'s Eve?', description='vibraphone, vocals - Salina\nhorns - Pat\nguitar/bass/drums/audio - Robbie', image_url='https://melodieapp.s3.amazonaws.com/salinavibe.jpeg', song_url='https://melodieapp.s3.amazonaws.com/NYE+mixed.wav', user_id=2)
+    sample = Song(title='What are you doing, New Year\'s Eve?', description='vibraphone, vocals - Salina\nhorns - Pat\nguitar/bass/drums/audio - Robbie', image_url='https://melodieapp.s3.amazonaws.com/salinavibe.jpeg', song_url='https://melodieapp.s3.amazonaws.com/NYE+mixed.wav', user_id=2)
 
     prettygirl = Song(title='pretty girl', description='pretty girl by clairo\nvibraphone/drums/vocals/mixing - Salina', image_url='https://melodieapp.s3.amazonaws.com/salinavibe.jpeg', song_url='https://melodieapp.s3.amazonaws.com/pretty+girl.wav', user_id=2)
 
