@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import SongPlayer from "./SongPlayer";
+import Likes from "./Likes";
 import { getUserById, getSongById } from "../services/song";
 
 const SongPage = () => {
@@ -27,13 +28,14 @@ const SongPage = () => {
     }
 
     return (
-        <div>
-            <h2>{playingSong.title}</h2>
-            <h3>{songUser.username}</h3>
-            <img src={playingSong.image_url}></img>
-            <SongPlayer playingSong={playingSong}/>
-        </div>
-    )
+			<div>
+				<h2>{playingSong.title}</h2>
+				<h3>{songUser.username}</h3>
+				<img src={playingSong.image_url}></img>
+				<SongPlayer playingSong={playingSong} />
+				<Likes count={playingSong.likesCount} likedByUser={playingSong.likedByUser} />
+			</div>
+		);
 }
 
 export default SongPage;
