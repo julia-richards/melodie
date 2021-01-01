@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import SongPlayer from "./SongPlayer";
 import { getUserById, getSongById } from "../services/song";
+import "../styles/SongPage.css";
 
 const SongPage = () => {
     const { songId } = useParams();
@@ -27,7 +28,7 @@ const SongPage = () => {
     }
 
     return (
-        <div>
+        <div className="songPageContainer">
             <h2>{playingSong.title}</h2>
             <h3>{songUser.username}</h3>
             <img src={playingSong.image_url}></img>

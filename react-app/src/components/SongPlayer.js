@@ -4,32 +4,33 @@ import { withCustomAudio, SoundPlayerContainer } from 'react-soundplayer/addons'
 
 
 const SongPlayer = withCustomAudio((props) => {
-    const { playingSong, playing, soundCloudAudio } = props
+    const {playingSong} = props
+    // const { playingSong, playing, soundCloudAudio } = props
 
-    const play = () => {
-        if (playing) {
-            soundCloudAudio.pause();
-        } else {
-            soundCloudAudio.play();
-        }
-    }
+    // const play = () => {
+    //     if (playing) {
+    //         soundCloudAudio.pause();
+    //     } else {
+    //         soundCloudAudio.play();
+    //     }
+    // }
 
     return (
         <div>
-            <SoundPlayerContainer streamURL={playingSong.song_url} {...props} >
+            {/* <SoundPlayerContainer streamURL={playingSong.song_url} {...props} >
 
                 <PlayButton {...props} />
-                {/* <div>
+                  <div>
                     <VolumeControl {...props}/>
                 </div>
                 <div>
                     <Progress {...props}/>
-                </div> */}
+                </div>
 
-            </SoundPlayerContainer>
-            {/* <audio controls>
+            </SoundPlayerContainer> */}
+            <audio controls>
                 <source src={playingSong.song_url} type='audio/wav'></source>
-            </audio> */}
+            </audio>
         </div>
     );
 })
