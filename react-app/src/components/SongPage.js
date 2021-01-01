@@ -31,7 +31,7 @@ const SongPage = () => {
         <div className="songPageContainer">
             <h2>{playingSong.title}</h2>
             <h3>{songUser.username}</h3>
-            <img src={playingSong.image_url}></img>
+            <img id="coverArt" src={playingSong.image_url}></img>
             <SongPlayer playingSong={playingSong}/>
         </div>
     )
