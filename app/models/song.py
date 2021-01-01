@@ -1,5 +1,5 @@
 from .db import db
-from ..models.user import likes
+from ..models.user import likes, User
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import relationship
 
@@ -15,12 +15,12 @@ class Song(db.Model):
     users = db.relationship("User", secondary=likes, back_populates="songs")
 
     def to_dict(self):
-      return {
-        "id": self.id,
-        "title": self.title,
-        "description": self.description,
-        "image_url": self.image_url,
-        "song_url": self.song_url,
-        "user": self.user_id,
-        # "users": [user.to_dict() for user in self.users],
-      }
+        return {
+          "id": self.id,
+          "title": self.title,
+          "description": self.description,
+          "image_url": self.image_url,
+          "song_url": self.song_url,
+          "user": self.user_id,
+          "likesCount": len(self.users)
+        }
