@@ -8,7 +8,7 @@ const Songs = ({searchSongs}) => {
 	const [songResults, setSongResults] = useState([]);
 	const [currentSong, setCurrentSong] = useState(null);
 	const [isLoading, setIsLoading] = useState(true);
-	const [player, setPlayer] = useState(null);
+	const [playPromise, setPlayPromise] = useState(null);
 	const sp = useRef(null);
 
 	useEffect(() => {
@@ -28,14 +28,16 @@ const Songs = ({searchSongs}) => {
 		setIsLoading(false);
 	}, [songs, searchSongs]);
 
-	const handleClick = (song) => {
+	const handleClick = async (song) => {
 		setCurrentSong(song);
 		if (sp.current) {
+			if (playPromise) {
+				await playPromise
+			}
 			sp.current.pause();
 			sp.current.load();
-			sp.current.play();
-		}
-		// setPlayer(<SongPlayer playingSong={currentSong} />)
+			setPlayPromise(sp.current.play());
+		};
 	}
 
 	if (!songs) {
@@ -59,7 +61,6 @@ const Songs = ({searchSongs}) => {
 
 	return (
 		<>
-			{/* { currentSong ? (<h1>{currentSong.title}</h1>) : null} */}
 			<ul className="previews">{songComponents}</ul>
 			{ currentSong ? (
 				// player
