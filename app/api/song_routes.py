@@ -3,6 +3,7 @@ from flask_login import login_required, current_user
 from app.models import db, Song, User
 from app.s3 import upload_file
 from app.forms.song_form import SongForm
+from app.forms.edit_song_form import EditSongForm
 
 
 song_routes = Blueprint('songs', __name__)

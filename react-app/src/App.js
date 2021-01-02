@@ -13,6 +13,7 @@ import SearchInput from "./components/SearchInput";
 import SearchResults from "./components/SearchResults";
 import Profile from "./components/Profile";
 import SongPage from "./components/SongPage";
+import EditSongForm from "./components/EditSongForm";
 
 function App() {
 	const [authenticated, setAuthenticated] = useState(false);
@@ -33,7 +34,6 @@ function App() {
 	}
 
 	return (
-
     <BrowserRouter>
       <NavBar setAuthenticated={setAuthenticated} />
       <SearchInput />
@@ -56,11 +56,14 @@ function App() {
         <Profile />
       </Route>
       <Route path="/search/:searchValue">
-		<SearchResults />
-	  </Route>
-	  <Route path="/songs/:songId">
-		<SongPage/>
-	  </Route>
+        <SearchResults />
+      </Route>
+      <Route path="/songs/:songId">
+        <SongPage />
+      </Route>
+      <Route path="/songs/:songId/edit">
+        <EditSongForm />
+      </Route>
       <ProtectedRoute path="/users" exact={true} authenticated={authenticated}>
         <UsersList />
       </ProtectedRoute>
