@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
-import { NavLink, useParams } from "react-router-dom";
 import SongPlayer from "../components/SongPlayer";
+import SongPreview from "../components/SongPreview";
 import "../styles/Songs.css";
 
 const Songs = ({searchSongs}) => {
@@ -45,15 +45,9 @@ const Songs = ({searchSongs}) => {
 	}
 
 	const songComponents = songResults.map((song) => {
+
 		return (
-			<li key={song.id}>
-				<img className='previewImg' src={song.image_url}></img>
-				<NavLink to={`/songs/${song.id}`}>
-					{song.songImage}
-					{song.title}
-				</NavLink>
-				<i className='playBtn' onClick={(e) => handleClick(song)} className="fas fa-play-circle"></i>
-			</li>
+			<SongPreview handleClick={handleClick} song={song}/>
 		)
 	});
 
@@ -63,7 +57,6 @@ const Songs = ({searchSongs}) => {
 		<>
 			<ul className="previews">{songComponents}</ul>
 			{ currentSong ? (
-				// player
 				<SongPlayer passedRef={sp} playingSong={currentSong} />
 			): null}
 		</>

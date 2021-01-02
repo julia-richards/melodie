@@ -4,7 +4,6 @@ import React from "react";
 const SongPlayer = ((props) => {
     const { playingSong, passedRef } = props
 
-    // console.log(playingSong.song_url)
     if (!playingSong) return null
 
     return (
