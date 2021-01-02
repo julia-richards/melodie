@@ -1,18 +1,16 @@
 import React from "react";
-import {
-  PlayButton,
-  Progress,
-  Icons, VolumeControl,
-} from "react-soundplayer/components";
-import { withSoundCloudAudio } from 'react-soundplayer/addons';
 
-const SongPlayer = withSoundCloudAudio((props) => {
-    const { playingSong } = props
+
+const SongPlayer = ((props) => {
+    const { playingSong, passedRef } = props
+
+    // console.log(playingSong.song_url)
+    if (!playingSong) return null
 
     return (
         <div>
-            {/* <h2>{playingSong.title}</h2> */}
-            <audio controls>
+            <h3>Now playing: {playingSong.title}</h3>
+            <audio controls ref={passedRef}>
                 <source src={playingSong.song_url} type='audio/wav'></source>
             </audio>
         </div>

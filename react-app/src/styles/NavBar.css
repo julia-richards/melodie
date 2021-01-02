@@ -31,3 +31,7 @@
 .links:hover {
     color: #9198e5;
 }
+
+.active {
+    color: #9198e5;
+}

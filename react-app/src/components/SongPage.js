@@ -29,14 +29,20 @@ const SongPage = () => {
     }
 
     return (
-			<div className="songPageContainer">
-				<h2>{playingSong.title}</h2>
-				<h3>{songUser.username}</h3>
-				<img id='coverArt' src={playingSong.image_url}></img>
-				<SongPlayer playingSong={playingSong} />
-				<Likes count={playingSong.likesCount} likedByUser={playingSong.likedByUser} />
-			</div>
-		);
+        <>
+            <div className="songPageContainer">
+                <div className="list">
+                    <h2>{playingSong.title}</h2>
+                    <h3>{songUser.username}</h3>
+                    <img id='coverArt' src={playingSong.image_url}></img>
+                    <Likes count={playingSong.likesCount} likedByUser={playingSong.likedByUser} />
+                </div>
+                <div className="songholder">
+                    <SongPlayer playingSong={playingSong} />
+                </div>
+            </div>
+		</>
+        );
 }
 
 export default SongPage;

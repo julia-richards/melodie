@@ -11,9 +11,13 @@ def seed_users():
 
     mudfroot = User(username='Mudfroot', email='mudfroot@aa.io', password='password', about="bluegrass from space", image_url='https://melodieapp.s3.amazonaws.com/mudfroot.JPG')
 
+    rallypoint = User(username='Rally Point', email='rallypoint@aa.io', password='password', about='Rally Point is an indie-emo math rock band from Philadelphia, PA formed by non-binary composer, singer, and guitarist Anna Gentile. The band features Alyssa Almeida on cello, Jesse Fogg on bass, and Packie Cronin on drums.', image_url='https://melodieapp.s3.amazonaws.com/rallypoint.jpeg')
+
     pete = User(username='05R25', email='pete@aa.io', password='password', about="05R25", image_url='https://melodieapp.s3.amazonaws.com/pete.jpeg')
 
     petetwo = User(username='Search for the Infinite Light', email='sftil@aa.io', password='password', about='free jazz', image_url='https://melodieapp.s3.amazonaws.com/collinspic.jpeg')
+
+    lucas = User(username='Lucas Snyder', email='lucas@aa.io', password='password', about='I\'m Lucas', image_url='https://melodieapp.s3.amazonaws.com/lucas.jpeg')
 
     janedoe = User(username='Jane Doe', email='janedoe@aa.io', password='password', about="I like listening to music.", image_url='')
 
@@ -28,6 +32,12 @@ def seed_users():
     db.session.add(demo)
     db.session.add(stjohnswort)
     db.session.add(mudfroot)
+    db.session.add(rallypoint)
+    db.session.add(pete)
+    db.session.add(petetwo)
+    db.session.add(lucas)
+    db.session.add(janedoe)
+    db.session.add(jondoe)
 
     db.session.commit()
 

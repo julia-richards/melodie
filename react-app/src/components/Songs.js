@@ -1,18 +1,20 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { NavLink, useParams } from "react-router-dom";
 import SongPlayer from "../components/SongPlayer";
+import "../styles/Songs.css";
 
 const Songs = ({searchSongs}) => {
 	const [songs, setSongs] = useState([]);
 	const [songResults, setSongResults] = useState([]);
 	const [currentSong, setCurrentSong] = useState(null);
 	const [isLoading, setIsLoading] = useState(true);
+	const [player, setPlayer] = useState(null);
+	const sp = useRef(null);
 
 	useEffect(() => {
 		(async () => {
 			const response = await fetch("/api/songs/");
 			const songs = await response.json();
-			// console.log('thiiisiisissiisis',songs)
 			setSongs(songs.songs);
 		})()
 	}, []);
@@ -26,6 +28,16 @@ const Songs = ({searchSongs}) => {
 		setIsLoading(false);
 	}, [songs, searchSongs]);
 
+	const handleClick = (song) => {
+		setCurrentSong(song);
+		if (sp.current) {
+			sp.current.pause();
+			sp.current.load();
+			sp.current.play();
+		}
+		// setPlayer(<SongPlayer playingSong={currentSong} />)
+	}
+
 	if (!songs) {
 		return "No songs found";
 	}
@@ -33,11 +45,12 @@ const Songs = ({searchSongs}) => {
 	const songComponents = songResults.map((song) => {
 		return (
 			<li key={song.id}>
+				<img className='previewImg' src={song.image_url}></img>
 				<NavLink to={`/songs/${song.id}`}>
 					{song.songImage}
 					{song.title}
 				</NavLink>
-				<button onClick={() => setCurrentSong(song)}>Play Button</button>
+				<i className='playBtn' onClick={(e) => handleClick(song)} className="fas fa-play-circle"></i>
 			</li>
 		)
 	});
@@ -46,10 +59,11 @@ const Songs = ({searchSongs}) => {
 
 	return (
 		<>
-			{/* <h1>Song List: </h1> */}
-			<ul>{songComponents}</ul>
+			{/* { currentSong ? (<h1>{currentSong.title}</h1>) : null} */}
+			<ul className="previews">{songComponents}</ul>
 			{ currentSong ? (
-				<SongPlayer playingSong={currentSong} />
+				// player
+				<SongPlayer passedRef={sp} playingSong={currentSong} />
 			): null}
 		</>
 	);

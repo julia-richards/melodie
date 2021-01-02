@@ -72,7 +72,7 @@ function App() {
         <User />
       </ProtectedRoute>
       <ProtectedRoute path="/" exact={true} authenticated={authenticated}>
-        <h1>My Home Page</h1>
+        <h1>Featured</h1>
         <Songs />
       </ProtectedRoute>
     </BrowserRouter>
