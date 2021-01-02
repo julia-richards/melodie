@@ -11,7 +11,9 @@ def seed_users():
 
     mudfroot = User(username='Mudfroot', email='mudfroot@aa.io', password='password', about="bluegrass from space", image_url='https://melodieapp.s3.amazonaws.com/mudfroot.JPG')
 
-    pete = User(username='05R25' email='pete@aa.io', password='password', about="", image_url='https://melodieapp.s3.amazonaws.com/pete.jpeg')
+    pete = User(username='05R25', email='pete@aa.io', password='password', about="05R25", image_url='https://melodieapp.s3.amazonaws.com/pete.jpeg')
+
+    petetwo = User(username='Search for the Infinite Light', email='sftil@aa.io', password='password', about='free jazz', image_url='https://melodieapp.s3.amazonaws.com/collinspic.jpeg')
 
     janedoe = User(username='Jane Doe', email='janedoe@aa.io', password='password', about="I like listening to music.", image_url='')
 
@@ -24,7 +26,8 @@ def seed_users():
 
 
     db.session.add(demo)
-    db.session.add(Prince)
+    db.session.add(stjohnswort)
+    db.session.add(mudfroot)
 
     db.session.commit()
 
