@@ -26,9 +26,13 @@ export const uploadSong = async (title, description, imageUrl, songUrl) => {
     throw error;
   }
 };
+export const getSongById = async (id) => {
+  const response = await fetch(`/api/songs/${id}`);
+  return await response.json();
+};
 
-export const editSong = async (title, description, imageUrl, songUrl) => {
-  const response = await fetch("/api/songs/${id}/edit`", {
+export const editSong = async (id, title, description, imageUrl, songUrl) => {
+  const response = await fetch(`/api/songs/edit/${id}`, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
@@ -69,7 +73,4 @@ export const getUserById = async (id) => {
   return await response.json();
 };
 
-export const getSongById = async (id) => {
-  const response = await fetch(`/api/songs/${id}`);
-  return await response.json();
-};
+

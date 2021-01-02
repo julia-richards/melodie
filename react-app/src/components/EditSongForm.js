@@ -19,11 +19,16 @@ const EditSongForm = () =>{
 
   const [error, setError] = useState(null);
 
+  const { songId } = useParams()
+  console.log(songId)
+
+
+
   const EditSong = async (e) => {
     e.preventDefault();
     try {
-      const song = await editSong(title, description, imageUrl, songUrl);
-      setRedirect(`/songs/${song.id}`);
+      const song = await editSong(2, title, description, imageUrl, songUrl);
+      setRedirect(`/songs/edit/${song.id}`);
     } catch (submissionError) {
       setError(submissionError);
     }

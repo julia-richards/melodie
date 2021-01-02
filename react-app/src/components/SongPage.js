@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, NavLink } from "react-router-dom";
 import SongPlayer from "./SongPlayer";
 import { getUserById, getSongById } from "../services/song";
 
@@ -27,13 +27,14 @@ const SongPage = () => {
     }
 
     return (
-        <div>
-            <h2>{playingSong.title}</h2>
-            <h3>{songUser.username}</h3>
-            <img src={playingSong.image_url}></img>
-            <SongPlayer playingSong={playingSong}/>
-        </div>
-    )
+      <div>
+        <h2>{playingSong.title}</h2>
+        <h3>{songUser.username}</h3>
+        <img src={playingSong.image_url}></img>
+        <SongPlayer playingSong={playingSong} />
+        <NavLink to={`/songs/edit/${songId}`}>Edit Song</NavLink>
+      </div>
+    );
 }
 
 export default SongPage;
