@@ -8,10 +8,12 @@ const SongPlayer = ((props) => {
 
     return (
         <div>
-            <h3>Now playing: {playingSong.title}</h3>
-            <audio controls ref={passedRef}>
-                <source src={playingSong.song_url} type='audio/wav'></source>
-            </audio>
+            <h3 className='links'>Now playing: {playingSong.title}</h3>
+            <div className='playerContainer'>
+                <audio controls ref={passedRef}>
+                    <source src={playingSong.song_url} type='audio/wav'></source>
+                </audio>
+            </div>
         </div>
     );
 })

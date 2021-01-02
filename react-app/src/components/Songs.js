@@ -45,9 +45,8 @@ const Songs = ({searchSongs}) => {
 	}
 
 	const songComponents = songResults.map((song) => {
-
 		return (
-			<SongPreview handleClick={handleClick} song={song}/>
+			<SongPreview key={song.id} handleClick={handleClick} song={song}/>
 		)
 	});
 

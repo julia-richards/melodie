@@ -1,6 +1,17 @@
 .previews {
     list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin: auto;
+    flex-wrap: wrap;
+}
 
+.previewContainer {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto
 }
 
 .imgContainer {
@@ -33,3 +44,11 @@
     opacity: 0;
 }
 
+.currentSongH {
+    font-family: "Helvetica Neue",;
+}
+
+.playerContainer {
+    margin: auto;
+    width: 300px;
+}
