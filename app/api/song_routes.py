@@ -56,7 +56,7 @@ def update_song(id):
         return {'errors': form.errors}, 422
     return {'errors': 'Only the artist can delete this song'}, 401
 
-@song_routes.route('/<int:id>/edit', methods=['PATCH'])
+@song_routes.route('/edit/<int:id>', methods=['PATCH'])
 # @login_required
 def edit_song(id):
     form = SongForm()
