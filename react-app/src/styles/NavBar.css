@@ -1,0 +1,11 @@
+.navbar {
+    height: 100px;
+    background-color: black;
+    font: inherit;
+    width: 100%;
+}
+
+.links {
+    display: flex;
+    flex-direction: row;
+}

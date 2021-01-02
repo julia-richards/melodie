@@ -1,0 +1,9 @@
+.songPageContainer {
+    width: 300px;
+    margin: auto;
+    padding-bottom: 50px;
+}
+
+#coverArt {
+    width: 300px
+}

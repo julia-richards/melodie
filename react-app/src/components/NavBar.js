@@ -1,11 +1,12 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import LogoutButton from "./auth/LogoutButton";
+import "../styles/NavBar.css"
 
 const NavBar = ({ setAuthenticated }) => {
 	return (
-		<nav>
-			<ul>
+		<nav className="navbar">
+			<ul className="links">
 				<li>
 					<NavLink to="/" exact={true} activeClassName="active">
 						Home
