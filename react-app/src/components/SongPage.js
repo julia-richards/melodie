@@ -31,13 +31,14 @@ const SongPage = () => {
     return (
         <>
             <div className="songPageContainer">
-                <div className="list">
-                    <h2>{playingSong.title}</h2>
+                <div className="description">
                     <h3>{songUser.username}</h3>
-                    <img id='coverArt' src={playingSong.image_url}></img>
+                    <h2>{playingSong.title}</h2>
+                    <p>{playingSong.description}</p>
                     <Likes count={playingSong.likesCount} likedByUser={playingSong.likedByUser} />
                 </div>
                 <div className="songholder">
+                    <img id='coverArt' src={playingSong.image_url}></img>
                     <SongPlayer playingSong={playingSong} />
                 </div>
             </div>
