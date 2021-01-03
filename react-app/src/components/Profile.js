@@ -1,16 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { NavLink, Link, useParams } from "react-router-dom";
-import {
-  getUserLikedSongs,
-  getUsersSongs,
-  getAllSongs,
-} from "../../src/services/profile";
+import { NavLink, useParams } from "react-router-dom";
+import { getUserLikedSongs, getUsersSongs, getAllSongs } from "../../src/services/profile";
 import Songs from "./Songs";
 
 const Profile = () => {
   const [profile, setProfile] = useState(null);
+  const [likedSongs, setLikedSongs] = useState(null);
   const [usersSongs, setUsersSongs] = useState(null);
-  const [allSongs, setAllSongs] = useState(null);
   const { profileId } = useParams();
 
   useEffect(() => {
@@ -20,45 +16,31 @@ const Profile = () => {
       const res2 = await getAllSongs(profileId);
 
       setProfile(res);
-      setUsersSongs(res1)
-      setAllSongs(res2);
+      setLikedSongs(res1)
+      setUsersSongs(res2);
       console.log(res2.songs)
     })();
   }, []);
+
+  if (!profile || !likedSongs || !usersSongs) return null;
+
   return (
     <>
-      {profile && <h1>{profile.username}</h1>}
-      {profile && (
-        <h2>
-          About {profile.username}: {profile.about}
-        </h2>
-      )}
-      {profile && <h3>MySongs</h3>}
+      <div className="songPageContainer">
+      <h1>{profile.username}</h1>
+      <h2>About: {profile.about}</h2>
       <div>
-        {profile &&
-          profile.songs.map((song, id) => <Songs song={song} key={song.id} />)}
-        <div>
-          {usersSongs && <h3>My Liked Songs</h3>}
           <div>
-            {usersSongs &&
-              usersSongs.songs.map((song, id) => (
-                <Songs song={song} key={song.id} />
-              ))}
-          </div>
-          <div>
-            {allSongs && <h3>Song List</h3>}
+            <h3>User's Uploads</h3>
             <div>
-              {allSongs &&
-                allSongs.songs.map((song, id) => (
-                  <Songs song={song} key={song.id} />
-                ))}
+              <Songs usersSongs={usersSongs}/>
             </div>
+          <h3>My Liked Songs</h3>
+          <div>
+            <Songs likedSongs={likedSongs} />
           </div>
-
-          <NavLink to="/songs/upload">Upload Song</NavLink>
         </div>
-        <div>
-          <NavLink to="/songs/upload">Edit Profile</NavLink>
+          <NavLink to="/songs/upload">Upload Song</NavLink>
         </div>
       </div>
     </>
