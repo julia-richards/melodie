@@ -9,7 +9,6 @@ import UsersList from "./components/UsersList";
 import User from "./components/User";
 import { authenticate } from "./services/auth";
 import SongForm from "./components/SongForm";
-import SearchInput from "./components/SearchInput";
 import SearchResults from "./components/SearchResults";
 import Profile from "./components/Profile";
 import SongPage from "./components/SongPage";

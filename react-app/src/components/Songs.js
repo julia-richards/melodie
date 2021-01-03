@@ -9,6 +9,7 @@ const Songs = ({searchSongs}) => {
 	const [currentSong, setCurrentSong] = useState(null);
 	const [isLoading, setIsLoading] = useState(true);
 	const [playPromise, setPlayPromise] = useState(null);
+	const [startingIndex, setStartingIndex] = useState(0);
 	const sp = useRef(null);
 
 	useEffect(() => {
@@ -21,9 +22,10 @@ const Songs = ({searchSongs}) => {
 
 	useEffect(() => {
 		if (searchSongs) {
-			setSongResults(searchSongs)
+			setSongResults(searchSongs.slice(0, 5))
+			console.log(searchSongs)
 		} else {
-			setSongResults(songs)
+			setSongResults(songs.slice(0, 5))
 		};
 		setIsLoading(false);
 	}, [songs, searchSongs]);
@@ -40,6 +42,19 @@ const Songs = ({searchSongs}) => {
 		};
 	}
 
+	const nextClick = (e) => {
+		setStartingIndex((startingIndex + 5) % songs.length)
+		if ((startingIndex + 5) >= songs.length) {
+			const displaySongs = songs.slice(startingIndex)
+			let pointer = 0;
+			while (displaySongs.length < 5) {
+				displaySongs.push(songs[pointer++]);
+			}
+			return setSongResults(displaySongs);
+		}
+		setSongResults(songs.slice(startingIndex, startingIndex + 5))
+	}
+
 	if (!songs) {
 		return "No songs found";
 	}
@@ -53,12 +68,20 @@ const Songs = ({searchSongs}) => {
 	if (isLoading) return null;
 
 	return (
-		<>
-			<ul className="previews">{songComponents}</ul>
+		<div className='feedContainer'>
+			<div className="feed">
+				<span className="feedBtn">
+					<i className="fas fa-angle-double-left fa-5x"></i>
+				</span>
+				<ul className="previews">{songComponents}</ul>
+				<span onClick={nextClick} className="feedBtn">
+					<i className="fas fa-angle-double-right fa-5x"></i>
+				</span>
+			</div>
 			{ currentSong ? (
 				<SongPlayer passedRef={sp} playingSong={currentSong} />
 			): null}
-		</>
+		</div>
 	);
 };
 

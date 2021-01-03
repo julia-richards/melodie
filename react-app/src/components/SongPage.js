@@ -11,6 +11,7 @@ const SongPage = () => {
     const [songUser, setSongUser] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
 
+
     useEffect(() => {
         (async () => {
             const songRes = await getSongById(songId);
@@ -22,11 +23,8 @@ const SongPage = () => {
         .then(setIsLoading(false));
     }, [songId])
 
+    if (songId === "upload") return null;
     if (isLoading || !playingSong || !songUser) return null;
-
-    if (songUser) {
-        console.log(songUser)
-    }
 
     return (
         <>
@@ -38,7 +36,7 @@ const SongPage = () => {
                     <Likes count={playingSong.likesCount} likedByUser={playingSong.likedByUser} />
                 </div>
                 <div className="songholder">
-                    <img id='coverArt' src={playingSong.image_url}></img>
+                    <img alt="cover" id='coverArt' src={playingSong.image_url}></img>
                     <SongPlayer playingSong={playingSong} />
                 </div>
             </div>
