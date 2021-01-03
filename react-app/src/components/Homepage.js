@@ -2,9 +2,13 @@ import React from 'react'
 import styled from 'styled-components'
 import Element from './Element'
 import ParticlesComponent from './ParticlesComponent'
+import { NavLink, Redirect } from 'react-router-dom';
 
 
-const HomePage = () => {
+const HomePage = ({authenticated}) => {
+    if (authenticated) {
+		return <Redirect to='/' />;
+	}
     return (
         <div>
         <ParticlesComponent />
