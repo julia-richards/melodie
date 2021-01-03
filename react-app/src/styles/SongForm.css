@@ -53,9 +53,13 @@
 	justify-content: center;
 
 }
-.drop{
+.drop {
 	width: 100%;
-  height:150px;
+	min-height: 150px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 	padding:15px;
 	text-align: center;
 	box-sizing: border-box;
@@ -64,10 +68,14 @@
   border-color:#2c003a;
   border-width:2px;
   background-color:var(--input-background);
-  color:#462a51;
+	color:#462a51;
 }
-.drop i{
+
+.drop i {
 	font-size: 3rem;
+}
+.drop p {
+	margin-bottom: 0;
 }
 
 .song-form__title input[type="text"], .song-form__description textarea{
