@@ -35,16 +35,74 @@ Heavily inspired by SoundCloud, users can browse a home feed, search for songs, 
   Features
 </h1>
 
-## User Authenication
+### User Authenication
 
 Users can securely create an account using our login and logout feature. melodie uses hash passwords so that no plain text passwords are ever stored in the database. melodie also uses various middleware functions when processing request and responses so that we know a user is who they say they are. Certain routes also require user authenication for pages to be accessed. [Please check it out](https://github.com/julia-richards/melodie/blob/main/app/api/auth_routes.py)
 
 melodie's signup and login forms have input validations to enforce clean data submission and protect the integrity of the data submitted.
 
-## Song Feed
- 
- melodie entire purpose is to allow users to share their songs. Each song has a title, description and a cover image attached to it.
- Users are able to add/remove and like these songs. [CHECK IT OUT](https://github.com/julia-richards/melodie/blob/main/app/api/song_routes.py)
+### Song API
+### User API
+### Like API
+### Search API
 
-## Database Schema
+### Database Schema
 ![IMG_1019](https://user-images.githubusercontent.com/69014609/103426682-3531f000-4b89-11eb-9ef4-f9a1743b70b5.PNG)
+
+
+## Pages
+### Splash Page
+### Login (Demo)
+### Signup
+
+### Song Feed
+
+Feed of new songs and artists.
+ 
+### Audio Player
+
+When you click on a song you can play it using the custom audio player.
+
+### Upload Song
+
+This is the form to create a new song   
+
+### Edit Song
+
+This is where you're taken after the song is uploaded or you manually select to edit a song
+
+### Search
+
+## Usage
+### Development
+
+Want to contribute?
+
+To fix a bug or add a feature, follow these steps:
+
+-   Fork the repository
+-   Create a new branch with `git checkout -b feature-branch-name`
+-   Make appropriate changes to the files and push back to github
+-   Create a Pull Request
+    -   Use a clear and descriptive title for the issue to identify the suggestion.
+    -   Include any relevant issue numbers in the PR body, not the title.
+    -   Provide a comprehensive description of all changes made.
+
+#### Setting Up and Starting a Local Server
+
+1. Download code and pipenv install --dev -r dev-requirements.txt && pipenv install -r requirements.txt. 
+2. cd /melodie/react-app and `npm install` to install all node dependencies
+3. Create a **.env** file based on the example with proper settings for your development environment and setup your PostgreSQL user, password and database and make sure it matches your **.env** file
+    - Duplicate the `.env.example` for the `.env` file.
+    - Update the following variables:
+        - `FLASK_APP` to app
+        - `FLASK_ENV` to dev
+        - `SECRET_KEY` 
+        - `DATABASE_URL` 
+3. Get into your pipenv, migrate your database, seed your database, and run your flask app
+    - Run `pipenv shell`
+    - Run `flask db upgrade`
+    - Run `flask seed all`
+    - Run `flask run`
+4. Start server by running `npm start` in the root project directory
+5. The server will start on `http://localhost:3000`
