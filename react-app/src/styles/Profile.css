@@ -34,7 +34,12 @@
 }
 
 .profileLinks {
+    color: white;
     display: flex;
     flex-direction: row;
-    align-content: flex-end;
+    justify-content: space-between;
+}
+
+#uploadHeading {
+    color: white;
 }

@@ -17,12 +17,10 @@ const Profile = () => {
     (async () => {
       const userRes = await getUserById(id);
       const allSongsRes = await getAllSongs();
-      // const usersSongsRes = await getUsersSongs(userId);
       // const likedSongsRes = await getUserLikedSongs(userId);
       console.log(`allSongsRes: ${allSongsRes.songs}`)
       setUser(userRes);
       setAllSongs(allSongsRes.songs);
-      // setUsersSongs(usersSongsRes);
 
       // setLikedSongs(likedSongsRes);
     })();
@@ -52,7 +50,7 @@ const Profile = () => {
           <div className="userDescription">
             <div className="profileLinks">
               <h1>{user.username}</h1>
-              <h3 className="links" >Uploads ({usersSongs.length})</h3>
+              <h3 id="uploadHeading">Uploads ({usersSongs.length})</h3>
             </div>
             <h3>{user.about}</h3>
           </div>
