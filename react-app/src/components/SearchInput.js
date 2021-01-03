@@ -13,7 +13,7 @@ const SearchInput = (props) => {
     return (
         <form className="searchForm" onSubmit={handleSearch}>
             <input id="searchInput" type="search" value={value} onChange={(e) => setValue(e.target.value)} placeholder="Search for a melodie..."></input>
-            <button id="searchBtn" type="submit">Search</button>
+            <button className="navBtn" type="submit">Search</button>
         </form>
     );
 }
