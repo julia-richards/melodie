@@ -19,6 +19,10 @@ def seed_users():
 
     lucas = User(username='Lucas Snyder', email='lucas@aa.io', password='password', about='I\'m Lucas', image_url='https://melodieapp.s3.amazonaws.com/lucas.jpeg')
 
+    andrew = User(username='Andrew Noseworthy', email='andrew@aa.io', password='password', about='Composer. Guitarist. Arranger.', image_url='https://melodieapp.s3.amazonaws.com/andrew.jpeg')
+
+    tpiatw = User(username='this place is actually the worst', email='tpiatw@aa.io', password='password', about='Virtual electronic hardcore duo', image_url='https://melodieapp.s3.amazonaws.com/TPIATW.jpeg')
+
     janedoe = User(username='Jane Doe', email='janedoe@aa.io', password='password', about="I like listening to music.", image_url='')
 
     jondoe = User(username='Jon Doe', email='jondoe@aa.io', password='password', about="I like listening to music.", image_url='')
