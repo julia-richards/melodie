@@ -41,17 +41,15 @@ const Profile = () => {
           {usersSongs && <h3>My Liked Songs</h3>}
           <div>
             {usersSongs &&
-              usersSongs.songs.map((song, id) => (
-                <Songs song={song} key={song.id} />
-              ))}
+                <Songs usersSongs={usersSongs} />
+            }
           </div>
           <div>
             {allSongs && <h3>Song List</h3>}
             <div>
               {allSongs &&
-                allSongs.songs.map((song, id) => (
-                  <Songs song={song} key={song.id} />
-                ))}
+                  <Songs allSongs={allSongs} />
+              }
             </div>
           </div>
 
