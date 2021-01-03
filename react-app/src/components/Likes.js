@@ -20,7 +20,7 @@ const Likes = (props) => {
 	};
 
 	return (
-    <div>Likes:{likes}
+    <div>
       <button className="like-button" onClick={toggleLike}>
         {likedByUser ? (
           <i
@@ -33,7 +33,9 @@ const Likes = (props) => {
             style={{ color: "#33c3f0", fontSize: "1rem" }}
           ></i>
         )}
+        {likes}
       </button>
+
     </div>
 	);
 };
