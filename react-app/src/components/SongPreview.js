@@ -19,7 +19,7 @@ const SongPreview = (props) => {
     return (
         <li className='previewContainer' key={song.id}>
             <div onMouseOver={handleHoverOver} onMouseLeave={handleHoverLeave} className="imgContainer">
-                <img ref={imgPreview} className='previewImg' src={song.image_url}></img>
+                <img alt="songPrev" ref={imgPreview} className='previewImg' src={song.image_url}></img>
                 <span ref={button} className='btn'>
                     <i onClick={(e) => handleClick(song)} className="fas fa-play-circle fa-5x"></i>
                 </span>
