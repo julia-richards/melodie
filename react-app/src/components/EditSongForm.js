@@ -1,7 +1,7 @@
 import React, { useState, useCallback, useRef, useEffect } from "react";
 import { Redirect, useHistory, useParams } from "react-router-dom";
 import { useDropzone } from "react-dropzone";
-import { editSong, uploadFile } from "../services/song";
+import { editSong, uploadFile, editFile } from "../services/song";
 import "../styles/SongForm.css";
 
 const validationErrorCode = 422;
@@ -51,7 +51,7 @@ const updateTitle = (e) => {
     async (acceptedFiles) => {
       setIsImageUploading(true);
       const imageFile = acceptedFiles[0]; // only 1 accepted
-      const res = await uploadFile(imageFile);
+      const res = await editFile(imageFile);
       setImageUrl(res.url);
       setIsImageUploading(false);
     },
@@ -67,7 +67,7 @@ const updateTitle = (e) => {
     async (acceptedFiles) => {
       setIsSongUploading(true);
       const songFile = acceptedFiles[0]; // only 1 accepted
-      const res = await uploadFile(songFile);
+      const res = await editFile(songFile);
       setSongUrl(res.url);
       setIsSongUploading(false);
     },

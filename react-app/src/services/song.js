@@ -56,6 +56,18 @@ export const editSong = async (id, title, description, imageUrl, songUrl) => {
   }
 };
 
+export const editFile = async (songFile) => {
+  const formData = new FormData();
+  const uniqKey = uuidv4();
+  formData.append("file", songFile, `${uniqKey}-${songFile.name}`);
+
+  const response = await fetch(`/api/songs/upload`, {
+    method: "PATCH",
+    body: formData,
+  });
+  return await response.json();
+};
+
 export const uploadFile = async (songFile) => {
   const formData = new FormData();
   const uniqKey = uuidv4();

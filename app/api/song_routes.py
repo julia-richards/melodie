@@ -75,18 +75,23 @@ def edit_song(id):
         if form.data['description']:
             song.description = data['description']
         if form.data['image_url']:
-            song.about = data['image_url']
+            song.image_url = data['image_url']
         if form.data['song_url']:
-            song.image_url = data['song_url']
+            song.song_url = data['song_url']
         db.session.commit()
         return song.to_dict()
         # return {'errors': 'Only the artist can edit this song'}, 401
     return {'errors': form.errors}, 422
         
-@song_routes.route("/upload", methods=['POST'])
+@song_routes.route("/upload", methods=['POST', 'PATCH'])
 @login_required
 def upload():
     if request.method == "POST":
+        file = request.files.get('file')
+        url = upload_file(file)
+
+        return {'url': url}
+    if request.method == "PATCH":
         file = request.files.get('file')
         url = upload_file(file)
 
