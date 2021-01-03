@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams, NavLink } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import SongPlayer from "./SongPlayer";
 import { getUserById, getSongById } from "../services/song";
 
@@ -31,7 +31,7 @@ const SongPage = () => {
         <h3>{songUser.username}</h3>
         <img src={playingSong.image_url}></img>
         <SongPlayer playingSong={playingSong} />
-        <NavLink to={`/songs/edit/${songId}`}>Edit Song</NavLink>
+        <Link to={`/songs/edit/${songId}`}>Edit Song</Link>
       </div>
     );
 }

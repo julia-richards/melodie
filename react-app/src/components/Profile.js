@@ -19,8 +19,8 @@ const Profile = () => {
       const res1 = await getUserLikedSongs(profileId);
       const res2 = await getAllSongs(profileId);
 
-      setProfile(res);
-      setUsersSongs(res1)
+      setProfile(res1);
+      setUsersSongs(res)
       setAllSongs(res2);
     })();
   }, []);
@@ -45,20 +45,16 @@ const Profile = () => {
               ))}
           </div>
           <div>
-            {allSongs && <h3>Song List</h3>}
-            <div>
-              {allSongs &&
-                allSongs.songs.map((song, id) => (
-                  <Songs song={song} key={song.id} />
-                ))}
-            </div>
+            <h3>All Songs</h3>
+            {/* {allSongs && <h3>Song List</h3>}
+            <div> */}
+            {allSongs &&
+              allSongs.songs.map((song, id) => (
+                <Songs song={song} key={song.id} />
+              ))}
           </div>
-
-          <NavLink to="/songs/upload">Upload Song</NavLink>
         </div>
-        <div>
-          <NavLink to="/songs/upload">Edit Profile</NavLink>
-        </div>
+        {/* </div> */}
       </div>
     </>
   );

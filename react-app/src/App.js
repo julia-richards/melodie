@@ -58,10 +58,10 @@ function App() {
       <Route path="/search/:searchValue">
         <SearchResults />
       </Route>
-      <Route path="/songs/:songId">
+      <Route path="/songs/:songId" exact={true}>
         <SongPage />
       </Route>
-      <Route path="/songs/edit/:songId">
+      <Route path="/songs/edit/:songId" exact={true}>
         <EditSongForm />
       </Route>
       <ProtectedRoute path="/users" exact={true} authenticated={authenticated}>
