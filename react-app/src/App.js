@@ -72,8 +72,10 @@ function App() {
         <User />
       </ProtectedRoute>
       <ProtectedRoute path="/" exact={true} authenticated={authenticated}>
-        <h1>Featured</h1>
-        <Songs />
+        <div className="pageContainer">
+          <h1 className="heading">Featured</h1>
+          <Songs />
+        </div>
       </ProtectedRoute>
       <Footer />
     </BrowserRouter>
