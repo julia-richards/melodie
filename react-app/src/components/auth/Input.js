@@ -44,8 +44,8 @@ const Container = styled.div`
 `;
 
 const Status = styled.div`
-  height: 2px;
-  width: 2px;
+  height: 5px;
+  width: 5px;
   background: #9d9d9d;
   border-radius: 10px;
   margin-left: 1rem;
