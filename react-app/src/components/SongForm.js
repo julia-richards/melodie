@@ -74,98 +74,103 @@ const SongForm = () => {
   }
 
   return (
-    <div className="song_form-outer">
-      <div className="song-form_container">
-        <form className="song-form" onSubmit={uploadNewSong}>
-          {!!error && error.status !== validationErrorCode && (
-            <div className="song-form__error">
-              <h4>Oh no! An error occurred</h4>
-              <details>
-                <summary>Error Details</summary>
-                <pre>{JSON.stringify(error, null, 2)}</pre>
-              </details>
-            </div>
-          )}
-          <div>
-            <label>Song Title</label>
-            <input
-              type="text"
-              name="title"
-              onChange={updateTitle}
-              value={title}
-              required
-            ></input>
-            {!!error?.body?.errors?.title && (
-              <p style={{ color: "red" }}>{error.body.errors.title}</p>
-            )}
-          </div>
-          <div>
-            <label>Description</label>
-            <textarea
-              type="text"
-              name="description"
-              onChange={updateDescription}
-              value={description}
-            ></textarea>
-          </div>
-          <div>
-            <label>Song Image</label>
-            <div {...getImageRootProps()}>
-              <input {...getImageInputProps()} />
-              {!!imageUrl ? (
+		<div className="song_form-outer">
+			<div className="song-form_container">
+				<form className="song-form" onSubmit={uploadNewSong}>
+					{!!error && error.status !== validationErrorCode && (
+						<div className="song-form__error">
+							<h4>Oh no! An error occurred</h4>
+							<details>
+								<summary>Error Details</summary>
+								<pre>{JSON.stringify(error, null, 2)}</pre>
+							</details>
+						</div>
+					)}
+					<div>
+						<label>Song Title</label>
+						<input
+							type="text"
+							name="title"
+							onChange={updateTitle}
+							value={title}
+							required
+						></input>
+						{!!error?.body?.errors?.title && (
+							<p style={{ color: "red" }}>{error.body.errors.title}</p>
+						)}
+					</div>
+					<div>
+						<label>Description</label>
+						<textarea
+							type="text"
+							name="description"
+							onChange={updateDescription}
+							value={description}
+						></textarea>
+					</div>
+					<div>
+						{/* <label>Song Image</label> */}
+						<div className="drop" {...getImageRootProps()}>
+							<input {...getImageInputProps()} />
+							{!!imageUrl ? (
+								<>
+									<img
+										src={imageUrl}
+										style={{ maxWidth: 60, height: "auto" }}
+									/>{" "}
+									<button onClick={() => setImageUrl(null)}>
+										Remove Image
+									</button>{" "}
+								</>
+							) : isImageUploading ? (
+								<p>Uploading...</p>
+							) : isImageDragActive ? (
+								<p>Drop the file here ...</p>
+							) : (
                 <>
-                  <img
-                    src={imageUrl}
-                    style={{ maxWidth: 60, height: "auto" }}
-                  />{" "}
-                  <button onClick={() => setImageUrl(null)}>
-                    Remove Image
-                  </button>{" "}
+                <i class="fas fa-image"></i>{" "}
+								<p>Drag 'n' drop image file here, or click to select files</p>
                 </>
-              ) : isImageUploading ? (
-                <p>Uploading...</p>
-              ) : isImageDragActive ? (
-                <p>Drop the file here ...</p>
-              ) : (
-                <p>Drag 'n' drop image file here, or click to select files</p>
-              )}
-            </div>
-          </div>
-          <div>
-            <label>Song Audio</label>
+							)}
+						</div>
+					</div>
+					<div>
+						{/* <label>Song Audio</label> */}
 
-            <div {...getSongRootProps()}>
-              <input {...getSongInputProps()} />
-              {!!songUrl ? (
+						<div className="drop" {...getSongRootProps()}>
+							<input {...getSongInputProps()} />
+							{!!songUrl ? (
+								<>
+									<p>
+										<audio controls>
+											<source src={songUrl} type="audio/wav"></source>
+										</audio>
+									</p>{" "}
+									<button onClick={() => setSongUrl(null)}>Remove Song</button>{" "}
+								</>
+							) : isSongUploading ? (
+								<p>Uploading...</p>
+							) : isSongDragActive ? (
+								<p>Drop the file ...</p>
+							) : (
                 <>
-                  <p>
-                    <audio controls>
-                      <source src={songUrl} type="audio/wav"></source>
-                    </audio>
-                  </p>{" "}
-                  <button onClick={() => setSongUrl(null)}>Remove Song</button>{" "}
-                </>
-              ) : isSongUploading ? (
-                <p>Uploading...</p>
-              ) : isSongDragActive ? (
-                <p>Drop the file ...</p>
-              ) : (
-                <p>Drag 'n' drop song file here, or click to select files</p>
-              )}
-            </div>
-            {!!error?.body?.errors?.song_url && (
-              <p style={{ color: "red" }}>{error.body.errors.song_url}</p>
-            )}
-          </div>
-          <div>
-            <button className="upload_song-button" type="submit">
-              Upload
-            </button>
-          </div>
-        </form>
-      </div>
-    </div>
-  );
+                <i class="fas fa-microphone-alt"></i>{" "}
+								<p>Drag 'n' drop song file here, or click to select files</p></>
+							)}
+						</div>
+						{!!error?.body?.errors?.song_url && (
+							<p style={{ color: "red" }}>{error.body.errors.song_url}</p>
+						)}
+					</div>
+					<div>
+						<button className="upload_song-button" type="submit">
+							Upload
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	);
 };
 
 export default SongForm;
