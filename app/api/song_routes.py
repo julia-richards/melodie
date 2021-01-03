@@ -4,19 +4,12 @@ from app.models import db, Song, User
 from app.s3 import upload_file
 from app.forms.song_form import SongForm
 
-
 song_routes = Blueprint('songs', __name__)
-
-
-
 
 @song_routes.route('/')
 def songs():
     songs = Song.query.all()
     return {"songs": [song.to_dict() for song in songs]}
-
-
-
 
 @song_routes.route('/', methods=["POST"])
 @login_required
@@ -65,8 +58,34 @@ def update_song(id):
         return {'errors': form.errors}, 422
     return {'errors': 'Only the artist can delete this song'}, 401
 
-
-@song_routes.route("/upload", methods=['POST'])
+@song_routes.route('/edit/<int:id>', methods=['PATCH'])
+# @login_required
+def edit_song(id):
+    form = SongForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        if request.files:
+            file = request.files.get('file')
+            url = upload_file(file)
+            return {'url': url}
+        song = Song.query.get(id)
+        # if song.user_id == current_user.id:
+        data = request.json
+        print(data)
+        if form.data['title']:
+            song.title = data['title']
+        if form.data['description']:
+            song.description = data['description']
+        if form.data['image_url']:
+            song.image_url = data['image_url']
+        if form.data['song_url']:
+            song.song_url = data['song_url']
+        db.session.commit()
+        return song.to_dict()
+        # return {'errors': 'Only the artist can edit this song'}, 401
+    return {'errors': form.errors}, 422
+        
+@song_routes.route("/upload", methods=['POST', 'PATCH'])
 @login_required
 def upload():
     if request.method == "POST":
@@ -74,7 +93,11 @@ def upload():
         url = upload_file(file)
 
         return {'url': url}
+    if request.method == "PATCH":
+        file = request.files.get('file')
+        url = upload_file(file)
 
+        return {'url': url}
 
 @song_routes.route('/<int:id>/likes', methods=["POST"])
 @login_required

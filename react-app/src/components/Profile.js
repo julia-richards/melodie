@@ -22,7 +22,6 @@ const Profile = () => {
       setProfile(res);
       setUsersSongs(res1)
       setAllSongs(res2);
-      console.log(res2.songs)
     })();
   }, []);
   return (
@@ -52,12 +51,8 @@ const Profile = () => {
               }
             </div>
           </div>
-
-          <NavLink to="/songs/upload">Upload Song</NavLink>
         </div>
-        <div>
-          <NavLink to="/songs/upload">Edit Profile</NavLink>
-        </div>
+        {/* </div> */}
       </div>
     </>
   );

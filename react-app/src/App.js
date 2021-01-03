@@ -12,6 +12,7 @@ import SongForm from "./components/SongForm";
 import SearchResults from "./components/SearchResults";
 import Profile from "./components/Profile";
 import SongPage from "./components/SongPage";
+import EditSongForm from "./components/EditSongForm";
 import Footer from "./components/Footer";
 
 function App() {
@@ -33,7 +34,6 @@ function App() {
 	}
 
 	return (
-
     <BrowserRouter>
       <NavBar setAuthenticated={setAuthenticated} />
       <Route path="/login" exact={true}>
@@ -55,11 +55,14 @@ function App() {
         <Profile />
       </Route>
       <Route path="/search/:searchValue">
-		<SearchResults />
-	  </Route>
-	  <Route path="/songs/:songId">
-		<SongPage/>
-	  </Route>
+        <SearchResults />
+      </Route>
+      <Route path="/songs/:songId" exact={true}>
+        <SongPage />
+      </Route>
+      <Route path="/edit/songs/:songId" exact={true}>
+        <EditSongForm />
+      </Route>
       <ProtectedRoute path="/users" exact={true} authenticated={authenticated}>
         <UsersList />
       </ProtectedRoute>
