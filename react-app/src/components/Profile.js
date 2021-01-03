@@ -22,7 +22,6 @@ const Profile = () => {
       setProfile(res);
       setUsersSongs(res1)
       setAllSongs(res2);
-      console.log(res2.songs)
     })();
   }, []);
   return (
@@ -48,7 +47,6 @@ const Profile = () => {
           <div>
             {allSongs && <h3>Song List</h3>}
             <div>
-              {console.log(allSongs)}
               {allSongs &&
                 allSongs.songs.map((song, id) => (
                   <Songs song={song} key={song.id} />

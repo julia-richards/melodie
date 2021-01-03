@@ -23,7 +23,6 @@ const SongPage = () => {
     if (isLoading || !playingSong || !songUser) return null;
 
     if (songUser) {
-        console.log(songUser)
     }
 
     return (

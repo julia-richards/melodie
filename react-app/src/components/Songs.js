@@ -12,7 +12,6 @@ const Songs = ({searchSongs}) => {
 		(async () => {
 			const response = await fetch("/api/songs/");
 			const songs = await response.json();
-			// console.log('thiiisiisissiisis',songs)
 			setSongs(songs.songs);
 		})()
 	}, []);
