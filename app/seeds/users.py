@@ -40,6 +40,8 @@ def seed_users():
     db.session.add(pete)
     db.session.add(petetwo)
     db.session.add(lucas)
+    db.session.add(andrew)
+    db.session.add(tpiatw)
     db.session.add(janedoe)
     db.session.add(jondoe)
 
