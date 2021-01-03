@@ -45,3 +45,4 @@ export const signUp = async (username, email, password) => {
   });
   return await response.json();
 }
+
