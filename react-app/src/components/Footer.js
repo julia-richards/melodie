@@ -25,16 +25,16 @@ const Footer = () => {
 }
 
 const Container = styled.div`
-padding: 5px 15px 5px 15px;
-display: flex;
-justify-content: space-between;
-align-items: center;
-flex-wrap: wrap;
-background: black;
-position: absolute;
-left: 0;
-right:0;
-bottom: 0;
+	padding: 5px 15px 5px 15px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+	background: black;
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 0;
 `;
 
 const Link = styled(NavLink)`

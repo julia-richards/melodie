@@ -86,11 +86,11 @@ const SongForm = () => {
 							</details>
 						</div>
 					)}
-					<div>
-						<label>Song Title</label>
+					<div className="song-form__title">
 						<input
 							type="text"
-							name="title"
+              name="title"
+              placeholder="Song Title"
 							onChange={updateTitle}
 							value={title}
 							required
@@ -99,17 +99,16 @@ const SongForm = () => {
 							<p style={{ color: "red" }}>{error.body.errors.title}</p>
 						)}
 					</div>
-					<div>
-						<label>Description</label>
+					<div className="song-form__description">
 						<textarea
 							type="text"
-							name="description"
+              name="description"
+              placeholder="Song Description"
 							onChange={updateDescription}
 							value={description}
 						></textarea>
 					</div>
-					<div>
-						{/* <label>Song Image</label> */}
+					<div className="song-form__image">
 						<div className="drop" {...getImageRootProps()}>
 							<input {...getImageInputProps()} />
 							{!!imageUrl ? (
@@ -135,8 +134,7 @@ const SongForm = () => {
 							)}
 						</div>
 					</div>
-					<div>
-						{/* <label>Song Audio</label> */}
+					<div className="song-form__audio">
 
 						<div className="drop" {...getSongRootProps()}>
 							<input {...getSongInputProps()} />
@@ -163,7 +161,7 @@ const SongForm = () => {
 							<p style={{ color: "red" }}>{error.body.errors.song_url}</p>
 						)}
 					</div>
-					<div>
+					<div className="song-form__submit">
 						<button className="upload_song-button" type="submit">
 							Upload
 						</button>
