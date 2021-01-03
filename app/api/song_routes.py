@@ -16,8 +16,6 @@ def songs():
     return {"songs": [song.to_dict() for song in songs]}
 
 
-
-
 @song_routes.route('/', methods=["POST"])
 @login_required
 def add_song():

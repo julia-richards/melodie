@@ -1,5 +1,9 @@
 export const getAllSongs = async () => {
-  const response = await fetch("/api/songs/");
+  const response = await fetch("/api/songs/", {
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  });
   return await response.json();
 };
 

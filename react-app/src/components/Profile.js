@@ -6,6 +6,7 @@ import { getUserById } from "../services/song";
 import "../styles/Profile.css"
 
 const Profile = () => {
+  const [isLoading, setIsLoading] = useState(true);
   const [user, setUser] = useState(null);
   const [allSongs, setAllSongs] = useState([]);
   const [usersSongs, setUsersSongs] = useState([]);
@@ -18,16 +19,30 @@ const Profile = () => {
       const allSongsRes = await getAllSongs();
       // const usersSongsRes = await getUsersSongs(userId);
       // const likedSongsRes = await getUserLikedSongs(userId);
-
+      console.log(`allSongsRes: ${allSongsRes.songs}`)
       setUser(userRes);
-      setAllSongs(allSongsRes);
+      setAllSongs(allSongsRes.songs);
       // setUsersSongs(usersSongsRes);
 
       // setLikedSongs(likedSongsRes);
     })();
   }, []);
 
-  if (!allSongs || !user) return null;
+  useEffect(() => {
+    let filteredSongs = allSongs.filter((song) => {
+      // console.log(`song: ${JSON.stringify(song)}`)
+      console.log(`song user: ${song.user}`)
+      console.log(`id: ${id}`)
+      return song.user == id
+    });
+    console.log(`filteredSongs: ${JSON.stringify(filteredSongs)}`)
+    setUsersSongs(filteredSongs);
+    setIsLoading(false);
+  }, [allSongs])
+
+  if (isLoading || !allSongs || !user || !usersSongs) return null;
+  console.log(`usersSongs: ${JSON.stringify(usersSongs)}`)
+  console.log(`usersSongs: ${usersSongs}`)
 
   return (
     <>
@@ -35,15 +50,17 @@ const Profile = () => {
         <div className="userContainer">
           <img className="userImg" src={user.image_url}></img>
           <div className="userDescription">
-            <h1>{user.username}</h1>
+            <div className="profileLinks">
+              <h1>{user.username}</h1>
+              <h3 className="links" >Uploads ({usersSongs.length})</h3>
+            </div>
             <h3>{user.about}</h3>
           </div>
         </div>
         <div>
             <div>
-              <h3 >User's Uploads</h3>
               <div>
-                <Songs songResults={allSongs}/>
+                <Songs searchSongs={usersSongs}/>
               </div>
               {/* <h3>My Liked Songs</h3>
               <div>

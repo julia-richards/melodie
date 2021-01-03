@@ -43,6 +43,9 @@ const Songs = ({searchSongs}) => {
 	}
 
 	const nextClick = (e) => {
+		if (searchSongs.length <= 5) {
+			return
+		}
 		setStartingIndex((startingIndex + 5) % songs.length)
 		if ((startingIndex + 5) >= songs.length) {
 			const displaySongs = songs.slice(startingIndex)
@@ -60,6 +63,7 @@ const Songs = ({searchSongs}) => {
 	}
 
 	const songComponents = songResults.map((song) => {
+		console.log(`songsFeed: ${song}`)
 		return (
 			<SongPreview key={song.id} handleClick={handleClick} song={song}/>
 		)
