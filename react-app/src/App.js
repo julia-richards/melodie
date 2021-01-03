@@ -37,7 +37,6 @@ function App() {
 
     <BrowserRouter>
       <NavBar setAuthenticated={setAuthenticated} />
-      <SearchInput />
       <Route path="/login" exact={true}>
         <LoginForm
           authenticated={authenticated}

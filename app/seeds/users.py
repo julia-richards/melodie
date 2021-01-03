@@ -27,7 +27,7 @@ def seed_users():
                 password='password123', about='legendary', image_url='')
 
 
-
+    # demo.likes.append()
 
     db.session.add(demo)
     db.session.add(stjohnswort)
