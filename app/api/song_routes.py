@@ -35,7 +35,9 @@ def add_song():
 def update_song(id):
     song = Song.query.get(id)
     if request.method == 'GET':
-        return song.to_dict()
+        res = song.to_dict()
+        res['likedByUser'] = current_user in song.users
+        return res
     form = SongForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if request.method == 'DELETE':
@@ -102,12 +104,12 @@ def upload():
 def likeSong(id):
     song = Song.query.get(id)
     user = User.query.get(current_user.get_id())
-    likingUserIds = {u.id:True for u in song.likingUsers }
+    likingUserIds = {u.id:True for u in song.users }
     if user.id not in likingUserIds:
-        song.likingUsers.append(user)
+        song.users.append(user)
         db.session.commit()
         return jsonify({"addedLike":True})
     else:
-        song.likingUsers.remove(user)
+        song.users.remove(user)
         db.session.commit()
         return jsonify({"removedLike":True})
