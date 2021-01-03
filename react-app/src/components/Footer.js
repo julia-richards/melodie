@@ -31,7 +31,7 @@ justify-content: space-between;
 align-items: center;
 flex-wrap: wrap;
 background: black;
-position: absolute;
+position: relative;
 left: 0;
 right:0;
 bottom: 0;
