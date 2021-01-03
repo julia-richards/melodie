@@ -23,7 +23,7 @@ const Songs = ({searchSongs}) => {
 		if (searchSongs) {
 			setSongResults(searchSongs)
 		} else {
-			setSongResults(songs)
+			setSongResults(songs.slice(0, 5))
 		};
 		setIsLoading(false);
 	}, [songs, searchSongs]);
@@ -53,12 +53,20 @@ const Songs = ({searchSongs}) => {
 	if (isLoading) return null;
 
 	return (
-		<>
-			<ul className="previews">{songComponents}</ul>
+		<div className='feedContainer'>
+			<div className="feed">
+				<span className="feedBtn">
+					<i className="fas fa-angle-double-left fa-5x"></i>
+				</span>
+				<ul className="previews">{songComponents}</ul>
+				<span className="feedBtn">
+					<i className="fas fa-angle-double-right fa-5x"></i>
+				</span>
+			</div>
 			{ currentSong ? (
 				<SongPlayer passedRef={sp} playingSong={currentSong} />
 			): null}
-		</>
+		</div>
 	);
 };
 
