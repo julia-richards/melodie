@@ -1,7 +1,7 @@
 from app.models import db, Song
 
 def seed_songs():
-    
+
     nye = Song(title='What are you doing, New Year\'s Eve?', description='vibraphone, vocals - Salina\nhorns - Pat\nguitar/bass/drums/audio - Robbie', image_url='https://melodieapp.s3.amazonaws.com/salinavibe.jpeg', song_url='https://melodieapp.s3.amazonaws.com/NYE+mixed.wav', user_id=2)
 
     shadow = Song(title='Shadow Puppet', description="Emo/math-rock song featuring heavy drums, bass, guitar, electric cello, and reflective vocals. Lyrics are about the process of peeling away from a dependent relationship. Released on December 4, 2020 on the band's 2nd EP \"Transitional at Best\".", image_url='https://melodieapp.s3.amazonaws.com/TAB+COVER+OFFICIAL.jpg', song_url='https://melodieapp.s3.amazonaws.com/Rally+Point-+Shadow+Puppet+Master+103020.wav', user_id=4)
@@ -32,19 +32,19 @@ def seed_songs():
 
 
     db.session.add(nye)
-    db.session.add(prettygirl)
-    db.session.add(ghostsanta)
-    db.session.add(sweetsilverbells)
-    db.session.add(thankyou)
     db.session.add(shadow)
-    db.session.add(heavy)
-    db.session.add(dude)
-    # db.session.add(collins)
-    db.session.add(kai)
-    db.session.add(softly)
-    db.session.add(pull)
-    db.session.add(micro)
     db.session.add(first)
+    db.session.add(pull)
+    db.session.add(ghostsanta)
+    db.session.add(kai)
+    db.session.add(micro)
+    db.session.add(heavy)
+    db.session.add(thankyou)
+    db.session.add(dude)
+    db.session.add(prettygirl)
+    db.session.add(sweetsilverbells)
+    db.session.add(softly)
+    # db.session.add(collins)
 
     db.session.commit()
 
