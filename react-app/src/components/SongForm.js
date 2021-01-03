@@ -115,7 +115,8 @@ const SongForm = () => {
 							{!!imageUrl ? (
 								<>
 									<img
-										src={imageUrl}
+                    src={imageUrl}
+                    alt='new song'
 										style={{ maxWidth: 60, height: "auto" }}
 									/>{" "}
 									<button onClick={() => setImageUrl(null)}>
@@ -128,7 +129,7 @@ const SongForm = () => {
 								<p>Drop the file here ...</p>
 							) : (
                 <>
-                <i class="fas fa-image"></i>{" "}
+                <i className="fas fa-image"></i>{" "}
 								<p>Drag 'n' drop image file here, or click to select files</p>
                 </>
 							)}
@@ -154,7 +155,7 @@ const SongForm = () => {
 								<p>Drop the file ...</p>
 							) : (
                 <>
-                <i class="fas fa-microphone-alt"></i>{" "}
+                <i className="fas fa-microphone-alt"></i>{" "}
 								<p>Drag 'n' drop song file here, or click to select files</p></>
 							)}
 						</div>
