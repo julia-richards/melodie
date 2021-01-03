@@ -1,7 +1,7 @@
 import React, { useState, useCallback, useRef, useEffect } from "react";
 import { Redirect, useHistory, useParams } from "react-router-dom";
 import { useDropzone } from "react-dropzone";
-import { editSong, uploadFile, editFile } from "../services/song";
+import { editSong, editFile, getSongById } from "../services/song";
 import "../styles/SongForm.css";
 
 const validationErrorCode = 422;
@@ -21,7 +21,16 @@ const EditSongForm = () =>{
 
   const { songId } = useParams()
 
+  useEffect(() => {
+    (async () => {
+        const songRes = await getSongById(songId);
+        setTitle(songRes.title)
+        setDescription(songRes.description)
+        setImageUrl(songRes.image_url)
+        setSongUrl(songRes.song_url)
 
+    })()
+}, [songId])
 
   const EditSong = async (e) => {
     e.preventDefault();
