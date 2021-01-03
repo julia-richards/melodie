@@ -38,15 +38,17 @@ function App() {
 
     <BrowserRouter>
       <NavBar setAuthenticated={setAuthenticated} />
-	  <Route path="/">
+	   <Route path="/landing">
         <HomePage />
-      </Route>
+      </Route> 
       <Route path="/login" exact={true}>
         <LoginForm
           authenticated={authenticated}
           setAuthenticated={setAuthenticated}
         />
       </Route>
+
+
       <Route path="/songs/upload">
         <SongForm />
       </Route>

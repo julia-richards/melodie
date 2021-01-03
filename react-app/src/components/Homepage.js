@@ -1,11 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
 import Element from './Element'
+import ParticlesComponent from './ParticlesComponent'
+
 
 const HomePage = () => {
     return (
         <div>
-            <br></br>
+        <ParticlesComponent />
        <Element />
         </div>
     )
