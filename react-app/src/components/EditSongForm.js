@@ -1,7 +1,7 @@
 import React, { useState, useCallback, useRef, useEffect } from "react";
 import { Redirect, useHistory, useParams } from "react-router-dom";
 import { useDropzone } from "react-dropzone";
-import { editSong, uploadFile, editFile } from "../services/song";
+import { editSong, editFile, getSongById } from "../services/song";
 import "../styles/SongForm.css";
 
 const validationErrorCode = 422;
@@ -21,7 +21,16 @@ const EditSongForm = () =>{
 
   const { songId } = useParams()
 
+  useEffect(() => {
+    (async () => {
+        const songRes = await getSongById(songId);
+        setTitle(songRes.title)
+        setDescription(songRes.description)
+        setImageUrl(songRes.image_url)
+        setSongUrl(songRes.song_url)
 
+    })()
+}, [songId])
 
   const EditSong = async (e) => {
     e.preventDefault();
@@ -96,12 +105,12 @@ const updateTitle = (e) => {
               </details>
             </div>
           )}
-          <div>
-            <label>Song Title</label>
+          <div className="song-form__title">
             <input
               type="text"
               name="title"
               onChange={updateTitle}
+              placeholder="Song Title"
               value={title}
               required
             ></input>
@@ -109,18 +118,17 @@ const updateTitle = (e) => {
               <p style={{ color: "red" }}>{error.body.errors.title}</p>
             )}
           </div>
-          <div>
-            <label>Description</label>
+          <div className="song-form__description">
             <textarea
               type="text"
               name="description"
+              placeholder="Song Description"
               onChange={updateDescription}
               value={description}
             ></textarea>
           </div>
-          <div>
-            <label>Song Image</label>
-            <div {...getImageRootProps()}>
+          <div className="song-form__image">
+            <div className="drop" {...getImageRootProps()}>
               <input {...getImageInputProps()} />
               {!!imageUrl ? (
                 <>
@@ -137,14 +145,14 @@ const updateTitle = (e) => {
               ) : isImageDragActive ? (
                 <p>Drop the file here ...</p>
               ) : (
-                <p>Drag 'n' drop image file here, or click to select files</p>
-              )}
+                <>
+                <i className="fas fa-image"></i>{" "}
+								<p>Drag 'n' drop image file here, or click to select files</p>
+                </>              )}
             </div>
           </div>
-          <div>
-            <label>Song Audio</label>
-
-            <div {...getSongRootProps()}>
+          <div className="song-form__audio">
+            <div className="drop" {...getSongRootProps()}>
               <input {...getSongInputProps()} />
               {!!songUrl ? (
                 <>
@@ -160,14 +168,16 @@ const updateTitle = (e) => {
               ) : isSongDragActive ? (
                 <p>Drop the file ...</p>
               ) : (
-                <p>Drag 'n' drop song file here, or click to select files</p>
-              )}
+                <>
+                <i className="fas fa-microphone-alt"></i>{" "}
+								<p>Drag 'n' drop song file here, or click to select files</p></>
+							)}
             </div>
             {!!error?.body?.errors?.song_url && (
               <p style={{ color: "red" }}>{error.body.errors.song_url}</p>
             )}
           </div>
-          <div>
+          <div className="song-form__submit">
             <button className="upload_song-button" type="Edit Song">
               Edit
             </button>

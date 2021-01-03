@@ -25,16 +25,16 @@ const Footer = () => {
 }
 
 const Container = styled.div`
-padding: 5px 15px 5px 15px;
-display: flex;
-justify-content: space-between;
-align-items: center;
-flex-wrap: wrap;
-background: black;
-position: absolute;
-left: 0;
-right:0;
-bottom: 0;
+	padding: 5px 15px 5px 15px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+	background: black;
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 0;
 `;
 
 const Link = styled(NavLink)`
@@ -44,7 +44,6 @@ const Link = styled(NavLink)`
   text-decoration: none;
   color: #FFFFFF;
   transition: all 0.3s ease-in;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-size: 0.9rem;
   &:hover {
     color: #7b7fda;
