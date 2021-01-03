@@ -42,6 +42,8 @@ Users can securely create an account using our login and logout feature. melodie
 melodie's signup and login forms have input validations to enforce clean data submission and protect the integrity of the data submitted.
 
 ### Song API
+![signup API](https://user-images.githubusercontent.com/63379814/103491576-0323c680-4df3-11eb-9bef-e98acd5f81e1.png)
+
 ### User API
 ### Like API
 ### Search API
