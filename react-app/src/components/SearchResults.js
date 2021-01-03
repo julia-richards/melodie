@@ -30,11 +30,14 @@ const SearchResults = () => {
 
     if (isLoading) return null;
 
+    if (searchSongs.length === 0) return <h2 className="heading">A little quiet ... try another search</h2>
+
     return (
-        <div>
-            { !searchSongs ? <h2>No results found</h2> :
-            <Songs searchSongs={searchSongs}/>
-            }
+        <div className='pageContainer'>
+                <h2 className='heading'>Searching for "{searchValue}"</h2>
+                { !searchSongs ? <h2>No results found</h2> :
+                <Songs searchSongs={searchSongs}/>
+                }
         </div>
 
     )

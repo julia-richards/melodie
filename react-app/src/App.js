@@ -13,6 +13,7 @@ import SearchInput from "./components/SearchInput";
 import SearchResults from "./components/SearchResults";
 import Profile from "./components/Profile";
 import SongPage from "./components/SongPage";
+import Footer from "./components/Footer";
 
 function App() {
 	const [authenticated, setAuthenticated] = useState(false);
@@ -36,7 +37,6 @@ function App() {
 
     <BrowserRouter>
       <NavBar setAuthenticated={setAuthenticated} />
-      <SearchInput />
       <Route path="/login" exact={true}>
         <LoginForm
           authenticated={authenticated}
@@ -72,9 +72,12 @@ function App() {
         <User />
       </ProtectedRoute>
       <ProtectedRoute path="/" exact={true} authenticated={authenticated}>
-        <h1>My Home Page</h1>
-        <Songs />
+        <div className="pageContainer">
+          <h1 className="heading">Featured</h1>
+          <Songs />
+        </div>
       </ProtectedRoute>
+      <Footer />
     </BrowserRouter>
   );
 }

@@ -1,18 +1,20 @@
-import React, { useState, useEffect } from "react";
-import { NavLink, useParams } from "react-router-dom";
+import React, { useState, useEffect, useRef } from "react";
 import SongPlayer from "../components/SongPlayer";
+import SongPreview from "../components/SongPreview";
+import "../styles/Songs.css";
 
 const Songs = ({searchSongs}) => {
 	const [songs, setSongs] = useState([]);
 	const [songResults, setSongResults] = useState([]);
 	const [currentSong, setCurrentSong] = useState(null);
 	const [isLoading, setIsLoading] = useState(true);
+	const [playPromise, setPlayPromise] = useState(null);
+	const sp = useRef(null);
 
 	useEffect(() => {
 		(async () => {
 			const response = await fetch("/api/songs/");
 			const songs = await response.json();
-			// console.log('thiiisiisissiisis',songs)
 			setSongs(songs.songs);
 		})()
 	}, []);
@@ -26,19 +28,25 @@ const Songs = ({searchSongs}) => {
 		setIsLoading(false);
 	}, [songs, searchSongs]);
 
+	const handleClick = async (song) => {
+		setCurrentSong(song);
+		if (sp.current) {
+			if (playPromise) {
+				await playPromise
+			}
+			sp.current.pause();
+			sp.current.load();
+			setPlayPromise(sp.current.play());
+		};
+	}
+
 	if (!songs) {
 		return "No songs found";
 	}
 
 	const songComponents = songResults.map((song) => {
 		return (
-			<li key={song.id}>
-				<NavLink to={`/songs/${song.id}`}>
-					{song.songImage}
-					{song.title}
-				</NavLink>
-				<button onClick={() => setCurrentSong(song)}>Play Button</button>
-			</li>
+			<SongPreview key={song.id} handleClick={handleClick} song={song}/>
 		)
 	});
 
@@ -46,10 +54,9 @@ const Songs = ({searchSongs}) => {
 
 	return (
 		<>
-			{/* <h1>Song List: </h1> */}
-			<ul>{songComponents}</ul>
+			<ul className="previews">{songComponents}</ul>
 			{ currentSong ? (
-				<SongPlayer playingSong={currentSong} />
+				<SongPlayer passedRef={sp} playingSong={currentSong} />
 			): null}
 		</>
 	);

@@ -1,4 +1,5 @@
 .song_form-outer {
+	margin-top: 130px;
 	display: flex;
 	justify-content: center;
 }
@@ -9,6 +10,7 @@
 	border: 1px solid #f2f2f2;
 	box-shadow: 0 2px 12px -5px rgba(0, 0, 0, 0.1);
 	width: 60%;
+	height: 375px;
 }
 
 .song-form div {

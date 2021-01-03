@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import SongPlayer from "./SongPlayer";
 import Likes from "./Likes";
 import { getUserById, getSongById } from "../services/song";
+import "../styles/SongPage.css";
 
 const SongPage = () => {
     const { songId } = useParams();
@@ -28,14 +29,21 @@ const SongPage = () => {
     }
 
     return (
-			<div>
-				<h2>{playingSong.title}</h2>
-				<h3>{songUser.username}</h3>
-				<img src={playingSong.image_url}></img>
-				<SongPlayer playingSong={playingSong} />
-				<Likes count={playingSong.likesCount} likedByUser={playingSong.likedByUser} />
-			</div>
-		);
+        <>
+            <div className="songPageContainer">
+                <div className="description">
+                    <h3>{songUser.username}</h3>
+                    <h2>{playingSong.title}</h2>
+                    <p>{playingSong.description}</p>
+                    <Likes count={playingSong.likesCount} likedByUser={playingSong.likedByUser} />
+                </div>
+                <div className="songholder">
+                    <img id='coverArt' src={playingSong.image_url}></img>
+                    <SongPlayer playingSong={playingSong} />
+                </div>
+            </div>
+		</>
+        );
 }
 
 export default SongPage;
