@@ -1,12 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
+import Element from './Element'
 
 const HomePage = () => {
     return (
         <div>
             <br></br>
-            <br></br>
-            <h1>Test</h1>
+       <Element />
         </div>
     )
 }
@@ -61,8 +61,7 @@ line-height: 100px;
 `;
 
 const Container = styled.div`
-background-image: url(${wildandfree});
-background-size: cover;
+
 font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   padding: 1rem;
   h5 {
