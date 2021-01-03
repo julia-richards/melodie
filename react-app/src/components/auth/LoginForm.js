@@ -3,6 +3,8 @@ import { Redirect } from "react-router-dom";
 import { login } from "../../services/auth";
 import Input from './Input.js'
 import styled from 'styled-components'
+import cropped from '../../assets/cropped.png'
+
 
 const LoginForm = ({ authenticated, setAuthenticated }) => {
   const [errors, setErrors] = useState([]);
@@ -35,6 +37,9 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
     <div className="song_form-outer">
       <div className="song-form_container">
         <Form className="song-form" onSubmit={onLogin}>
+      <LogoWrapper>
+        <img src={cropped} alt='' />
+      </LogoWrapper>
           <div>
             {errors.map((error) => (
               <div>{error}</div>
