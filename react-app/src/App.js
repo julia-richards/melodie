@@ -51,7 +51,7 @@ function App() {
           setAuthenticated={setAuthenticated}
         />
       </Route>
-      <Route path="/profile/:profileId" exact={true}>
+      <Route path="/profile/:id" exact={true}>
         <Profile />
       </Route>
       <Route path="/search/:searchValue">

@@ -3,8 +3,8 @@ import { useParams, NavLink } from "react-router-dom";
 import SongPlayer from "./SongPlayer";
 import Likes from "./Likes";
 import { getUserById, getSongById } from "../services/song";
-import "../styles/SongPage.css";
 import { authenticate } from "../services/auth";
+import "../styles/SongPage.css";
 
 const SongPage = () => {
     const { songId } = useParams();
@@ -28,9 +28,7 @@ const SongPage = () => {
     }, [songId])
 
     if (songId === "upload") return null;
-    if (isLoading || !playingSong || !songUser || !currentUser) return null;
-
-    console.log(`current user id: ${currentUser.id}`)
+    if (isLoading || !playingSong || !songUser ||!currentUser) return null;
 
     const EditButton = () => {
         if (songUser.id === currentUser.id) {
@@ -56,7 +54,7 @@ const SongPage = () => {
                 </div>
             </div>
 		</>
-        );
+    );
 }
 
 export default SongPage;

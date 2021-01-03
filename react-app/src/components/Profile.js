@@ -2,45 +2,54 @@ import React, { useState, useEffect } from "react";
 import { NavLink, useParams } from "react-router-dom";
 import { getUserLikedSongs, getUsersSongs, getAllSongs } from "../../src/services/profile";
 import Songs from "./Songs";
+import { getUserById } from "../services/song";
+import "../styles/Profile.css"
 
 const Profile = () => {
-  const [profile, setProfile] = useState(null);
-  const [likedSongs, setLikedSongs] = useState(null);
-  const [usersSongs, setUsersSongs] = useState(null);
-  const { profileId } = useParams();
+  const [user, setUser] = useState(null);
+  const [allSongs, setAllSongs] = useState([]);
+  const [usersSongs, setUsersSongs] = useState([]);
+  // const [likedSongs, setLikedSongs] = useState(null);
+  const { id } = useParams();
 
   useEffect(() => {
     (async () => {
-      const res = await getUsersSongs(profileId);
-      const res1 = await getUserLikedSongs(profileId);
-      const res2 = await getAllSongs(profileId);
+      const userRes = await getUserById(id);
+      const allSongsRes = await getAllSongs();
+      // const usersSongsRes = await getUsersSongs(userId);
+      // const likedSongsRes = await getUserLikedSongs(userId);
 
-      setProfile(res);
-      setLikedSongs(res1)
-      setUsersSongs(res2);
-      console.log(res2.songs)
+      setUser(userRes);
+      setAllSongs(allSongsRes);
+      // setUsersSongs(usersSongsRes);
+
+      // setLikedSongs(likedSongsRes);
     })();
   }, []);
 
-  if (!profile || !likedSongs || !usersSongs) return null;
+  if (!allSongs || !user) return null;
 
   return (
     <>
-      <div className="songPageContainer">
-      <h1>{profile.username}</h1>
-      <h2>About: {profile.about}</h2>
-      <div>
-          <div>
-            <h3>User's Uploads</h3>
-            <div>
-              <Songs usersSongs={usersSongs}/>
-            </div>
-          <h3>My Liked Songs</h3>
-          <div>
-            <Songs likedSongs={likedSongs} />
+      <div className="profileContainer">
+        <div className="userContainer">
+          <img className="userImg" src={user.image_url}></img>
+          <div className="userDescription">
+            <h1>{user.username}</h1>
+            <h3>{user.about}</h3>
           </div>
         </div>
-          <NavLink to="/songs/upload">Upload Song</NavLink>
+        <div>
+            <div>
+              <h3 >User's Uploads</h3>
+              <div>
+                <Songs songResults={allSongs}/>
+              </div>
+              {/* <h3>My Liked Songs</h3>
+              <div>
+                <Songs likedSongs={likedSongs} />
+              </div> */}
+          </div>
         </div>
       </div>
     </>

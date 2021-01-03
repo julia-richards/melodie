@@ -91,7 +91,8 @@ def likeSong(id):
         db.session.commit()
         return jsonify({"removedLike":True})
 
-@song_routes.route('/user/<int:user_id>/likes')
+@song_routes.route('/users/<int:user_id>/')
 @login_required
 def usersSongs(user_id):
-    song = Song.query.get(user_id)
+    songs = Song.query.filter_by(user_id)
+    return {"songs": [song.to_dict() for song in songs]}

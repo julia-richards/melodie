@@ -4,11 +4,11 @@ export const getAllSongs = async () => {
 };
 
 export const getUserLikedSongs = async (id) => {
-  const response = await fetch(`/api/users/${id}`);
-  return await response.json();
+  // const response = await fetch(`/api/users/${id}`);
+  // return await response.json();
 };
 
-export const getUsersSongs = async (id) => {
-  const response = await fetch(`/api/users/${id}/songs`);
-  return await response.json();
-};
+// export const getUsersSongs = async (user_id) => {
+//   const response = await fetch(`/api/songs/users/${user_id}`);
+//   return await response.json();
+// };
