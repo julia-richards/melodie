@@ -77,10 +77,18 @@ melodie's signup and login forms have input validations to enforce clean data su
 ### Song Feed
 
 Feed of new songs and artists.
- 
+<img width="500" alt="Song Feed" src="https://user-images.githubusercontent.com/63379814/103543379-6b62be80-4e6c-11eb-90fc-ae2409306b0a.png">
+
+### Song Page
+
+Individual song page
+<img width="500" alt="SongPage" src="https://user-images.githubusercontent.com/63379814/103543448-8a615080-4e6c-11eb-94e4-07bb56f4839d.png">
+
 ### Audio Player
 
 When you click on a song you can play it using the custom audio player.
+<img width="500" alt="Song Player" src="https://user-images.githubusercontent.com/63379814/103543576-c5fc1a80-4e6c-11eb-85c4-68ed231c1ebf.png">
+
 
 ### Upload Song
 
