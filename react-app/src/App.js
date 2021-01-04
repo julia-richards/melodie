@@ -13,7 +13,7 @@ import SearchResults from "./components/SearchResults";
 import Profile from "./components/Profile";
 import SongPage from "./components/SongPage";
 import Footer from "./components/Footer";
-import HomePage from "./components/Homepage";
+import Homepage from "./components/HomePage/Homepage";
 
 function App() {
 	const [authenticated, setAuthenticated] = useState(false);
@@ -43,7 +43,6 @@ function App() {
 					setAuthenticated={setAuthenticated}
 				/>
 			</Route>
-
 			<Route path="/songs/upload">
 				<SongForm />
 			</Route>
@@ -52,9 +51,13 @@ function App() {
 					authenticated={authenticated}
 					setAuthenticated={setAuthenticated}
 				/>
-				<Route path='/landing' exact={true}>
-					<HomePage authenticated={authenticated} setAuthenticated={setAuthenticated} />
-				</Route>
+			</Route>
+			<Route path='/landing' exact={true}>
+				<br></br>
+				<br></br>
+				<br></br>
+				<br></br>
+				<Homepage />
 			</Route>
 			<Route path="/profile/:profileId" exact={true}>
 				<Profile />

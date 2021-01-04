@@ -9,7 +9,7 @@ const NavBar = ({ setAuthenticated }) => {
 		<nav className="navbar">
 			<ul className="linkList">
 				<li className="left">
-					<NavLink to="/" exact={true} className="links" activeClassName="active">
+					<NavLink to="/landing" exact={true} className="links" activeClassName="active">
 						Home
 					</NavLink>
 				</li>
