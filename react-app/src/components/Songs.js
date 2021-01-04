@@ -3,8 +3,7 @@ import SongPlayer from "../components/SongPlayer";
 import SongPreview from "../components/SongPreview";
 import "../styles/Songs.css";
 
-const Songs = ({searchSongs}) => {
-	const [songs, setSongs] = useState([]);
+const Songs = ({songList}) => {
 	const [songResults, setSongResults] = useState([]);
 	const [currentSong, setCurrentSong] = useState(null);
 	const [isLoading, setIsLoading] = useState(true);
@@ -13,22 +12,11 @@ const Songs = ({searchSongs}) => {
 	const sp = useRef(null);
 
 	useEffect(() => {
-		(async () => {
-			const response = await fetch("/api/songs/");
-			const songs = await response.json();
-			setSongs(songs.songs);
-		})()
-	}, []);
+		setSongResults(songList.slice(0, 5));
+		console.log(songList)
 
-	useEffect(() => {
-		if (searchSongs) {
-			setSongResults(searchSongs.slice(0, 5))
-			console.log(searchSongs)
-		} else {
-			setSongResults(songs.slice(0, 5))
-		};
 		setIsLoading(false);
-	}, [songs, searchSongs]);
+	}, [songList]);
 
 	const handleClick = async (song) => {
 		setCurrentSong(song);
@@ -43,26 +31,32 @@ const Songs = ({searchSongs}) => {
 	}
 
 	const nextClick = (e) => {
-		if (searchSongs) {
-			if (searchSongs.length <= 5) {
-				return
-			}
+		if (songList.length <= 5) {
+			return
 		}
-		setStartingIndex((startingIndex + 5) % songs.length)
-		if ((startingIndex + 5) >= songs.length) {
-			const displaySongs = songs.slice(startingIndex)
+		setStartingIndex((startingIndex + 5) % songList.length)
+		if ((startingIndex + 5) >= songList.length) {
+			const displaySongs = songList.slice(startingIndex)
 			let pointer = 0;
 			while (displaySongs.length < 5) {
-				displaySongs.push(songs[pointer++]);
-			}
+				displaySongs.push(songList[pointer++]);
+			};
 			return setSongResults(displaySongs);
-		}
-		setSongResults(songs.slice(startingIndex, startingIndex + 5))
-	}
+		};
+		setSongResults(songList.slice(startingIndex, startingIndex + 5))
+	};
 
-	if (!songs) {
-		return "No songs found";
-	}
+	const backClick = (e) => {
+		if (songList.length <= 5) {
+			return
+		}
+		let index = startingIndex - 5;
+		if (index < 0) {
+			index+=(songList.length)
+		}
+		setSongResults(songList.slice(index, index + 5))
+		setStartingIndex(index);
+	};
 
 	const songComponents = songResults.map((song) => {
 		console.log(`songsFeed: ${song}`)
@@ -76,7 +70,7 @@ const Songs = ({searchSongs}) => {
 	return (
 		<div className='feedContainer'>
 			<div className="feed">
-				<span className="feedBtn">
+				<span onClick={backClick} className="feedBtn">
 					<i className="fas fa-angle-double-left fa-5x"></i>
 				</span>
 				<ul className="previews">{songComponents}</ul>

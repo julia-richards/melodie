@@ -57,7 +57,7 @@ const Profile = () => {
         </div>
         <div className="profileSongsContainer">
           <div>
-            <Songs searchSongs={usersSongs}/>
+            <Songs songList={usersSongs}/>
           </div>
           {/* <div>
             <Songs likedSongs={likedSongs} />
