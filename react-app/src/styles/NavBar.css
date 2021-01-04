@@ -71,7 +71,7 @@ html,body {
 
 .searchBtn{
     height: 30px;
-    background: #9198e5;
+    background: linear-gradient(260deg, var(--light-blue), var(--dark-blue));
     border: none;
     padding: 0 26px;
     color: #fff;
@@ -137,7 +137,7 @@ html,body {
 
 .profile-button__dropdown li .button {
     border: 0;
-    background-color: var(--light-blue);
+    background: linear-gradient(260deg, var(--light-blue), var(--dark-blue));
     color: var(--white);
     line-height: 30px;
     border-radius: .5rem;

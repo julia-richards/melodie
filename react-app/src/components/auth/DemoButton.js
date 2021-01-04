@@ -18,4 +18,3 @@ const DemoButton = ({ setAuthenticated, authenticated }) => {
 };
 
 export default DemoButton;
-
