@@ -1,8 +1,8 @@
-<h1 align="center"> melodie
+<h1 align="center">
 <br>
-<img width="375" alt="1" src="https://user-images.githubusercontent.com/63379814/103493053-1fc4fc00-4dfd-11eb-86f4-c4bafca57487.png">
+<a name="logo" href="https://melodie.herokuapp.com/"><img width="300" src="https://user-images.githubusercontent.com/63379814/103493053-1fc4fc00-4dfd-11eb-86f4-c4bafca57487.png" alt="melodieLogo"></a>
 <br>
-  melodie Documentation
+  Melodie Documentation
 </h1>
 
 <div align="center">
