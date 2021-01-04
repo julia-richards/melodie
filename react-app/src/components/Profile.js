@@ -55,16 +55,14 @@ const Profile = () => {
             <h3>{user.about}</h3>
           </div>
         </div>
-        <div>
-            <div>
-              <div>
-                <Songs searchSongs={usersSongs}/>
-              </div>
-              {/* <h3>My Liked Songs</h3>
-              <div>
-                <Songs likedSongs={likedSongs} />
-              </div> */}
+        <div className="profileSongsContainer">
+          <div>
+            <Songs searchSongs={usersSongs}/>
           </div>
+          {/* <h3>My Liked Songs</h3>
+          <div>
+            <Songs likedSongs={likedSongs} />
+          </div> */}
         </div>
       </div>
     </>

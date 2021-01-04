@@ -3,10 +3,10 @@ html,body {
     margin:0;
     padding:0;
     overflow:auto;
-    /* height: 100%; */
 }
 
 .navbar {
+    max-height: 65px;
     padding: 0px;
     display: flex;
     justify-content: space-between;
@@ -20,13 +20,14 @@ html,body {
 }
 
 .linkList {
+    max-height: 65px;
     list-style-type: none;
-    width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
 }
 
 .links {
+    max-height: 65px;
     padding: 1rem 2rem;
     cursor: pointer;
     text-align: center;
