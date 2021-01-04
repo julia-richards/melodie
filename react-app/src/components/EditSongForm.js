@@ -1,5 +1,5 @@
-import React, { useState, useCallback, useRef, useEffect } from "react";
-import { Redirect, useHistory, useParams } from "react-router-dom";
+import React, { useState, useCallback, useEffect } from "react";
+import { Redirect, useParams } from "react-router-dom";
 import { useDropzone } from "react-dropzone";
 import { editSong, editFile, getSongById } from "../services/song";
 import "../styles/SongForm.css";
