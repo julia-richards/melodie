@@ -8,7 +8,8 @@
 <div align="center">
   <sub>Built by
   <a href="https://github.com/julia-richards">Julia Richards</a>, 
-  <a href="https://github.com/sal-wav">Salina Kuo</a> and
+  <a href="https://github.com/sal-wav">Salina Kuo</a>,
+  <a href="https://github.com/hassanmt96">Hassan Tariq</a> and
   <a href="https://github.com/monajain99">Rashmi Jain</a>
 </div>
 A live version of our application can be found [here](https://melodie.herokuapp.com/)
@@ -62,8 +63,17 @@ melodie's signup and login forms have input validations to enforce clean data su
 
 ## Pages
 ### Splash Page
-### Login (Demo)
+
+<img width="500" alt="landingResize" src="https://user-images.githubusercontent.com/63379814/103497501-b4385a00-4e0f-11eb-98bf-4e3c3550b17d.png">
+
+### Login
+
+<img width="500" alt="login" src="https://user-images.githubusercontent.com/63379814/103497535-cfa36500-4e0f-11eb-88cd-cc8d0f5f4e0b.png">
+
 ### Signup
+
+<img width="500" alt="signUp" src="https://user-images.githubusercontent.com/63379814/103497544-d631dc80-4e0f-11eb-9560-b57f75eef8a1.png">
+
 
 ### Song Feed
 
@@ -76,10 +86,15 @@ When you click on a song you can play it using the custom audio player.
 ### Upload Song
 
 This is the form to create a new song   
+<img width="500" alt="UploadForm" src="https://user-images.githubusercontent.com/63379814/103497456-94089b00-4e0f-11eb-8fe1-3f0f34f63695.png">
+
+<img width="500" alt="Upload2" src="https://user-images.githubusercontent.com/63379814/103497476-9e2a9980-4e0f-11eb-9520-0485a9fd0177.png">
 
 ### Edit Song
 
 This is where you're taken after the song is uploaded or you manually select to edit a song
+<img width="500" alt="EditForm" src="https://user-images.githubusercontent.com/63379814/103497412-71768200-4e0f-11eb-8dde-44411600ab3f.png">
+
 
 ### Search
 
