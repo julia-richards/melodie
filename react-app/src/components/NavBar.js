@@ -18,7 +18,11 @@ const NavBar = ({ setAuthenticated, authenticated, user }) => {
 							className="links"
 							activeClassName="active"
 						>
-							<img src={Logo} alt="Melodie Logo" style={{ maxWidth: 80, height: 'auto' }} />
+							<img
+								src={Logo}
+								alt="Melodie Logo"
+								style={{ maxWidth: 80, height: "auto" }}
+							/>
 						</NavLink>
 					</li>
 					<div className="middle">{authenticated && <SearchInput />}</div>
@@ -38,7 +42,7 @@ const NavBar = ({ setAuthenticated, authenticated, user }) => {
 								<li>
 									<ProfileButton
 										user={user}
-										onLogoutClick={() => setAuthenticated(false)}
+										setAuthenticated={setAuthenticated}
 									/>
 								</li>
 							</>

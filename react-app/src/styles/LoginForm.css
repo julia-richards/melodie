@@ -1,0 +1,27 @@
+.login-form {
+  display: flex;
+  justify-content: center;
+}
+
+.login-form__outer {
+  margin: auto;
+  max-width: 1300px;
+  width: 100%;
+  min-height: 692px;
+	display: flex;
+	justify-content: center;
+}
+
+.login-form__container{
+  height: 450px;
+  margin: auto;
+  max-width: 420px;
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #f2f2f2;
+  box-shadow: 0 2px 12px -5px rgba(0, 0, 0, 0.1);
+}
+
+.login-form__redirect-text {
+  text-align: center;
+}
