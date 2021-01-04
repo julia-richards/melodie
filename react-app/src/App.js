@@ -51,7 +51,6 @@ function App() {
       <Route path="/" exact={true}>
         {authenticated ? (
           <HomeFeed />
-        </div>
         ) : (
           <Homepage />
         )}
@@ -82,7 +81,7 @@ function App() {
       >
         <EditSongForm />
       </ProtectedRoute>
-    
+
       <Footer />
     </BrowserRouter>
   );
