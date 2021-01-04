@@ -6,28 +6,25 @@ html,body {
 }
 
 .navbar {
-    max-height: 65px;
     padding: 0px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
     background: #f2f2f2;
-    position: absolute;
+    position: sticky;
     top: 0;
     left: 0;
     right:0;
 }
 
 .linkList {
-    max-height: 65px;
     list-style-type: none;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
 }
 
 .links {
-    max-height: 65px;
     padding: 1rem 2rem;
     cursor: pointer;
     text-align: center;
@@ -70,6 +67,7 @@ html,body {
 }
 
 .searchBtn{
+    height: 30px;
     background: #0BDDFA;
     border: none;
     padding: 0 26px;
