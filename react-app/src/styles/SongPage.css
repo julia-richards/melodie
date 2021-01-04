@@ -6,9 +6,8 @@
 .bodyContainer {
     margin: auto;
     width: 1300px;
-    height: 692px;
+    height: 610px;
     display: flex;
-
 }
 
 .songPageContainer {
@@ -53,6 +52,4 @@
     font-size: 18px;
 }
 
-/* .feedContainer {
 
-} */
