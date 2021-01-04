@@ -51,7 +51,6 @@ const SongPage = () => {
                 <div className="songholder">
                     <img alt="cover" id='coverArt' src={playingSong.image_url}></img>
                     <SongPlayer playingSong={playingSong} />
-                     <Link to={`/edit/songs/${songId}`}>Edit Song</Link>
                 </div>
             </div>
 		</>
