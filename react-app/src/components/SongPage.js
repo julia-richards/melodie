@@ -40,17 +40,21 @@ const SongPage = () => {
 
     return (
         <>
-            <div className="songPageContainer">
-                <div className="description">
-                    <EditButton />
-                    <NavLink id="profileLink" className="links" to={`/profile/${songUser.id}`}>{songUser.username}</NavLink>
-                    <h2>{playingSong.title}</h2>
-                    <p>{playingSong.description}</p>
-                    <Likes count={playingSong.likesCount} likedByUser={playingSong.likedByUser} />
-                </div>
-                <div className="songholder">
-                    <img alt="cover" id='coverArt' src={playingSong.image_url}></img>
-                    <SongPlayer playingSong={playingSong} />
+            <div className="wholePageContainer">
+                <div className="bodyContainer">
+                    <div className="songPageContainer">
+                        <div className="description">
+                            <EditButton />
+                            <NavLink id="profileLink" className="links" to={`/profile/${songUser.id}`}>{songUser.username}</NavLink>
+                            <h2>{playingSong.title}</h2>
+                            <p>{playingSong.description}</p>
+                            <Likes count={playingSong.likesCount} likedByUser={playingSong.likedByUser} />
+                        </div>
+                        <div className="songholder">
+                            <img alt="cover" id='coverArt' src={playingSong.image_url}></img>
+                            <SongPlayer playingSong={playingSong} />
+                        </div>
+                    </div>
                 </div>
             </div>
 		</>
