@@ -42,6 +42,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    border-left: 1px solid #f2f2f2;
 }
 
 #formLink {
@@ -51,5 +52,3 @@
 #profileLink {
     font-size: 18px;
 }
-
-
