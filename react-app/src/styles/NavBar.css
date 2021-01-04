@@ -57,15 +57,30 @@ html,body {
 
 .searchForm {
     width: 100%;
+    display: flex;
 }
 
 #searchInput {
     height: 30px;
     border: none;
-    width: 400px;
+    width: 260px;
     margin-right: 20px;
     outline: none;
+    border-radius: 0.5em;
 }
+
+.searchBtn{
+    background: #0BDDFA;
+    border: none;
+    padding: 0 26px;
+    color: #fff;
+    border-radius: 4px;
+    box-shadow: 0px 7px 12px -4px var(--accent-light-blue);
+    transition: all 0.3s ease-in-out;
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+
 
 .navBtn {
     cursor: pointer;

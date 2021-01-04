@@ -11,11 +11,19 @@ const SearchInput = (props) => {
     };
 
     return (
-        <form className="searchForm" onSubmit={handleSearch}>
-            <input id="searchInput" type="search" value={value} onChange={(e) => setValue(e.target.value)} placeholder="Search for a melodie..."></input>
-            <button className="navBtn" type="submit">Search</button>
-        </form>
-    );
+			<form className="searchForm" onSubmit={handleSearch}>
+				<input
+					id="searchInput"
+					type="search"
+					value={value}
+					onChange={(e) => setValue(e.target.value)}
+					placeholder="🔍 Search for a melodie..."
+				></input>
+				<button className="searchBtn" type="submit">
+					Search
+				</button>
+			</form>
+		);
 }
 
 export default SearchInput
