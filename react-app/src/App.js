@@ -12,6 +12,7 @@ import SongForm from "./components/SongForm";
 import SearchResults from "./components/SearchResults";
 import Profile from "./components/Profile";
 import SongPage from "./components/SongPage";
+import EditSongForm from "./components/EditSongForm";
 import Footer from "./components/Footer";
 import Homepage from "./components/HomePage/Homepage";
 
@@ -35,58 +36,61 @@ function App() {
 
 	return (
 
-		<BrowserRouter>
-			<NavBar setAuthenticated={setAuthenticated} />
-			<Route path="/login" exact={true}>
-				<LoginForm
-					authenticated={authenticated}
-					setAuthenticated={setAuthenticated}
-				/>
-			</Route>
-			<Route path="/songs/upload">
-				<SongForm />
-			</Route>
-			<Route path="/sign-up" exact={true}>
-				<SignUpForm
-					authenticated={authenticated}
-					setAuthenticated={setAuthenticated}
-				/>
-			</Route>
-			<Route path='/landing' exact={true}>
+    <BrowserRouter>
+      <NavBar setAuthenticated={setAuthenticated} />
+      <Route path="/login" exact={true}>
+        <LoginForm
+          authenticated={authenticated}
+          setAuthenticated={setAuthenticated}
+        />
+      </Route>
+      <Route path="/songs/upload">
+        <SongForm />
+      </Route>
+      <Route path="/sign-up" exact={true}>
+        <SignUpForm
+          authenticated={authenticated}
+          setAuthenticated={setAuthenticated}
+        />
+      </Route>
+      <Route path="/profile/:id" exact={true}>
+        <Profile />
+      </Route>
+  	<Route path='/landing' exact={true}>
 				<br></br>
 				<br></br>
 				<br></br>
 				<br></br>
 				<Homepage />
 			</Route>
-			<Route path="/profile/:profileId" exact={true}>
-				<Profile />
-			</Route>
-			<Route path="/search/:searchValue">
-				<SearchResults />
-			</Route>
-			<Route path="/songs/:songId">
-				<SongPage />
-			</Route>
-			<ProtectedRoute path="/users" exact={true} authenticated={authenticated}>
-				<UsersList />
-			</ProtectedRoute>
-			<ProtectedRoute
-				path="/users/:userId"
-				exact={true}
-				authenticated={authenticated}
-			>
-				<User />
-			</ProtectedRoute>
-			<ProtectedRoute path="/" exact={true} authenticated={authenticated}>
-				<div className="pageContainer">
-					<h1 className="heading">Featured</h1>
-					<Songs />
-				</div>
-			</ProtectedRoute>
-			<Footer />
-		</BrowserRouter>
-	);
+      <Route path="/search/:searchValue">
+        <SearchResults />
+      </Route>
+      <Route path="/songs/:songId" exact={true}>
+        <SongPage />
+      </Route>
+      <Route path="/edit/songs/:songId" exact={true}>
+        <EditSongForm />
+      </Route>
+      <ProtectedRoute path="/users" exact={true} authenticated={authenticated}>
+        <UsersList />
+      </ProtectedRoute>
+      <ProtectedRoute
+        path="/users/:userId"
+        exact={true}
+        authenticated={authenticated}
+      >
+        <User />
+      </ProtectedRoute>
+      <ProtectedRoute path="/" exact={true} authenticated={authenticated}>
+        <div className="pageContainer">
+          <h1 className="heading">Featured</h1>
+          <Songs />
+        </div>
+      </ProtectedRoute>
+      <Footer />
+    </BrowserRouter>
+  );
 }
 
 export default App;

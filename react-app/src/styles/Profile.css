@@ -1,0 +1,49 @@
+.profileContainer {
+    width: 1300px;
+    height: 630px;
+    margin: auto;
+    margin-top: 60px;
+    /* padding-bottom: 50px; */
+	border: 1px solid #f2f2f2;
+    box-shadow: 0 2px 12px -5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.userImg {
+    height: 175px;
+    width: 175px;
+}
+
+.userContainer {
+    height: 175px;
+    width: 1300px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    border: 1px solid #f2f2f2;
+    box-shadow: 0 2px 12px -5px rgba(0, 0, 0, 0.1);
+}
+
+.userDescription {
+    padding: 0 20px 0 20px;
+    width: 100%;
+    background-color: black;
+    color: white;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;;
+}
+
+.profileLinks {
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#uploadHeading {
+    color: white;
+}
+
+.profileSongsContainer {
+    margin-top: 20px;
+}

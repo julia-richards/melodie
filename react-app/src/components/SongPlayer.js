@@ -6,11 +6,15 @@ const SongPlayer = ((props) => {
 
     if (!playingSong) return null
 
+    /////ADD AUTOPLAY BACK IN
+    ////////////////////////////////
+    ////////////////////////////////
+
     return (
         <div>
             <h3 className='links'>Now playing: {playingSong.title}</h3>
             <div className='playerContainer'>
-                <audio controls autoPlay ref={passedRef}>
+                <audio controls ref={passedRef}>
                     <source src={playingSong.song_url} type='audio/wav'></source>
                 </audio>
             </div>
