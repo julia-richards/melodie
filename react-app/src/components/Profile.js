@@ -59,11 +59,11 @@ const Profile = () => {
           <div>
             <Songs searchSongs={usersSongs}/>
           </div>
-          {/* <h3>My Liked Songs</h3>
-          <div>
+          {/* <div>
             <Songs likedSongs={likedSongs} />
           </div> */}
         </div>
+        {/* </div> */}
       </div>
     </>
   );

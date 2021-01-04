@@ -1,10 +1,22 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import LogoutButton from "./auth/LogoutButton";
+import DemoButton from "./auth/DemoButton";
+import { authenticate } from "../../src/services/auth.js";
 import "../styles/NavBar.css"
 import SearchInput from "../components/SearchInput";
 
-const NavBar = ({ setAuthenticated }) => {
+const NavBar = ({ setAuthenticated, authenticated }) => {
+		const [userId, setUserId] = useState("");
+		useEffect(() => {
+    (async () => {
+      const response = await authenticate();
+      const id = response.id;
+      // const user = response.username;
+      setUserId(id);
+      // setCurrentUser(user);
+    })();
+  });
 	return (
 		<div className="navContainer">
 			<nav className="navbar">
