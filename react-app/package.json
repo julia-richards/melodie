@@ -10,9 +10,11 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-dropzone": "^11.2.4",
+    "react-particles-js": "^3.4.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
     "react-soundplayer": "^1.0.5",
+    "react-tilt": "^0.1.4",
     "styled-components": "^5.2.1",
     "uuid": "^8.3.2"
   },
