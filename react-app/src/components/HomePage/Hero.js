@@ -6,13 +6,12 @@ import image3 from "../../assets/ari.jpg"
 import image4 from "../../assets/slow.jpg"
 import image5 from "../../assets/folklore.jpeg"
 import image6 from "../../assets/mccartney.png"
-import bg from "../../assets/bg.png";
 import HeroText from "./HeroText";
 import Tilt from "react-tilt";
 
 const Hero = () => {
   return (
-    <Container bg={bg}>
+    <Container>
       <Wrapper>
         <InnerWrapper>
           <Left>
@@ -28,6 +27,10 @@ const Hero = () => {
           </TiltWrapper>
         </InnerWrapper>
       </Wrapper>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
     </Container>
   );
 };
@@ -79,7 +82,7 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #000000;
+  background-color: #1F2528;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;

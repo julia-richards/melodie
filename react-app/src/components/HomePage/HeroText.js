@@ -1,9 +1,13 @@
 import React from "react";
 import styled from "styled-components";
+import cropped from '../../assets/cropped.png'
 
 const HeroText = () => {
   return (
     <Container>
+          <LogoWrapper>
+        <img src={cropped} alt='' />
+      </LogoWrapper>
       <h5>Music Simplified.</h5>
       <h1>Rediscover</h1>
       <h1>Your</h1>
@@ -17,6 +21,23 @@ const HeroText = () => {
   );
 };
 
+
+
+const LogoWrapper = styled.div`
+  img {
+    height: 5rem;
+  }
+  h3 {
+    color: #FFF0F0;
+    text-align: center;
+    font-size: 22px;
+  }
+  span {
+    color: #5dc399;
+    font-weight: 300;
+    font-size: 18px;
+  }
+`;
 const BtnContainer = styled.div`
   margin-top: 2rem;
   button {
@@ -49,6 +70,7 @@ const BtnContainer = styled.div`
 
 const Container = styled.div`
   padding: 1rem;
+  font-family: "Raleway", sans-serif;
   h5 {
     color: #3bc9f5;
     font-weight: 500;
@@ -57,7 +79,7 @@ const Container = styled.div`
   }
   h1 {
     font-size: 3.5rem;
-    font-weight: 700;
+    font-weight: 500;
 
     &:nth-of-type(1) {
       color: #0BDDFA;
