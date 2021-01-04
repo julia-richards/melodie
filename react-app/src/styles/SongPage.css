@@ -51,8 +51,9 @@
     grid-gap: 10px;
 }
 
-#profileLink {
+.profileLink {
     font-size: 18px;
+    text-decoration: none;
 }
 
 /* .feedContainer {

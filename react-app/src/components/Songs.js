@@ -13,8 +13,6 @@ const Songs = ({songList}) => {
 
 	useEffect(() => {
 		setSongResults(songList.slice(0, 5));
-		console.log(songList)
-
 		setIsLoading(false);
 	}, [songList]);
 
@@ -59,10 +57,7 @@ const Songs = ({songList}) => {
 	};
 
 	const songComponents = songResults.map((song) => {
-		console.log(`songsFeed: ${song}`)
-		return (
-			<SongPreview key={song.id} handleClick={handleClick} song={song}/>
-		)
+		return <SongPreview key={song.id} handleClick={handleClick} song={song} />;
 	});
 
 	if (isLoading) return null;
