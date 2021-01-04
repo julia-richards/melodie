@@ -61,7 +61,7 @@
 }
 
 .pageContainer {
-    height: 500px;
+    /* height: 100%; */
     display: flex;
     flex-direction: column;
     align-content: center;

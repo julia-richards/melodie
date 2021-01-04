@@ -11,6 +11,7 @@ def songs():
     songs = Song.query.all()
     return {"songs": [song.to_dict() for song in songs]}
 
+
 @song_routes.route('/', methods=["POST"])
 @login_required
 def add_song():
@@ -113,3 +114,9 @@ def likeSong(id):
         song.users.remove(user)
         db.session.commit()
         return jsonify({"removedLike":True})
+
+@song_routes.route('/users/<int:user_id>/')
+@login_required
+def usersSongs(user_id):
+    songs = Song.query.filter_by(user_id)
+    return {"songs": [song.to_dict() for song in songs]}

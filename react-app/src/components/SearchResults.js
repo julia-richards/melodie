@@ -17,7 +17,6 @@ const SearchResults = () => {
     }, []);
 
     useEffect(() => {
-        console.log(songs)
         let filteredSongs = songs.filter((song) => {
             return song.title.toLowerCase().includes(searchValue.toLowerCase())});
         setSearchSongs(filteredSongs.slice(0, 11));
