@@ -36,11 +36,6 @@ function App() {
 
   return (
 		<BrowserRouter>
-			<NavBar
-				authenticated={authenticated}
-				setAuthenticated={setAuthenticated}
-				user={user}
-			/>
 			<Route path="/login" exact={true}>
 				<LoginForm
 					authenticated={authenticated}
@@ -55,18 +50,40 @@ function App() {
 			</Route>
 			<Route path="/" exact={true}>
         {authenticated ? (
-          <HomeFeed />
+					<>
+						<NavBar
+							authenticated={authenticated}
+							setAuthenticated={setAuthenticated}
+							user={user}
+						/>
+						<HomeFeed />
+					</>
         ) : (
           <Homepage />
         )}
       </Route>
 			<Route path="/search/:searchValue">
+				<NavBar
+					authenticated={authenticated}
+					setAuthenticated={setAuthenticated}
+					user={user}
+				/>
 				<SearchResults />
 			</Route>
 			<Route path="/songs/:songId" exact={true}>
+				<NavBar
+					authenticated={authenticated}
+					setAuthenticated={setAuthenticated}
+					user={user}
+				/>
 				<SongPage />
 			</Route>
       <ProtectedRoute path="/upload" authenticated={authenticated}>
+				<NavBar
+					authenticated={authenticated}
+					setAuthenticated={setAuthenticated}
+					user={user}
+				/>
         <SongForm />
       </ProtectedRoute>
 			<ProtectedRoute
@@ -74,6 +91,11 @@ function App() {
 				exact={true}
 				authenticated={authenticated}
 			>
+				<NavBar
+					authenticated={authenticated}
+					setAuthenticated={setAuthenticated}
+					user={user}
+				/>
 				<Profile />
 			</ProtectedRoute>
       <ProtectedRoute
@@ -81,9 +103,13 @@ function App() {
         exact={true}
         authenticated={authenticated}
       >
+				<NavBar
+					authenticated={authenticated}
+					setAuthenticated={setAuthenticated}
+					user={user}
+				/>
         <EditSongForm />
       </ProtectedRoute>
-
       <Footer />
     </BrowserRouter>
   );

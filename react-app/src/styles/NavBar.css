@@ -55,6 +55,7 @@ html,body {
 .searchForm {
     width: 100%;
     display: flex;
+    align-items: center;
 }
 
 #searchInput {
