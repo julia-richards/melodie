@@ -102,14 +102,20 @@ html,body {
 }
 
 .profile-button {
-	position: relative;
+    position: relative;
 }
 
 .profile-button__trigger {
 	border: none;
 	padding-left: 0;
-	font-size: 14;
+    font-size: 14;
+    width: 2rem;
 	background-color: transparent;
+}
+
+.profile-button__trigger:focus,
+.profile-button__trigger:active {
+    outline: none;
 }
 
 .profile-button__dropdown {

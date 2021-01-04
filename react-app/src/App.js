@@ -15,17 +15,17 @@ import HomeFeed from "./components/HomeFeed";
 import Homepage from "./components/HomePage/Homepage";
 
 function App() {
-	const [authenticated, setAuthenticated] = useState(false);
-	const [user, setUser] = useState(null);
+  const [authenticated, setAuthenticated] = useState(false);
+  const [user, setUser] = useState(null);
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
     (async () => {
       const res = await authenticate();
-			if (!res.errors) {
-				setAuthenticated(true);
-				setUser(res);
-			}
+      if (!res.errors) {
+        setAuthenticated(true);
+        setUser(res);
+      }
       setLoaded(true);
     })();
   }, []);
@@ -35,55 +35,81 @@ function App() {
   }
 
   return (
-		<BrowserRouter>
-			<NavBar
-				authenticated={authenticated}
-				setAuthenticated={setAuthenticated}
-				user={user}
-			/>
-			<Route path="/login" exact={true}>
-				<LoginForm
-					authenticated={authenticated}
-					setAuthenticated={setAuthenticated}
-				/>
-			</Route>
-			<Route path="/sign-up" exact={true}>
-				<SignUpForm
-					authenticated={authenticated}
-					setAuthenticated={setAuthenticated}
-				/>
-			</Route>
-			<Route path="/" exact={true}>
+    <BrowserRouter>
+      <Route path="/login" exact={true}>
+        <LoginForm
+          authenticated={authenticated}
+          setAuthenticated={setAuthenticated}
+        />
+      </Route>
+      <Route path="/sign-up" exact={true}>
+        <SignUpForm
+          authenticated={authenticated}
+          setAuthenticated={setAuthenticated}
+        />
+      </Route>
+      <Route path="/" exact={true}>
         {authenticated ? (
-          <HomeFeed />
+          <>
+            <NavBar
+              authenticated={authenticated}
+              setAuthenticated={setAuthenticated}
+              user={user}
+            />
+            <HomeFeed />
+          </>
         ) : (
           <Homepage />
         )}
       </Route>
-			<Route path="/search/:searchValue">
-				<SearchResults />
-			</Route>
-			<Route path="/songs/:songId" exact={true}>
-				<SongPage />
-			</Route>
-      <ProtectedRoute path="/upload" authenticated={authenticated}>
+      <Route path="/search/:searchValue" exact={true}>
+        <NavBar
+          authenticated={authenticated}
+          setAuthenticated={setAuthenticated}
+          user={user}
+        />
+        <SearchResults />
+      </Route>
+      <Route path="/songs/:songId" exact={true}>
+        <NavBar
+          authenticated={authenticated}
+          setAuthenticated={setAuthenticated}
+          user={user}
+        />
+        <SongPage />
+      </Route>
+      <ProtectedRoute path="/upload" authenticated={authenticated} exact={true}>
+        <NavBar
+          authenticated={authenticated}
+          setAuthenticated={setAuthenticated}
+          user={user}
+        />
         <SongForm />
       </ProtectedRoute>
-			<ProtectedRoute
-				path="/profile/:id"
-				exact={true}
-				authenticated={authenticated}
-			>
-				<Profile />
-			</ProtectedRoute>
+      <ProtectedRoute
+        path="/profile/:id"
+        exact={true}
+        authenticated={authenticated}
+      >
+        <NavBar
+          authenticated={authenticated}
+          setAuthenticated={setAuthenticated}
+          user={user}
+        />
+        <Profile />
+      </ProtectedRoute>
       <ProtectedRoute
         path="/edit/songs/:songId"
         exact={true}
         authenticated={authenticated}
       >
+        <NavBar
+          authenticated={authenticated}
+          setAuthenticated={setAuthenticated}
+          user={user}
+        />
         <EditSongForm />
       </ProtectedRoute>
-
       <Footer />
     </BrowserRouter>
   );

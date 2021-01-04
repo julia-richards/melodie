@@ -4,27 +4,41 @@ import cropped from '../../assets/cropped.png'
 
 const HeroText = () => {
   return (
-    <Container>
-          <LogoWrapper>
-        <img src={cropped} alt='' />
-      </LogoWrapper>
-      <h5>Music Simplified.</h5>
-      <h1>Rediscover</h1>
-      <h1>Your</h1>
-      <h1>Favorite</h1>
-      <h1>Tracks.</h1>
-      <BtnContainer>
-        <button className='github' onClick={(e) => {
-      e.preventDefault();
-      window.location.href='https://github.com/julia-richards/melodie';
-      }}>github</button>
-        <button  onClick={(e) => {
-      e.preventDefault();
-      window.location.href='/login';
-      }}>login</button>
-      </BtnContainer>
-    </Container>
-  );
+		<Container>
+			<LogoWrapper>
+				<img src={cropped} alt="" />
+			</LogoWrapper>
+			<h5>Music Simplified.</h5>
+			<h1>
+				Rediscover
+				<br />
+				Your
+				<br />
+				Favorite
+				<br />
+				Tracks.
+			</h1>
+			<BtnContainer>
+				<button
+					className="github"
+					onClick={(e) => {
+						e.preventDefault();
+						window.location.href = "https://github.com/julia-richards/melodie";
+					}}
+				>
+					github
+				</button>
+				<button
+					onClick={(e) => {
+						e.preventDefault();
+						window.location.href = "/login";
+					}}
+				>
+					login
+				</button>
+			</BtnContainer>
+		</Container>
+	);
 };
 
 

@@ -45,7 +45,6 @@ const BtnContainer = styled.div`
 
 const Container = styled.div`
   padding: 1rem;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   h5 {
     color: #515151;
     font-weight: 500;

@@ -11,10 +11,8 @@ const HomeFeed = () => {
 		(async () => {
 			const response = await fetch("/api/songs/");
 			const songs = await response.json();
-            setSongList(songs.songs);
-
-        })()
-        console.log(`songList: ${songList}`)
+			setSongList(songs.songs);
+		})();
         setIsLoading(false);
     }, []);
 
