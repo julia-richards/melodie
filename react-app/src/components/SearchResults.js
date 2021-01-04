@@ -43,7 +43,7 @@ const SearchResults = () => {
                     { !searchSongs ? <h2 className="heading">No results found</h2> :
                     <>
                         <h2 className='heading'>Searching for "{searchValue}"</h2>
-                        <Songs searchSongs={searchSongs}/>
+                        <Songs songList={searchSongs}/>
                     </>
                     }
                 </div>
