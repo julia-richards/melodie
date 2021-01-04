@@ -6,28 +6,25 @@ html,body {
 }
 
 .navbar {
-    max-height: 65px;
     padding: 0px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
     background: #f2f2f2;
-    position: absolute;
+    position: sticky;
     top: 0;
     left: 0;
     right:0;
 }
 
 .linkList {
-    max-height: 65px;
     list-style-type: none;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
 }
 
 .links {
-    max-height: 65px;
     padding: 1rem 2rem;
     cursor: pointer;
     text-align: center;
@@ -57,15 +54,31 @@ html,body {
 
 .searchForm {
     width: 100%;
+    display: flex;
 }
 
 #searchInput {
     height: 30px;
     border: none;
-    width: 400px;
+    width: 260px;
     margin-right: 20px;
     outline: none;
+    border-radius: 0.5em;
 }
+
+.searchBtn{
+    height: 30px;
+    background: #0BDDFA;
+    border: none;
+    padding: 0 26px;
+    color: #fff;
+    border-radius: 4px;
+    box-shadow: 0px 7px 12px -4px var(--accent-light-blue);
+    transition: all 0.3s ease-in-out;
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+
 
 .navBtn {
     cursor: pointer;
@@ -83,4 +96,46 @@ html,body {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.profile-button {
+	position: relative;
+}
+
+.profile-button__trigger {
+	border: none;
+	padding-left: 0;
+	font-size: 14;
+	background-color: transparent;
+}
+
+.profile-button__dropdown {
+	position: absolute;
+	z-index: 2;
+	background: white;
+	box-sizing: content-box;
+	right: 0;
+	top: 32px;
+	border-radius: 3px;
+	box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.06);
+	border: 1px solid #d5dce0;
+	max-width: calc(100vw - 24px);
+	width: max-content;
+	padding: 5px 0;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+.right .profile-button__dropdown li {
+	padding: 6px 22px;
+	text-align: left;
+	margin: 0;
+}
+
+.profile-button__dropdown li .button {
+    border: 0;
+    background-color: var(--light-blue);
+    color: var(--white);
+    line-height: 30px;
+    border-radius: .5rem;
 }

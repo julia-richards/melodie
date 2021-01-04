@@ -1,7 +1,8 @@
 /* TODO Add site wide styles */
 body {
 	--dark-blue: #2C3E50;
-	--light-blue: #3BC9F5;
+  --light-blue: #3BC9F5;
+  --accent-light-blue: #81d1ff;
   --white: #FFFFFF;
   --input-background: #fdfbfb;
   --black: #000000;
