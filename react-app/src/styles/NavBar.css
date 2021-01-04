@@ -19,6 +19,8 @@ html,body {
 }
 
 .linkList {
+    padding: 0;
+    width: 100%;
     list-style-type: none;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -49,12 +51,12 @@ html,body {
 .middle {
     grid-column: 2;
     display: flex;
-    justify-content: center;
 }
 
 .searchForm {
     width: 100%;
     display: flex;
+    justify-content: center;
     align-items: center;
 }
 
@@ -69,12 +71,11 @@ html,body {
 
 .searchBtn{
     height: 30px;
-    background: #0BDDFA;
+    background: linear-gradient(260deg, var(--light-blue), var(--dark-blue));
     border: none;
     padding: 0 26px;
     color: #fff;
     border-radius: 4px;
-    box-shadow: 0px 7px 12px -4px var(--accent-light-blue);
     transition: all 0.3s ease-in-out;
     font-size: 0.8rem;
     cursor: pointer;
@@ -96,7 +97,8 @@ html,body {
     grid-column: 3;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
+    padding-right: 32px;
 }
 
 .profile-button {
@@ -141,8 +143,21 @@ html,body {
 
 .profile-button__dropdown li .button {
     border: 0;
-    background-color: var(--light-blue);
+    background: linear-gradient(260deg, var(--light-blue), var(--dark-blue));
     color: var(--white);
     line-height: 30px;
     border-radius: .5rem;
+}
+
+.footer {
+    padding: 5px 15px 5px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    background: #f2f2f2;
+    position: relative;
+    left: 0;
+    right:0;
+    bottom: 0;
 }
