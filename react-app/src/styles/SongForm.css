@@ -80,7 +80,9 @@
   background-color:var(--input-background);
 	color:#462a51;
 }
-
+.drop button i {
+	font-size: 1rem;
+}
 .drop i {
 	font-size: 3rem;
 }
