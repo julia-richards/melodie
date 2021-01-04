@@ -36,7 +36,7 @@
 
 
 .upload_song-button {
-	background: linear-gradient(260deg, var(--light-blue), var(--dark-blue));
+	background: linear-gradient(260deg, var(--light-blue),  #9198e5);
 	border: none;
 	border-radius: 0.15rem;
 	padding: 10px 25px;

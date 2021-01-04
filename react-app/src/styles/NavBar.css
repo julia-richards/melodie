@@ -27,7 +27,9 @@ html,body {
 }
 
 .links {
-    padding: 1rem 2rem;
+    outline: none;
+    border: none;
+    background-color: transparent;
     cursor: pointer;
     text-align: center;
     text-decoration: none;
@@ -71,7 +73,7 @@ html,body {
 
 .searchBtn{
     height: 30px;
-    background: linear-gradient(260deg, var(--light-blue), var(--dark-blue));
+    background: linear-gradient(260deg, var(--light-blue),  #9198e5);
     border: none;
     padding: 0 26px;
     color: #fff;
@@ -137,7 +139,7 @@ html,body {
 
 .profile-button__dropdown li .button {
     border: 0;
-    background: linear-gradient(260deg, var(--light-blue), var(--dark-blue));
+    background: linear-gradient(260deg, var(--light-blue),  #9198e5);
     color: var(--white);
     line-height: 30px;
     border-radius: .5rem;

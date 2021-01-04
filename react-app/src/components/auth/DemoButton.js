@@ -11,7 +11,7 @@ const DemoButton = ({ setAuthenticated, authenticated }) => {
   return authenticated ? (
     ""
   ) : (
-    <button className="navBtn" onClick={demobutton}>
+    <button id="demoLoginBtn" className="links" onClick={demobutton}>
       Login as a Demo User
     </button>
   );
