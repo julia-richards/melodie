@@ -1,5 +1,7 @@
 <h1 align="center"> melodie
 <br>
+<img width="375" alt="1" src="https://user-images.githubusercontent.com/63379814/103493053-1fc4fc00-4dfd-11eb-86f4-c4bafca57487.png">
+<br>
   melodie Documentation
 </h1>
 
