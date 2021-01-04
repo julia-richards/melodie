@@ -43,8 +43,10 @@ const Songs = ({searchSongs}) => {
 	}
 
 	const nextClick = (e) => {
-		if (searchSongs.length <= 5) {
-			return
+		if (searchSongs) {
+			if (searchSongs.length <= 5) {
+				return
+			}
 		}
 		setStartingIndex((startingIndex + 5) % songs.length)
 		if ((startingIndex + 5) >= songs.length) {
