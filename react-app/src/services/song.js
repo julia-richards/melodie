@@ -80,9 +80,12 @@ export const uploadFile = async (songFile) => {
   return await response.json();
 };
 
+export const deleteSong = async (songId) => {
+	const response = await fetch(`/api/songs/${songId}`, { method: "DELETE" });
+	return await response.json();
+};
+
 export const getUserById = async (id) => {
   const response = await fetch(`/api/users/${id}`);
   return await response.json();
 };
-
-

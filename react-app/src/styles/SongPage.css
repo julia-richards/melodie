@@ -44,12 +44,15 @@
     align-items: center;
 }
 
-#formLink {
-    font-size: 27px;
+.actions {
+    display: grid;
+    grid-template-columns: repeat(3, 6rem);
+    grid-gap: 10px;
 }
 
-#profileLink {
+.profileLink {
     font-size: 18px;
+    text-decoration: none;
 }
 
 

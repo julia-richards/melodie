@@ -20,23 +20,20 @@ const Likes = (props) => {
 	};
 
 	return (
-    <div>
-      <button className="like-button" onClick={toggleLike}>
-        {likedByUser ? (
-          <i
-            className={`fas fa-heart fa-lg`}
-            style={{ color: "red", fontSize: "1rem" }}
-          ></i>
-        ) : (
-          <i
-            className={`far fa-heart fa-lg`}
-            style={{ color: "#33c3f0", fontSize: "1rem" }}
-          ></i>
-        )}
-        {likes}
-      </button>
-
-    </div>
+    <button className="like-button" onClick={toggleLike}>
+      {likedByUser ? (
+        <i
+          className={`fas fa-heart fa-lg`}
+          style={{ color: "red", fontSize: "1rem" }}
+        ></i>
+      ) : (
+        <i
+          className={`far fa-heart fa-lg`}
+          style={{ color: "#33c3f0", fontSize: "1rem" }}
+        ></i>
+      )}
+      {likes}
+    </button>
 	);
 };
 

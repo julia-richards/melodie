@@ -44,6 +44,7 @@ def update_song(id):
     if request.method == 'DELETE':
         db.session.delete(song)
         db.session.commit()
+        return {'message': 'Song has been deleted'}
     if song.user_id == current_user.id:
         if form.validate_on_submit():
             song = Song(
@@ -85,7 +86,7 @@ def edit_song(id):
         return song.to_dict()
         # return {'errors': 'Only the artist can edit this song'}, 401
     return {'errors': form.errors}, 422
-        
+
 @song_routes.route("/upload", methods=['POST', 'PATCH'])
 @login_required
 def upload():
