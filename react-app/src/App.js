@@ -43,7 +43,7 @@ function App() {
           setAuthenticated={setAuthenticated}
         />
       </Route>
-      <Route path="/songs/upload">
+      <Route path="/upload">
         <SongForm />
       </Route>
       <Route path="/sign-up" exact={true}>
