@@ -8,8 +8,7 @@
     width: 1300px;
     height: 692px;
     display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
+
 }
 
 .songPageContainer {

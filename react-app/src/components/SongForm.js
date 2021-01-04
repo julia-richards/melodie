@@ -74,6 +74,7 @@ const SongForm = () => {
   }
 
   return (
+	<div className="wholePageContainer">
 		<div className="song_form-outer">
 			<div className="song-form_container">
 				<form className="song-form" onSubmit={uploadNewSong}>
@@ -169,6 +170,7 @@ const SongForm = () => {
 				</form>
 			</div>
 		</div>
+	</div>
 	);
 };
 
