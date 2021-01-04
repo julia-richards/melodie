@@ -99,3 +99,45 @@ html,body {
     align-items: center;
     justify-content: center;
 }
+
+.profile-button {
+	position: relative;
+}
+
+.profile-button__trigger {
+	border: none;
+	padding-left: 0;
+	font-size: 14;
+	background-color: transparent;
+}
+
+.profile-button__dropdown {
+	position: absolute;
+	z-index: 2;
+	background: white;
+	box-sizing: content-box;
+	right: 0;
+	top: 32px;
+	border-radius: 3px;
+	box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.06);
+	border: 1px solid #d5dce0;
+	max-width: calc(100vw - 24px);
+	width: max-content;
+	padding: 5px 0;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+.right .profile-button__dropdown li {
+	padding: 6px 22px;
+	text-align: left;
+	margin: 0;
+}
+
+.profile-button__dropdown li .button {
+    border: 0;
+    background-color: var(--light-blue);
+    color: var(--white);
+    line-height: 30px;
+    border-radius: .5rem;
+}

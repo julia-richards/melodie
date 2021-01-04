@@ -16,15 +16,17 @@ import Footer from "./components/Footer";
 import Homepage from "./components/HomePage/Homepage";
 
 function App() {
-  const [authenticated, setAuthenticated] = useState(false);
+	const [authenticated, setAuthenticated] = useState(false);
+	const [user, setUser] = useState(null);
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
     (async () => {
-      const user = await authenticate();
-      if (!user.errors) {
-        setAuthenticated(true);
-      }
+      const res = await authenticate();
+			if (!res.errors) {
+				setAuthenticated(true);
+				setUser(res);
+			}
       setLoaded(true);
     })();
   }, []);
@@ -36,8 +38,9 @@ function App() {
   return (
 		<BrowserRouter>
 			<NavBar
-				setAuthenticated={setAuthenticated}
 				authenticated={authenticated}
+				setAuthenticated={setAuthenticated}
+				user={user}
 			/>
 			<Route path="/login" exact={true}>
 				<LoginForm

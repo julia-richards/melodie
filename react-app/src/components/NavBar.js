@@ -1,22 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
-import LogoutButton from "./auth/LogoutButton";
 import DemoButton from "./auth/DemoButton";
-import { authenticate } from "../../src/services/auth.js";
 import "../styles/NavBar.css";
-import SearchInput from "../components/SearchInput";
+import SearchInput from "./SearchInput";
+import ProfileButton from "./auth/ProfileButton";
 
-const NavBar = ({ setAuthenticated, authenticated }) => {
-  const [userId, setUserId] = useState("");
-  useEffect(() => {
-    (async () => {
-      const response = await authenticate();
-      const id = response.id;
-      // const user = response.username;
-      setUserId(id);
-      // setCurrentUser(user);
-    })();
-  });
+const NavBar = ({ setAuthenticated, authenticated, user }) => {
   return (
     <div className="navContainer">
       <nav className="navbar">
@@ -46,7 +35,7 @@ const NavBar = ({ setAuthenticated, authenticated }) => {
                   </NavLink>
                 </li>
                 <li>
-                  <LogoutButton setAuthenticated={setAuthenticated} />
+                  <ProfileButton user={user} onLogoutClick={() => setAuthenticated(false)} />
                 </li>
               </>
             ) : (
