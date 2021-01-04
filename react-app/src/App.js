@@ -5,7 +5,6 @@ import SignUpForm from "./components/auth/SignUpForm";
 import NavBar from "./components/NavBar";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 import Songs from "./components/Songs";
-// import UsersList from "./components/UsersList";
 import { authenticate } from "./services/auth";
 import SongForm from "./components/SongForm";
 import SearchResults from "./components/SearchResults";
@@ -13,6 +12,7 @@ import Profile from "./components/Profile";
 import SongPage from "./components/SongPage";
 import EditSongForm from "./components/EditSongForm";
 import Footer from "./components/Footer";
+import HomeFeed from "./components/HomeFeed";
 import Homepage from "./components/HomePage/Homepage";
 
 function App() {
@@ -50,9 +50,7 @@ function App() {
       </Route>
       <Route path="/" exact={true}>
         {authenticated ? (
-          <div className="pageContainer">
-          <h1 className="heading">Featured</h1>
-          <Songs />
+          <HomeFeed />
         </div>
         ) : (
           <Homepage />
@@ -65,7 +63,7 @@ function App() {
         <SongPage />
       </Route>
 
-      <ProtectedRoute path="/songs/upload" authenticated={authenticated}>
+      <ProtectedRoute path="/upload" authenticated={authenticated}>
         <SongForm />
       </ProtectedRoute>
 
@@ -84,10 +82,7 @@ function App() {
       >
         <EditSongForm />
       </ProtectedRoute>
-      {/* TODO: style or remove me */}
-      {/* <ProtectedRoute path="/users" exact={true} authenticated={authenticated}>
-        <UsersList />
-      </ProtectedRoute> */}
+    
       <Footer />
     </BrowserRouter>
   );

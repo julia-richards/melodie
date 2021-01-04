@@ -52,7 +52,7 @@ const NavBar = ({ setAuthenticated, authenticated }) => {
 						</li> */}
 						<li>
 							<NavLink
-								to="/songs/upload"
+								to="/upload"
 								exact={true}
 								className="links"
 								activeClassName="active"

@@ -1,16 +1,26 @@
 .song_form-outer {
-	margin-top: 130px;
+	margin: auto;
+    width: 1300px;
+    height: 692px;
+	/* margin-top: 130px; */
 	display: flex;
 	justify-content: center;
 }
 .song-form_container {
+	width: 800px;
+    height: 450px;
+    margin: auto;
+    padding-bottom: 50px;
+	padding: 0.5rem;
+	border: 1px solid #f2f2f2;
+    box-shadow: 0 2px 12px -5px rgba(0, 0, 0, 0.1);
 
-	padding: 20px;
+	/* padding: 20px;
 	border: 1px solid #f2f2f2;
 	box-shadow: 0 2px 12px -5px rgba(0, 0, 0, 0.1);
 	max-width: 700px;
 	width: 100%;
-	margin: auto;
+	margin: auto; */
 }
 
 .song-form {

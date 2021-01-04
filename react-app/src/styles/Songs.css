@@ -46,22 +46,16 @@
     opacity: 0;
 }
 
-/* .currentSongH {
-    font-family: "Helvetica Neue",;
-} */
-
 .playerContainer {
     margin: auto;
     width: 300px;
 }
 
 .heading {
-    margin-top: 100px;
     text-align: center;
 }
 
 .pageContainer {
-    /* height: 100%; */
     display: flex;
     flex-direction: column;
     align-content: center;
