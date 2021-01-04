@@ -137,7 +137,7 @@ const updateTitle = (e) => {
                     style={{ maxWidth: 60, height: "auto" }}
                   />{" "}
                   <button onClick={() => setImageUrl(null)}>
-                    Remove Image
+                    <i className="fas fa-trash"></i>
                   </button>{" "}
                 </>
               ) : isImageUploading ? (
@@ -161,7 +161,9 @@ const updateTitle = (e) => {
                       <source src={songUrl} type="audio/wav"></source>
                     </audio>
                   </p>{" "}
-                  <button onClick={() => setSongUrl(null)}>Remove Song</button>{" "}
+                  <button onClick={() => setSongUrl(null)}>
+                    <i className="fas fa-trash"></i>
+                  </button>{" "}
                 </>
               ) : isSongUploading ? (
                 <p>Uploading...</p>

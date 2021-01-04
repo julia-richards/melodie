@@ -62,6 +62,14 @@ const Songs = ({songList}) => {
 
 	if (isLoading) return null;
 
+	if (!songResults || !songResults.length) {
+		return (
+			<div>
+				<p style={{ textAlign: "center" }}>No songs uploaded, yet</p>
+			</div>
+		);
+	}
+
 	return (
 		<div className='feedContainer'>
 			<div className="feed">
