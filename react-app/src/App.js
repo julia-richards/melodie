@@ -14,6 +14,7 @@ import Profile from "./components/Profile";
 import SongPage from "./components/SongPage";
 import EditSongForm from "./components/EditSongForm";
 import Footer from "./components/Footer";
+import HomeFeed from "./components/HomeFeed";
 
 function App() {
 	const [authenticated, setAuthenticated] = useState(false);
@@ -74,10 +75,7 @@ function App() {
         <User />
       </ProtectedRoute>
       <ProtectedRoute path="/" exact={true} authenticated={authenticated}>
-        <div className="pageContainer">
-          <h1 className="heading">Featured</h1>
-          <Songs />
-        </div>
+        <HomeFeed/>
       </ProtectedRoute>
       <Footer />
     </BrowserRouter>

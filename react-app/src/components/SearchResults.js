@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Songs from "../components/Songs";
+import "../styles/Songs.css"
 
 const SearchResults = () => {
     const [songs, setSongs] = useState([]);
@@ -25,14 +26,28 @@ const SearchResults = () => {
 
     if (isLoading) return null;
 
-    if (searchSongs.length === 0) return <h2 className="heading">A little quiet ... try another search</h2>
+    const SearchHeading = () => {
+        if (searchSongs.length === 0) {
+            return <h2 className="heading">A little quiet ... try another search</h2>
+        } else {
+            return null;
+        };
+    }
+
 
     return (
-        <div className='pageContainer'>
-                <h2 className='heading'>Searching for "{searchValue}"</h2>
-                { !searchSongs ? <h2>No results found</h2> :
-                <Songs searchSongs={searchSongs}/>
-                }
+        <div className='wholePageContainer'>
+            <div className='bodyContainer'>
+                <div className='feedContainer'>
+                    <SearchHeading />
+                    { !searchSongs ? <h2 className="heading">No results found</h2> :
+                    <>
+                        <h2 className='heading'>Searching for "{searchValue}"</h2>
+                        <Songs searchSongs={searchSongs}/>
+                    </>
+                    }
+                </div>
+            </div>
         </div>
 
     )
