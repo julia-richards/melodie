@@ -16,9 +16,6 @@ const Footer = () => {
             <NavLink className="links" to="https://github.com/monajain99" activeClassName="active">
                 Rashmi's GitHub
             </NavLink>
-            <NavLink className="links" to="https://github.com/hassanmt96" activeClassName="active">
-                Hassan's GitHub
-            </NavLink>
         </div>
     );
 }
