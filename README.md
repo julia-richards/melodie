@@ -14,8 +14,6 @@
 </div>
 A live version of our application can be found [here](https://melodie.herokuapp.com/)
 
-<h4 align="center">melodie is where any one can share their music or listen to others' uploads.
-Heavily inspired by SoundCloud, users can browse a home feed, search for songs, view user pages, view song pages, like songs, upload, edit songs and listen to content. Deployed within one week of coding, melodie utilizes React, Flask, and PostgreSQL. </h4>
 <h1 align="center">
   <a name="logo" href="https://melodie.herokuapp.com/"><img src="https://i.ibb.co/wMYVZYS/icons8-javascript-96.png" alt="js-logo" width="50"></a>
   <a name="logo" href="https://melodie.herokuapp.com/"><img src="https://i.ibb.co/xMxSMkw/icons8-pug-96.png" alt="pug-logo" width="50"></a>
