@@ -5,7 +5,7 @@ import SignUpForm from "./components/auth/SignUpForm";
 import NavBar from "./components/NavBar";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 import Songs from "./components/Songs";
-import UsersList from "./components/UsersList";
+// import UsersList from "./components/UsersList";
 import { authenticate } from "./services/auth";
 import SongForm from "./components/SongForm";
 import SearchResults from "./components/SearchResults";
@@ -84,9 +84,10 @@ function App() {
       >
         <EditSongForm />
       </ProtectedRoute>
-      <ProtectedRoute path="/users" exact={true} authenticated={authenticated}>
+      {/* TODO: style or remove me */}
+      {/* <ProtectedRoute path="/users" exact={true} authenticated={authenticated}>
         <UsersList />
-      </ProtectedRoute>
+      </ProtectedRoute> */}
       <Footer />
     </BrowserRouter>
   );
