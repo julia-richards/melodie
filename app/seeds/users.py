@@ -1,6 +1,7 @@
 from werkzeug.security import generate_password_hash
 from app.models import db, User
 
+
 # Adds a demo user, you can add other users here if you want
 def seed_users():
 
@@ -30,8 +31,6 @@ def seed_users():
     Prince = User(username='Prince', email='prince@yahoo.com',
                 password='password123', about='legendary', image_url='')
 
-
-    # demo.likes.append()
 
     db.session.add(demo)
     db.session.add(stjohnswort)
