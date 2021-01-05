@@ -14,8 +14,6 @@
 </div>
 A live version of our application can be found [here](https://melodie.herokuapp.com/)
 
-<h4 align="center">melodie is where any one can share their music or listen to others' uploads.
-Heavily inspired by SoundCloud, users can browse a home feed, search for songs, view user pages, view song pages, like songs, upload, edit songs and listen to content. Deployed within one week of coding, melodie utilizes React, Flask, and PostgreSQL. </h4>
 <h1 align="center">
   <a name="logo" href="https://melodie.herokuapp.com/"><img src="https://i.ibb.co/wMYVZYS/icons8-javascript-96.png" alt="js-logo" width="50"></a>
   <a name="logo" href="https://melodie.herokuapp.com/"><img src="https://i.ibb.co/xMxSMkw/icons8-pug-96.png" alt="pug-logo" width="50"></a>
@@ -77,10 +75,18 @@ melodie's signup and login forms have input validations to enforce clean data su
 ### Song Feed
 
 Feed of new songs and artists.
- 
+<img width="500" alt="Song Feed" src="https://user-images.githubusercontent.com/63379814/103543379-6b62be80-4e6c-11eb-90fc-ae2409306b0a.png">
+
+### Song Page
+
+Individual song page
+<img width="500" alt="SongPage" src="https://user-images.githubusercontent.com/63379814/103543448-8a615080-4e6c-11eb-94e4-07bb56f4839d.png">
+
 ### Audio Player
 
 When you click on a song you can play it using the custom audio player.
+<img width="500" alt="Song Player" src="https://user-images.githubusercontent.com/63379814/103543576-c5fc1a80-4e6c-11eb-85c4-68ed231c1ebf.png">
+
 
 ### Upload Song
 

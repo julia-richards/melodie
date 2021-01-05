@@ -6,7 +6,7 @@ from app.models import db, User
 def seed_users():
 
     demo = User(username='Demo', email='demo@aa.io',
-                password='password', about="testing this stuff out", image_url='tesing this url')
+                password='password', about="I enjoy the sounds of ducks quacking as I chase them. Paws make learning piano hard.", image_url='https://melodieapp.s3.amazonaws.com/A96C53FF-F4F5-4303-BBE2-C31BD2E09DBF_1_105_c.jpeg')
 
     stjohnswort = User(username='St. John\'s Wort', email='stjohnswort@aa.io', password='password', about="I like pretty sounds.\nPhiladelphia, PA", image_url='https://melodieapp.s3.amazonaws.com/salinavibe.jpeg')
 

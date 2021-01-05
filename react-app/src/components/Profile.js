@@ -42,9 +42,6 @@ const Profile = () => {
 					<div>
 						<Songs songList={usersSongs} />
 					</div>
-					{/* <div>
-            <Songs likedSongs={likedSongs} />
-          </div> */}
 				</div>
 			</div>
 		</>
