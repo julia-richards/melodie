@@ -41,7 +41,11 @@ const SongPreview = props => {
         {song.songImage}
         {song.title}
       </NavLink>
-      <Likes key={song.id} songId={song.id} />
+      <Likes
+        key={song.id}
+        count={song.likesCount}
+        likedByUser={song.likedByUser}
+      />
     </li>
   );
 };
