@@ -28,8 +28,6 @@ def seed_songs():
 
     softly = Song(title='Softly', description="clairo cover\nvocals - Yaz Lancaster", image_url='https://melodieapp.s3.amazonaws.com/People+Places+Records+1.jpg', song_url='https://melodieapp.s3.amazonaws.com/softlyMASTER.wav', user_id=8)
 
-    # collins = Song(title='ID RATHER BE+U', description='Bootsy Collins cover', image_url='https://melodieapp.s3.amazonaws.com/collinspic.jpeg', user_id='6')
-
 
     db.session.add(nye)
     db.session.add(shadow)
@@ -44,7 +42,6 @@ def seed_songs():
     db.session.add(thankyou)
     db.session.add(sweetsilverbells)
     db.session.add(softly)
-    # db.session.add(collins)
 
     db.session.commit()
 
