@@ -60,10 +60,7 @@ function App() {
             <HomeFeed />
           </>
         ) : (
-          <>
-          <NavBar />
           <Landing />
-          </>
         )}
       </Route>
       <Route path="/search/:searchValue" exact={true}>
