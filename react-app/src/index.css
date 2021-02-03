@@ -16,3 +16,7 @@ textarea, input{
   padding: 0.5rem;
   box-sizing: border-box
 }
+
+#landingHead {
+  font-size: 80px;
+}

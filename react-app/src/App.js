@@ -13,6 +13,7 @@ import EditSongForm from "./components/EditSongForm";
 import Footer from "./components/Footer";
 import HomeFeed from "./components/HomeFeed";
 import Homepage from "./components/HomePage/Homepage";
+import Landing from "./components/Landing";
 
 function App() {
   const [authenticated, setAuthenticated] = useState(false);
@@ -59,7 +60,10 @@ function App() {
             <HomeFeed />
           </>
         ) : (
-          <Homepage />
+          <>
+          <NavBar />
+          <Landing />
+          </>
         )}
       </Route>
       <Route path="/search/:searchValue" exact={true}>
