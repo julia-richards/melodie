@@ -1,4 +1,6 @@
-.like-button, .edit-link, .delete-button {
+.like-button,
+.edit-link,
+.delete-button {
   display: inline-block;
   height: 38px;
   padding: 0 30px;
@@ -21,11 +23,12 @@
 .like-button:active,
 .edit-link:focus,
 .edit-link:active,
-.delete-button:focus
-.delete-button:active{
+.delete-button:focus .delete-button:active {
   outline: none;
 }
 
-.like-button i, .edit-link i, .delete-button i {
+.like-button i,
+.edit-link i,
+.delete-button i {
   padding: 0 2px;
 }

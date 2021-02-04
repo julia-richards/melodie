@@ -3,23 +3,24 @@ import { useParams } from "react-router-dom";
 import "../styles/Likes.css";
 import { likeSong } from "../services/like";
 
-const Likes = (props) => {
+const Likes = props => {
   const [likes, setLikes] = useState(props.count);
-	const [likedByUser, setLikedByUser] = useState(props.likedByUser);
-  const { songId } = useParams();
+  const [likedByUser, setLikedByUser] = useState(props.likedByUser);
+  const params = useParams();
+  const songId = params.songId || props.songId;
 
   const toggleLike = async () => {
-		const res = await likeSong(songId);
-		if (res.addedLike) {
-			setLikes(likes + 1);
-			setLikedByUser(true);
-		} else {
-			setLikes(likes - 1);
-			setLikedByUser(false);
-		}
-	};
+    const res = await likeSong(songId);
+    if (res.addedLike) {
+      setLikes(likes + 1);
+      setLikedByUser(true);
+    } else {
+      setLikes(likes - 1);
+      setLikedByUser(false);
+    }
+  };
 
-	return (
+  return (
     <button className="like-button" onClick={toggleLike}>
       {likedByUser ? (
         <i
@@ -34,7 +35,7 @@ const Likes = (props) => {
       )}
       {likes}
     </button>
-	);
+  );
 };
 
 export default Likes;
