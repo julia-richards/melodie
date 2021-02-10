@@ -1,88 +1,92 @@
 .previews {
-    list-style-type: none;
-    display: flex;
-    justify-content: space-between;
-    width: 900px;
-    padding: 0 0 0 0;
-    margin: auto;
-    flex-wrap: wrap;
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  width: 900px;
+  padding: 0 0 0 0;
+  margin: auto;
+  flex-wrap: wrap;
 }
 
 .previewContainer {
-    width: 170px;
-    display: flex;
-    flex-direction: column;
-    margin: 0 auto;
-    border: 1px solid #f2f2f2;
-    box-shadow: 0 2px 12px -5px rgba(0, 0, 0, 0.1);
+  width: 170px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  border: 1px solid #f2f2f2;
+  box-shadow: 0 2px 12px -5px rgba(0, 0, 0, 0.1);
 }
 
 .imgContainer {
-    height: 170px;
-    width: 170px;
-    position: relative;
+  height: 170px;
+  width: 170px;
+  position: relative;
 }
 
 .previewImg {
-    height: 170px;
-    width: 170px;
+  height: 170px;
+  width: 170px;
 }
 
 .links {
-    padding: 1rem 2rem;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
-    color: #2c3e50;
-    transition: all 0.3s ease-in;
-    font-size: 0.9rem;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  color: #2c3e50;
+  transition: all 0.3s ease-in;
+  font-size: 0.9rem;
+  min-height: 62px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .btn {
-    color: #2c3e50;
-    position: absolute;
-    top: 45px;
-    left: 45px;
-    opacity: 0;
+  color: #2c3e50;
+  position: absolute;
+  top: 45px;
+  left: 45px;
+  opacity: 0;
 }
 
 .playerContainer {
-    margin: auto;
-    width: 300px;
+  margin: auto;
+  width: 300px;
 }
 
 .heading {
-    text-align: center;
+  text-align: center;
 }
 
 .pageContainer {
-    display: flex;
-    flex-direction: column;
-    align-content: center;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
 }
 
 .feedContainer {
-    height: 400px;
-    width: 1200px;
-    display: flex;
-    flex-direction: column;
-    margin: auto;
+  height: 400px;
+  width: 1200px;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
 }
 
 .feed {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .feedBtn {
-    color: #2c3e50;
+  color: #2c3e50;
 }
 
 .feedBtn:hover {
-    color:  #9198e5;
+  color: #9198e5;
 }
 
 audio:focus {
-    outline: none;
+  outline: none;
 }
